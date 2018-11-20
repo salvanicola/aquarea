@@ -1,0 +1,9 @@
+html{
+	background: url("../img/Piscina-Splash.jpg") no-repeat center center fixed;
+}
+
+#header img{
+	width: 50%;
+	margin-left:25%;
+	margin-right:25%;
+}
