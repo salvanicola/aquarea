@@ -60,5 +60,7 @@ Nazione CHAR (50) NOT NULL
 
 CREATE TABLE IF NOT EXISTS Iscritti(
 CodCorso INT (4) NOT NULL REFERENCES Corso(CodiceC),
-CodIscritto INT (16) NOT NULL REFERENCES Persona(CF)
+CodIscritto INT (16) NOT NULL REFERENCES Persona(CF),
+Inizio DATE,
+Fine DATE NOT NULL
 );
