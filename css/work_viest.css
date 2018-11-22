@@ -1,0 +1,112 @@
+html {
+	background: url("../img/Piscina-Splash.jpg") no-repeat  center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body{ margin: 0;}
+
+.headeright img{
+	position: absolute;
+	width: 10%;
+	float: center;
+	margin-left:0%;
+	margin-right:10%
+	padding: 1em 1em;
+}
+
+.headeright {
+	background-color: #000099;
+	overflow: hidden;
+}
+
+.headeright a{
+	float: right;
+	color: red;
+	text-align: center;
+	padding: 1em 1em;
+	text-decoration: none;
+	font-size: 2em;
+	font-family: 'Montserrat';
+}
+
+.headeright a:hover{
+	background-color: black;
+	color: grey;	
+}
+
+.headeright a.active {
+	background-color: lightblue;
+	color: white;
+}
+#menu ul{
+	display:grid;
+	list-style-type:none;
+	grid-template-columns: repeat(2, 1fr);
+	margin-block-start: 0;
+    margin-block-end: 0;
+	padding-inline-start: 0;
+	background-color: #ffffff;
+    opacity: 0.5;
+    filter: alpha(opacity=60);
+}
+
+#menu li{
+	text-align:center;
+	line-height: 4em;
+	font-size: 3em;
+	font-family: 'Montserrat';
+}
+
+#menu li a{
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+}
+
+#menu a:hover{
+	background-color: #000099;
+	color: white;
+}
+
+.overlay{
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	height: 100%;
+  	width: 100%;
+  	opacity: 0;
+	opacity: 50%;
+	transition: 0.5sec ease;
+	background-color: #008CBA;
+}
+
+#footer ul{
+	margin:0;
+	padding:0;
+}
+#footer li{
+	display: inline-block;
+	text-align:left;
+	width: 45%;
+	line-height: 2em;
+	font-size: 1.5em;
+	font-family: 'Montserrat';
+	padding:2%;
+	
+}	
+#footer li:first-of-type{
+	text-align:right;
+}
+#footer li a{
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+}
+#footer li a:hover {
+	color: #8c8c8c;
+}
