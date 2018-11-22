@@ -1,0 +1,41 @@
+html{
+	background-color:rgba(179, 236, 255, 0.8);
+}
+
+body{
+	text-align:center;
+}
+
+#header img{
+	
+}
+
+#menu ul{
+	padding:0;
+}
+#menu li{
+	display:block;
+	width:70%; 
+	padding: 2% 15% 2% 15%;
+	line-height: 3em;
+	font-size:3.5em;
+	font-family: 'Montserrat';
+	border-right:1px solid black:
+	border-left:1px solid black;
+	border-bottom:1px solid black;
+}
+
+li a{
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+}
+
+#footer li{
+	display:inline-block;
+	width:20%; 
+	padding: 2% 10% 2% 10%;
+	line-height: 1.5em;
+	font-size:1.5em;
+	font-family: 'Montserrat';
+}
