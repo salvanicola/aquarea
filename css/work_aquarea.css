@@ -49,9 +49,11 @@ body{
 	padding:2%;
 	
 }	
+
 #footer li:first-of-type{
 	text-align:right;
 }
+
 #footer li a{
 	text-decoration-line: none;
 	color: black;
