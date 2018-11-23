@@ -38,9 +38,16 @@ body{
 	color: black;
 	font-weight: bold;
 }
+
+#menu a:hover{
+	color:#ffffff;
+	transition: .5s ease;
+}
+
 #menu li:hover{
 	background-color: #4d94ff;
-	color: #666666;
+	color: #ffffff;
+	transition: .8s ease;
 }
 #footer ul{
 	margin:0;
@@ -68,5 +75,6 @@ body{
 }
 
 #footer li a:hover{
-	color: #8c8c8c;
+	transition: .8s ease;
+	color: #595959;
 }
