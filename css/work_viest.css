@@ -17,8 +17,9 @@ body{
 	top:1.2%;
 	width: 10%;
 	float: center;
-	margin-left:1%;
-	margin-right:0%;
+	margin-left:0%;
+	margin-right:10%;
+	padding: 1em 1em;
 }
 
 .headeright {
