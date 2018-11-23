@@ -71,6 +71,7 @@ body{
 
 #menu a:hover{
 	color: #ffffff;
+	transition: .8s ease;
 }
 
 #menu li:hover{
