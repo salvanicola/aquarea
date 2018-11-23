@@ -41,13 +41,15 @@ body{
 	background-color: #000066;
 	color: #8c8c8c;
 	transition: .8s ease;	
+	
 }
 
 .headeright a.active {
 	background-color: #4d94ff;
 	color: white;
 }
-#menu ul{
+
+#menu #external{
 	display:grid;
 	list-style-type:none;
 	grid-template-columns: repeat(2, 1fr);
@@ -62,23 +64,41 @@ body{
 	line-height: 6.3em;
 	font-size: 3em;
 	font-family: 'Montserrat';
-}
-
-#menu li a{
 	text-decoration-line: none;
 	color: black;
 	font-weight: bold;
 }
-
-#menu a:hover{
-	color: #ffffff;
+.container{
+	position:relative;
+}
+.overlay{	
+	font-size:0.11em;
+	position: absolute;
+	display:block;
+	width:100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	transition: .5s ease;
+	background: url("../img/Vicenza-est/Vicenza-Est2.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+	padding-left:0;
 }
 
-#menu li:hover{
-	background-color: #4d94ff;
-	color: #ffffff;
-	transition: .8s ease;
+.container:hover .overlay {
+  opacity: 1;
 }
+
+/*
+===========================================
+FOO TER FIGHTER
+===========================================
+*/
 
 #footer ul{
 	margin:0;
