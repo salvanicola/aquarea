@@ -1,5 +1,5 @@
 html {
-	background: url("../img/Piscina-Splash.jpg") no-repeat  center center;
+	background: url("../img/Logo-Background/Piscina-Splash.jpg") no-repeat  center center;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
 	-o-background-size: cover;
@@ -13,7 +13,7 @@ body{ margin: 0;}
 	width: 10%;
 	float: center;
 	margin-left:0%;
-	margin-right:10%
+	margin-right:10%;
 	padding: 1em 1em;
 }
 

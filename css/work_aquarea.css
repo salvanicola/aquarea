@@ -21,6 +21,8 @@ body{
 	list-style-type:none;
 	grid-template-columns: repeat(2, 1fr);
 	background-color: rgba(255, 255, 255, 0.5);
+	padding:0;	
+	margin-bottom:0;
 }
 
 #menu li{
@@ -38,6 +40,7 @@ body{
 #footer ul{
 	margin:0;
 	padding:0;
+	background-color: rgba(255, 255, 255, 0.2);
 }
 #footer li{
 	display: inline-block;
