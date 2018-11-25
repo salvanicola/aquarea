@@ -63,3 +63,92 @@ CodIscritto INT (16) NOT NULL REFERENCES Persona(CF),
 Inizio DATE NOT NULL,
 Fine DATE NOT NULL
 );
+
+DROP TRIGGER IF EXISTS CHK_Durata;
+DELIMITER //
+CREATE TRIGGER CHK_Durata BEFORE INSERT ON Iscritti
+FOR EACH ROW
+BEGIN 
+	DECLARE msg VARCHAR(200);
+	IF((NEW.Fine-NEW.Inizio)>1) THEN
+		SET msg='La durata del corso non può superare l`anno';
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+		SET NEW.CodCorso=NULL;
+		SET NEW.CodIscritto=NULL;
+	END IF;
+END
+//
+DELIMITER ;    
+
+DROP TRIGGER IF EXISTS CHK_Durata2;
+DELIMITER //
+CREATE TRIGGER CHK_Durata2 BEFORE UPDATE ON Iscritti
+FOR EACH ROW
+BEGIN 
+	DECLARE msg VARCHAR(200);
+	IF((NEW.Fine-NEW.Inizio)>1) THEN
+		SET msg='La durata del corso non può superare l`anno';
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+		SET NEW.CodCorso=NULL;
+		SET NEW.CodIscritto=NULL;
+	END IF;
+END
+//
+DELIMITER ;  
+
+DROP TRIGGER IF EXISTS CHK_Iscrizioni;
+DELIMITER //
+CREATE TRIGGER CHK_Iscrizioni BEFORE INSERT ON Iscritti
+FOR EACH ROW
+BEGIN
+	DECLARE msg VARCHAR(200);
+    DECLARE t INT(2);
+	SET t=(SELECT COUNT(*) FROM Iscrizioni WHERE NEW.CodIscritto=CodIscritto);
+    IF (t>0) THEN
+		SET msg='L`utente è già iscritto ad un altro corso della palestra';
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+		SET NEW.CodCorso=NULL;
+		SET NEW.CodIscritto=NULL;
+	END IF;
+END
+//
+DELIMITER ; 
+
+DROP TRIGGER IF EXISTS CHK_Iscrizioni2;
+DELIMITER //
+CREATE TRIGGER CHK_Iscrizioni2 BEFORE UPDATE ON Iscritti
+FOR EACH ROW
+BEGIN
+	DECLARE msg VARCHAR(200);
+    DECLARE t INT(2);
+	SET t=(SELECT COUNT(*) FROM Iscrizioni WHERE NEW.CodIscritto=CodIscritto);
+    IF (t>0) THEN
+		SET msg='L`utente è già iscritto ad un altro corso della palestra';
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+		SET NEW.CodCorso=NULL;
+		SET NEW.CodIscritto=NULL;
+	END IF;
+END
+//
+DELIMITER ; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
