@@ -17,7 +17,6 @@ Nazione CHAR(50) NOT NULL,
 CAP INT(5) NOT NULL,
 Via VARCHAR(50) NOT NULL,
 Telefono INT(10) NOT NULL,
-Abbonamento ENUM('Si','No') NOT NULL,
 Mail VARCHAR(50) NOT NULL UNIQUE REFERENCES Utente(Email)
 );
 
@@ -34,7 +33,9 @@ Mail VARCHAR(50) NOT NULL UNIQUE
 CREATE TABLE IF NOT EXISTS Utente(
 Email VARCHAR (50) PRIMARY KEY,
 Username VARCHAR (20) NOT NULL UNIQUE,
-Password VARCHAR (50) NOT NULL
+Password VARCHAR (50) NOT NULL,
+Abbonamento ENUM('Si','No') NOT NULL,
+Messaggi VARCHAR (200)
 );
 
 CREATE TABLE IF NOT EXISTS Staff(
@@ -131,6 +132,31 @@ BEGIN
 END
 //
 DELIMITER ; 
+
+
+DROP PROCEDURE IF EXISTS Ingresso;
+DELIMITER //
+CREATE PROCEDURE Ingresso (usern VARCHAR(50), pass VARCHAR(50))
+BEGIN
+	DECLARE msg VARCHAR(200);
+	IF (SELECT COUNT(*) FROM  Utente WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass))>0 THEN
+		IF (SELECT Abbonamento FROM  Utente WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass)) = 'NO' THEN
+			SELECT Messaggi FROM  Utente WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass);
+		ELSE
+			SELECT P.Nome as NomeP, P.Cognome as CognomeP, P.Telefono, I.Inizio, I.Fine, C.NomeCorso, C.Costo
+			FROM Utente U, Persona P, Iscritti I INNER JOIN Corso C ON I.CodCorso=C.CodiceC
+			WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass);
+		END IF;
+	ELSE
+    SET msg='User o Password errati';
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+    END IF;
+END
+//
+DELIMITER ;
+
+
+
 
 
 
