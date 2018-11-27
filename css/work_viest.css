@@ -44,7 +44,7 @@ body{
 	
 }
 
-.headeright a.active {
+.headeright .active {
 	background-color: #4d94ff;
 	color: white;
 }
@@ -53,10 +53,8 @@ body{
 	display:grid;
 	list-style-type:none;
 	grid-template-columns: repeat(2, 1fr);
-	margin-block-start: 0;
-    	margin-block-end: 0;
-	padding-inline-start: 0;
 	background-color: rgba(255, 255, 255, 0.5);
+	padding-left:0;
 }
 
 #menu li{
@@ -72,7 +70,11 @@ body{
 .container{
 	position:relative;
 }
-.overlay{	
+ul ul, ol ul {
+    list-style-type: none;
+}
+.overlay{
+	display:block;	
 	font-size:0.11em;
 	position: absolute;
 	display:block;
@@ -83,14 +85,19 @@ body{
 	right: 0;
 	opacity: 0;
 	transition: .5s ease;
-	background: url("../img/Vicenza-est/Vicenza-Est2.jpg") no-repeat center center;
+	/*background: url("../img/Vicenza-Est/Vicenza-Est2.jpg") no-repeat center center;*/
+	background-color:blue;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
 	-o-background-size: cover;
 	background-size: cover;
 	padding-left:0;
 }
-
+.overlay li a:visited{
+	color:green;
+	text-decoration:none;
+	text-decoration-line: none;
+}
 .container:hover .overlay {
   opacity: 1;
 }
