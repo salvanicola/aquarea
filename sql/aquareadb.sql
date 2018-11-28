@@ -143,7 +143,7 @@ BEGIN
 		IF (SELECT Abbonamento FROM  Utente WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass)) = 'NO' THEN
 			SELECT Messaggi FROM  Utente WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass);
 		ELSE
-			SELECT P.Nome as NomeP, P.Cognome as CognomeP, P.Telefono, I.Inizio, I.Fine, C.NomeCorso, C.Costo
+			SELECT P.Nome AS NomeP, P.Cognome AS CognomeP, P.Telefono, I.Inizio, I.Fine, C.NomeCorso, C.Costo
 			FROM Utente U, Persona P, Iscritti I INNER JOIN Corso C ON I.CodCorso=C.CodiceC
 			WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass);
 		END IF;
