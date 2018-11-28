@@ -11,23 +11,20 @@ body{
 	font-family: 'Montserrat';
 }
 
-.headeright img{
-	/*IMMAGINE DA SISTEMARE*/
-	position:absolute;
-	top:1.2%;
+#header img{
+	float:left;
 	width: 10%;
-	float: center;
 	margin-left:0%;
-	margin-right:10%;
-	padding: 1em 1em;
+	padding-left: 1em;
+	padding-top:0.35%;
 }
 
-.headeright {
+#header {
 	background-color: #000099;
 	overflow: hidden;
 }
 
-.headeright a{
+.headeright{
 	float: right;
 	color: #ffffff;
 	text-align: center;
@@ -37,16 +34,22 @@ body{
 	font-family: 'Montserrat';
 }
 
-.headeright a:hover{
+.headeright:hover{
 	background-color: #000066;
 	color: #8c8c8c;
 	transition: .8s ease;	
 	
 }
 
-.headeright .active {
+#header .active {
+	float: right;
 	background-color: #4d94ff;
 	color: white;
+	text-align: center;
+	padding: 0.5em 0.5em;
+	text-decoration: none;
+	font-size: 1.5em;
+	font-family: 'Montserrat';
 }
 
 #menu #external{
@@ -66,6 +69,12 @@ body{
 	color: black;
 	font-weight: bold;
 }
+
+/*
+==========================
+CONTENT
+==========================
+*/
 
 .container{
 	position:relative;
@@ -93,10 +102,13 @@ ul ul, ol ul {
 	background-size: cover;
 	padding-left:0;
 }
-.overlay li a:visited{
-	color:green;
+.overlay a{
 	text-decoration:none;
-	text-decoration-line: none;
+	color:white;
+}
+
+.overlay a:visited{
+	color:tomato;
 }
 .container:hover .overlay {
   opacity: 1;
