@@ -19,6 +19,7 @@ MENU
 #header{
 	position: fixed;
 	top:0;
+	left:0;
 	width:100%;
 }
 #header img{
@@ -85,3 +86,38 @@ MENU
 CONTENT
 ==========================
 */
+
+/*
+===========================================
+FOO TER FIGHTER
+===========================================
+*/
+#footer{
+	background:none;
+}
+#footer ul{
+	margin:0;
+	padding:0;
+}
+#footer li{
+	display: inline-block;
+	text-align:left;
+	width: 45%;
+	line-height: 1em;
+	font-size: 1.5em;
+	font-family: 'Montserrat';
+	padding:2%;
+	
+}	
+#footer li:first-of-type{
+	text-align:right;
+}
+#footer li a{
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+}
+#footer li a:hover {
+	transition: .8s ease;
+	color: #595959;
+}

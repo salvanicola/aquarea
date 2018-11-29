@@ -108,13 +108,14 @@ ul ul, ol ul {
 	right: 0;
 	opacity: 0;
 	transition: .5s ease;
-	/*background: url("../img/Vicenza-Est/Vicenza-Est2.jpg") no-repeat center center;*/
-	background-color:blue;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
 	-o-background-size: cover;
 	background-size: cover;
 	padding-left:0;
+}
+#piscina{
+	background: url("../img/Vicenza-Est/Squadra.jpg") no-repeat center center;
 }
 .overlay a{
 	text-decoration:none;
