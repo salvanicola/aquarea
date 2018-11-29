@@ -1,5 +1,5 @@
 html {
-	background: url("../img/Logo-Background/Piscina-Splash.jpg") no-repeat  center center;
+	background: url("../img/Logo-Background/Background-Standard.jpg") no-repeat  center center;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
 	-o-background-size: cover;
@@ -7,7 +7,8 @@ html {
 }
 
 body{
-	margin: 0;
+	margin: 3% 8% 3% 8%;
+	background-color:white;
 	font-family: 'Montserrat';
 }
 /*
@@ -79,84 +80,8 @@ MENU
 	color: black;
 	font-weight: bold;
 }
-
 /*
 ==========================
 CONTENT
 ==========================
 */
-
-#unicorni{
-	width:100%;
-}
-
-.container{
-	position:relative;
-}
-ul ul, ol ul {
-    list-style-type: none;
-}
-.overlay{
-	display:block;	
-	font-size:0.11em;
-	position: absolute;
-	display:block;
-	width:100%;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	opacity: 0;
-	transition: .5s ease;
-	/*background: url("../img/Vicenza-Est/Vicenza-Est2.jpg") no-repeat center center;*/
-	background-color:blue;
-	-webkit-background-size: cover;
-	-moz-background-size:cover;
-	-o-background-size: cover;
-	background-size: cover;
-	padding-left:0;
-}
-.overlay a{
-	text-decoration:none;
-	color:white;
-}
-
-.overlay a:visited{
-	color:tomato;
-}
-.container:hover .overlay {
-  opacity: 1;
-}
-
-/*
-===========================================
-FOO TER FIGHTER
-===========================================
-*/
-
-#footer ul{
-	margin:0;
-	padding:0;
-}
-#footer li{
-	display: inline-block;
-	text-align:left;
-	width: 45%;
-	line-height: 2em;
-	font-size: 1.5em;
-	font-family: 'Montserrat';
-	padding:2%;
-	
-}	
-#footer li:first-of-type{
-	text-align:right;
-}
-#footer li a{
-	text-decoration-line: none;
-	color: black;
-	font-weight: bold;
-}
-#footer li a:hover {
-	transition: .8s ease;
-	color: #595959;
-}
