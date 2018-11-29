@@ -25,9 +25,9 @@ Mail VARCHAR(50) NOT NULL UNIQUE
 CREATE TABLE IF NOT EXISTS Utente(
 Email VARCHAR (50) PRIMARY KEY,
 Username VARCHAR (20) NOT NULL UNIQUE,
-Password VARCHAR (50) NOT NULL/*,
+Password VARCHAR (50) NOT NULL,
 Abbonamento ENUM('Si','No') NOT NULL,
-Messaggi VARCHAR (200)*/
+Messaggi VARCHAR (200)
 );
 
 CREATE TABLE IF NOT EXISTS Staff(
@@ -149,15 +149,13 @@ DELIMITER ;
 
 DROP PROCEDURE IF EXISTS Inserimento;
 DELIMITER //
-CREATE PROCEDURE Inserimento(Mail VARCHAR (50), username VARCHAR (20), password VARCHAR (50))
+CREATE PROCEDURE Inserimento(IN Mail VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50), IN Ab ENUM('Si','No'), IN Mess VARCHAR (200))
 BEGIN 
 	DECLARE msg VARCHAR(200);
-    DECLARE Ab ENUM('Si','No');
-	DECLARE Mess VARCHAR (200);
     SET Ab='No';
     SET Mess=NULL;
 	IF(SELECT * FROM Utente WHERE ((Email LIKE Mail) OR (Username LIKE username))) = NULL THEN
-		INSERT INTO Utene (Email, Username, Password/*, Abbonamento, Messaggi*/)
+		INSERT INTO Utene() 
         VALUES (Mail, username, password, Ab, Mess);
 	ELSE 
 		IF EXISTS (SELECT * FROM Utente WHERE (Email LIKE Mail)) THEN
