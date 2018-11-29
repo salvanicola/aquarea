@@ -1,3 +1,4 @@
+use aquareadb;
 DROP TABLE IF EXISTS Piscina;
 DROP TABLE IF EXISTS Persona;
 DROP TABLE IF EXISTS Utente;
