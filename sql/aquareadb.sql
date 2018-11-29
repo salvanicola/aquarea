@@ -210,7 +210,7 @@ DELIMITER ;
 
 DROP PROCEDURE IF EXISTS Inserimento_Persona;
 DELIMITER //
-CREATE PROCEDURE Inserimento_Persona(CF VARCHAR(16), Nome CHAR(20), Cognome CHAR(20), Nazione CHAR(50), CAP INT(5), Via VARCHAR(50), Telefono INT(10), Mail VARCHAR(50))
+CREATE PROCEDURE Inserimento_Persona(CF VARCHAR(16), Nome CHAR(20), Cognome CHAR(20), Nazione CHAR(50), CAP INT(5), Via VARCHAR(50), Telefono VARCHAR(10), Mail VARCHAR(50))
 BEGIN
 	INSERT INTO Persona
     VALUES	(CF, Nome, Cognome, Nazione, CAP, Via, Telefono, Mail);
