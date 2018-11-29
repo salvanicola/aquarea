@@ -8,7 +8,7 @@ Cognome CHAR(20) NOT NULL,
 Nazione CHAR(50) NOT NULL,
 CAP INT(5) NOT NULL,
 Via VARCHAR(50) NOT NULL,
-Telefono INT(10) NOT NULL,
+Telefono VARCHAR(10) NOT NULL,
 Mail VARCHAR(50) NOT NULL UNIQUE REFERENCES Utente(Email)
 );
 
@@ -105,7 +105,9 @@ BEGIN
 	END IF;
 END
 //
-DELIMITER ; 
+DELIMITER ;
+
+ 
 
 DROP TRIGGER IF EXISTS CHK_Iscrizioni2;
 DELIMITER //
@@ -125,9 +127,9 @@ END
 //
 DELIMITER ; 
 
-DROP TRIGGER IF EXISTS CHK_Inserimento;
+DROP TRIGGER IF EXISTS CHK_Inserimento_Utente;
 DELIMITER //
-CREATE TRIGGER CHK_Inserimento BEFORE INSERT ON Utente
+CREATE TRIGGER CHK_Inserimento_Utente BEFORE INSERT ON Utente
 FOR EACH ROW
 BEGIN 
 	DECLARE msg VARCHAR(200);
@@ -144,6 +146,36 @@ END
 //
 DELIMITER ;
 
+DROP TRIGGER IF EXISTS CHK_Inserimento_Persona;
+DELIMITER //
+CREATE TRIGGER CHK_Inserimento_Persona BEFORE INSERT ON Persona
+FOR EACH ROW
+BEGIN
+	DECLARE msg VARCHAR(200);
+    IF EXISTS(SELECT * FROM Persona WHERE CF=NEW.CF) THEN
+    SET msg='La persona è già registrata all`interno della struttura';
+	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+    SET NEW.CF=NULL;
+    END IF;
+END
+//
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS CHK_Abbonamento;
+DELIMITER //
+CREATE TRIGGER CHK_Abbonamento AFTER INSERT ON Persona
+FOR EACH ROW
+BEGIN
+	DECLARE T VARCHAR(50);
+	IF EXISTS(SELECT * FROM Persona P INNER JOIN Utente U ON P.Mail=U.Email WHERE U.Abbonamento='No') THEN
+    SET T=(SELECT Mail FROM Persona P INNER JOIN Utente U ON P.Mail=U.Email WHERE U.Abbonamento='No');
+    UPDATE Utente
+    SET Abbonamento='Si'
+    WHERE T=Email;
+    END IF;
+END
+//
+DELIMITER ;
 
 DROP PROCEDURE IF EXISTS Ingresso;
 DELIMITER //
@@ -166,21 +198,25 @@ END
 //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS Inserimento;
+DROP PROCEDURE IF EXISTS Inserimento_Utente;
 DELIMITER //
-CREATE PROCEDURE Inserimento(IN Mail VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50))
+CREATE PROCEDURE Inserimento_Utente(IN Mail VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50))
 BEGIN 
-		INSERT INTO utente 
+		INSERT INTO Utente 
         VALUES (Mail, username, password, 'No', NULL);
 END
 //
 DELIMITER ;
 
-
-
-
-
-
+DROP PROCEDURE IF EXISTS Inserimento_Persona;
+DELIMITER //
+CREATE PROCEDURE Inserimento_Persona(CF VARCHAR(16), Nome CHAR(20), Cognome CHAR(20), Nazione CHAR(50), CAP INT(5), Via VARCHAR(50), Telefono INT(10), Mail VARCHAR(50))
+BEGIN
+	INSERT INTO Persona
+    VALUES	(CF, Nome, Cognome, Nazione, CAP, Via, Telefono, Mail);
+END
+//
+DELIMITER ;
 
 
 
