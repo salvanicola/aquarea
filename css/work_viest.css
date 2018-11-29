@@ -10,10 +10,15 @@ body{
 	margin: 0;
 	font-family: 'Montserrat';
 }
-
+/*
+=====================================
+MENU
+=====================================
+*/
 #header img{
 	float:left;
 	width: 10%;
+	max-width:7.5em;
 	margin-left:0%;
 	padding-left: 1em;
 	padding-top:0.35%;
@@ -75,6 +80,10 @@ body{
 CONTENT
 ==========================
 */
+
+#unicorni{
+	width:100%;
+}
 
 .container{
 	position:relative;
