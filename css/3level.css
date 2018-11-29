@@ -1,0 +1,87 @@
+html {
+	background: url("../img/Logo-Background/Background-Standard.jpg") no-repeat  center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body{
+	margin: 3% 8% 3% 8%;
+	background-color:white;
+	font-family: 'Montserrat';
+}
+/*
+=====================================
+MENU
+=====================================
+*/
+#header{
+	position: fixed;
+	top:0;
+	width:100%;
+}
+#header img{
+	float:left;
+	width: 10%;
+	max-width:7.5em;
+	margin-left:0%;
+	padding-left: 1em;
+	padding-top:0.35%;
+}
+
+#header {
+	background-color: #000099;
+	overflow: hidden;
+}
+
+.headeright{
+	float: right;
+	color: #ffffff;
+	text-align: center;
+	padding: 0.5em 0.5em;
+	text-decoration: none;
+	font-size: 1.5em;
+	font-family: 'Montserrat';
+}
+
+.headeright:hover{
+	background-color: #000066;
+	color: #8c8c8c;
+	transition: .8s ease;	
+	
+}
+
+#header .active {
+	float: right;
+	background-color: #4d94ff;
+	color: white;
+	text-align: center;
+	padding: 0.5em 0.5em;
+	text-decoration: none;
+	font-size: 1.5em;
+	font-family: 'Montserrat';
+}
+
+#menu #external{
+	display:grid;
+	list-style-type:none;
+	grid-template-columns: repeat(2, 1fr);
+	background-color: rgba(255, 255, 255, 0.5);
+	padding-left:0;
+}
+
+#menu li{
+	text-align:center;
+	line-height: 6.3em;
+	font-size: 3em;
+	font-family: 'Montserrat';
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+}
+/*
+==========================
+CONTENT
+==========================
+*/

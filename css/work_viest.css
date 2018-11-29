@@ -15,6 +15,11 @@ body{
 MENU
 =====================================
 */
+#header{
+	position: fixed;
+	top:0;
+	width:100%;
+}
 #header img{
 	float:left;
 	width: 10%;
