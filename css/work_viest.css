@@ -114,8 +114,37 @@ ul ul, ol ul {
 	background-size: cover;
 	padding-left:0;
 }
+#chisiamo:hover{
+	background: url("../img/Menu/Chi-siamo.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+	transition: .5s ease;
+	color:white;
+}
 #piscina{
-	background: url("../img/Vicenza-Est/Squadra.jpg") no-repeat center center;
+	background:  url("../img/Menu/Piscina.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#palestra{
+	background: url("../img/Menu/Palestra.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#lavoraconoi:hover{
+	background: url("../img/Menu/Lavora-con-noi.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+	transition: .5s ease;
+	color:white;
 }
 .overlay a{
 	text-decoration:none;
