@@ -125,6 +125,25 @@ END
 //
 DELIMITER ; 
 
+DROP TRIGGER IF EXISTS CHK_Inserimento;
+DELIMITER //
+CREATE TRIGGER CHK_Inserimento BEFORE INSERT ON Utente
+FOR EACH ROW
+BEGIN 
+	DECLARE msg VARCHAR(200);
+	IF EXISTS(SELECT * FROM Utente WHERE ((Email LIKE NEW.Email) OR (Username LIKE NEW.Username))) THEN
+		IF EXISTS (SELECT * FROM Utente WHERE (Email LIKE NEW.Email)) THEN
+				SET msg='La mail utilizzata ha già un profilo collegato';
+				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+			ELSE 
+				SET msg='Username già utilizzato';
+				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+			END IF;
+	END IF;
+END
+//
+DELIMITER ;
+
 
 DROP PROCEDURE IF EXISTS Ingresso;
 DELIMITER //
@@ -149,27 +168,13 @@ DELIMITER ;
 
 DROP PROCEDURE IF EXISTS Inserimento;
 DELIMITER //
-CREATE PROCEDURE Inserimento(IN Mail VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50), IN Ab ENUM('Si','No'), IN Mess VARCHAR (200))
+CREATE PROCEDURE Inserimento(IN Mail VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50))
 BEGIN 
-	DECLARE msg VARCHAR(200);
-    SET Ab='No';
-    SET Mess=NULL;
-	IF(SELECT * FROM Utente WHERE ((Email LIKE Mail) OR (Username LIKE username))) = NULL THEN
-		INSERT INTO Utene() 
-        VALUES (Mail, username, password, Ab, Mess);
-	ELSE 
-		IF EXISTS (SELECT * FROM Utente WHERE (Email LIKE Mail)) THEN
-			SET msg='La mail utilizzata ha già un profilo collegato';
-			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-        ELSE 
-			SET msg='Username già utilizzato';
-			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-		END IF;
-	END IF;
+		INSERT INTO utente 
+        VALUES (Mail, username, password, 'No', NULL);
 END
 //
 DELIMITER ;
-
 
 
 
