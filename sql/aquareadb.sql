@@ -14,7 +14,7 @@ FOREIGN KEY (Mail) REFERENCES Utente(Email)
 );
 
 CREATE TABLE IF NOT EXISTS Piscina(
-CodiceP INT(4) PRIMARY KEY,
+CodiceP VARCHAR(4) PRIMARY KEY,
 PIVA VARCHAR (11) NOT NULL UNIQUE,
 Nome VARCHAR (50) NOT NULL,
 Proprietario VARCHAR (16) NOT NULL REFERENCES Persona(CF),
@@ -38,15 +38,17 @@ FOREIGN KEY (Email) REFERENCES Utente(Email)
 
 CREATE TABLE IF NOT EXISTS Staff(
 CodF VARCHAR(16) NOT NULL UNIQUE REFERENCES Persona(CF),
-CodP INT(4) NOT NULL REFERENCES Piscina(CodiceP)
+CodP VARCHAR(4) NOT NULL REFERENCES Piscina(CodiceP)
 );
 
 CREATE TABLE IF NOT EXISTS Corso(
-CodiceC INT (4) PRIMARY KEY,
-CodP INT (4) NOT NULL REFERENCES Piscina(CodiceP),
+CodiceC VARCHAR(4) PRIMARY KEY,
+CodP VARCHAR(4) NOT NULL REFERENCES Piscina(CodiceP),
 Nome CHAR (10) NOT NULL,
-Costo INT (4) NOT NULL,
-Istruttore VARCHAR (16) REFERENCES Persona(CF)
+Costo INT (100) NOT NULL,
+Istruttore VARCHAR (16) REFERENCES Persona(CF),
+Orario TIME NOT NULL,
+Giorno ENUM('Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica')
 );
 
 CREATE TABLE IF NOT EXISTS Luogo(
@@ -57,7 +59,7 @@ Nazione CHAR (50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Iscritti(
-CodCorso INT (4) NOT NULL REFERENCES Corso(CodiceC),
+CodCorso VARCHAR(4) NOT NULL REFERENCES Corso(CodiceC),
 CodIscritto INT (16) NOT NULL REFERENCES Persona(CF),
 Inizio DATE NOT NULL,
 Fine DATE NOT NULL
@@ -250,11 +252,20 @@ END
 //
 DELIMITER ;
 
+/*__________________________________________________________________________________________________________________________________________________*/
 
 
+CREATE TABLE IF NOT EXISTS Vasca(
+CodV VARCHAR(4) PRIMARY KEY,
+CodP VARCHAR(4) NOT NULL REFERENCES Piscina(CodiceP)
+);
 
-
-
+CREATE TABLE IF NOT EXISTS Corsia(
+CodC VARCHAR(4) PRIMARY KEY,
+Numero INT(10) NOT NULL,
+Codv VARCHAR(4) NOT NULL REFERENCES Vasca(CodV),
+CodC VARCHAR(4) NOT NULL REFERENCES Corso(CodiceC)
+);
 
 
 
