@@ -31,8 +31,9 @@ Abbonamento ENUM('Si','No') NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Messaggi(
-Email VARCHAR (50) NOT NULL REFERENCES Utente(Email),
-Messaggi VARCHAR (200)
+Email VARCHAR (50) NOT NULL,
+Messaggi VARCHAR (200),
+FOREIGN KEY (Email) REFERENCES Utente(Email)
 );
 
 CREATE TABLE IF NOT EXISTS Staff(
