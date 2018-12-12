@@ -1,0 +1,39 @@
+<?php 
+namespace DB;
+class DBAccess{
+	const HOST_DB = 'tecweb1819.studenti.math.unipd.it';
+	const USERNAME = 'mvaro';
+	const PASSWORD = '';
+	const DATABASE_NAME = 'mvaro';
+	
+	public $connection;
+
+	public function openDBConnection() {
+		$this->connection = mysql_connect(static::HOST_DB, static::USERNAME, static::PASSWORD, static::DATABASE_NAME);
+		if(!$this->connection){
+			return false;
+		}else{ return true;}	
+	}
+	public function insertNewTicket($nome,$cognome,$email,$dataNascita, $numeroBiglietti, $tipologia, $servizziAggiuntivi){
+		$queryInsert = "INSERT INTO biglietti(nome, cognome, email, DataNascita, NumeroBiglietti, Tipologia, SErviziAggiuntivi) 
+                VALUES (\"$nome\",\"$cognome\",\"$email\",\"$dataNascita\", $numeroBiglietti, \"$tipologia\", \"$servizziAggiuntivi\")";
+		
+		$result=msqli_query($this->connection, $queryInsert) or die();
+		if(msqli_query_affected_row($this->connection > 0))
+			return true;
+		else
+			return false;
+	}
+	public function contaBiglietti(){
+	    $queryselect = "SELECT SUM(NumeroBiglietti) AS TotaleBiglietti FROM biglietti";
+	    $queryresult = mysqli_query($this->connection, $queryselect);
+	    
+	    if(mysqli_num_rows($queryresult)==0){
+	        return null;
+	    }else{
+	        $totale = (mysqli_fetch_array($queryresult))[0];
+	        return $totale;
+	    }    
+	}
+
+}
