@@ -93,6 +93,13 @@ CONTENT
 .container{
 	position:relative;
 }
+.container a{
+	color:navy;
+	text-decoration:none;
+}
+.container a:visited{
+	color:tomato;
+}
 ul ul, ol ul {
     list-style-type: none;
 }
@@ -144,6 +151,14 @@ ul ul, ol ul {
 	-o-background-size: cover;
 	background-size: cover;
 	transition: .5s ease;
+
+}
+#lavoraconoi:hover a{
+	transition: .5s ease;
+	color:white;
+}
+#chisiamo:hover a{
+	transition: .5s ease;
 	color:white;
 }
 .overlay a{
@@ -167,26 +182,13 @@ FOO TER FIGHTER
 #footer ul{
 	margin:0;
 	padding:0;
+	text-align:center;
 }
 #footer li{
-	display: inline-block;
-	text-align:left;
-	width: 45%;
-	line-height: 2em;
-	font-size: 1.5em;
-	font-family: 'Montserrat';
-	padding:2%;
-	
+	display: block;
+	font-weight:bold;
 }	
-#footer li:first-of-type{
-	text-align:right;
-}
-#footer li a{
-	text-decoration-line: none;
-	color: black;
-	font-weight: bold;
-}
-#footer li a:hover {
-	transition: .8s ease;
-	color: #595959;
+#footer img{
+	padding:0.5%;
+	width:2%;
 }
