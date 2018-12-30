@@ -1,0 +1,69 @@
+html {
+	background: 	#00BFFF no-repeat  center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body{
+	margin:0;
+	margin-top:20%;
+}
+
+#unicorni{
+	display:none;
+}
+
+#footer img{
+	padding:0.5%;
+	width:2%;
+}
+
+#header{
+	position: fixed;
+	top:0;
+	width:100%;
+}
+#LogoAquarea{
+	float:left;
+	width: 40%;
+	margin-left:0%;
+	padding-left: 1em;
+	padding-top:0.35%;
+}
+
+#header {
+	background-color: #000099;
+	overflow: hidden;
+}
+
+#header .active {
+	display:none;/*da togliere*/
+}
+#hamburger{
+	float: right;
+	width:10%;
+	padding:4%;
+}
+ul{
+	padding:0;
+}
+
+.container{
+	display:block;
+	text-align:center;
+	padding:8%;
+	text-decoration: none;
+	font-size: 4em;
+	font-family: 'Montserrat';
+	border:0.1em solid #000099;
+	border-top:0em;
+}
+.container:first-of-type{
+	border-top:0.1em solid #000099;
+}
+
+.overlay{
+	display:none;
+}
