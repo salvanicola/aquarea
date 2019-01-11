@@ -1,5 +1,5 @@
 html {
-	background: 	#00BFFF no-repeat  center center;
+	background: #00BFFF no-repeat  center center;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
 	-o-background-size: cover;
@@ -9,6 +9,7 @@ html {
 body{
 	margin:0;
 	margin-top:20%;
+	font-family: 'Montserrat';
 }
 
 #unicorni{
@@ -20,32 +21,6 @@ body{
 	width:2%;
 }
 
-#header{
-	position: fixed;
-	top:0;
-	width:100%;
-}
-#LogoAquarea{
-	float:left;
-	width: 40%;
-	margin-left:0%;
-	padding-left: 1em;
-	padding-top:0.35%;
-}
-
-#header {
-	background-color: #000099;
-	overflow: hidden;
-}
-
-#header .active {
-	display:none;/*da togliere*/
-}
-#hamburger{
-	float: right;
-	width:10%;
-	padding:4%;
-}
 ul{
 	padding:0;
 }
@@ -56,7 +31,7 @@ ul{
 	padding:8%;
 	text-decoration: none;
 	font-size: 4em;
-	font-family: 'Montserrat';
+	
 	border:0.1em solid #000099;
 	border-top:0em;
 }
@@ -66,4 +41,60 @@ ul{
 
 .overlay{
 	display:none;
+}
+
+#headerformobile{
+	position:fixed;
+	top:0;
+	width:100%;
+	background-color:#000099;
+}
+#headerformobile img{
+	width:35%;
+	
+}
+
+#headerformobile span{
+	text-align:center;
+	padding:2%;
+	float:right;
+	color:white;
+	width:20%;
+	height:100%;
+}
+	
+
+#header{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #000099;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+#header img{
+	display:none;
+}
+
+#header a {
+	text-align:right;
+	font-size:3em;
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	color: white;
+	display: block;
+	transition: 0.3s;
+}
+
+#header .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
 }
