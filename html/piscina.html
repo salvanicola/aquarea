@@ -6,14 +6,21 @@
 	<title>Aquarea</title>
 	<meta name="title" content="Aquarea" />
 	<meta name="description" content="" />
-	<meta name="keywords" content="piacina, palestra, corsi nuoto, acquagym agonismo, " />
+	<meta name="keywords" content="piacina, palestra, corsi nuoto, acquagym, agonismo, " />
 	<meta name="language" content="italian it" />
 	<meta name="author" content="Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele" />
-	<link rel="stylesheet" type="text/css" href="../../css/3level.css" media="handheld, screen"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> 
+	<link rel="stylesheet" type="text/css" href="../css/3level.css" media="handheld, screen and (max-device-width:600px)"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" media="screen and (min-device-width:780px)"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/> 
+	<script type="text/javascript" src="../js/scriptsidebar.js"></script>
 </head>
 
 <body>
+	<div id="headerformobile">
+		<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
+		<span onclick="openNav()">&#9776; </span>
+	</div>
+
 	<div id="header">
 		<a href="../html/viest.html" id="imglogo">
 			<img src="../../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
@@ -28,8 +35,16 @@
 
 	<div>
 		<h2><b>Corsi Nuoto</b></h2>
-		<p>Disponiamo di corsi di nuoto per tutte le età, a partire dai neonati (inserire segnalibro),<!--inserire segnalibro per inviare alla vasca ippocampo --> bambini, ragazzi, adulti e anziani. Solitamente sono utilizzate due corsie per questi corsi, ma in base all'affluenza delle iscrizioni sono disponibili tutte e tre le corsie.</p>
-		<ul>	<li><b>Orari</b></li> <li>8:00</li> <li>8:45</li> <li>9:30</li> <li>10:15</li> <li>11:00</li> <li>11:45</li> <li>12:30</li> <li>13:15</li> <li>14:00</li> <li>14:45</li> <li>15:30</li> <li>16:15</li> <li>17:00</li> <li>17:45</li> <li>18:30</li> <li>19:15</li> <li>20:00</li> <li>20:45</li> <li>21:30</li> <li>22:00</li>	</ul>
+		<p>Disponiamo di corsi di nuoto per tutte le età, a partire dai neonati (inserire segnalibro),<!--inserire segnalibro per inviare alla vasca ippocampo --> bambini, ragazzi e adulti. Solitamente sono utilizzate due corsie per questi corsi, ma in base all'affluenza delle iscrizioni sono disponibili tutte e tre le corsie.</p>
+		<p>I corsi per i bambini più piccoli, dai 4 ai 7 anni che hanno già conseguito il corso di nuoto per neofiti si svolgono il <b>Sabato</b> alle ore:</p> <ul> <li>8:00</li> <li>8:45</li> <li>15:30</li> <li>16:15</li> </ul>
+		<p>I corsi per i bambini dai 7 ai 10 anni si svolgono sempre il <b>Sabato</b> alle ore:</p> <ul> <li>9:30</li> <li>10:15</li> <li>11:00</li> <li>11:45</li> <li>14:00</li> <li>14:45</li> <li>17:00</li> <li>17:45</li> </ul>
+		<p>I corsi nuoto per i ragazzi dagli 11 ai 16 anni si svolgono in diversi giorni:</p> <p><b>LUNEDI'</b> / <b>MERCOLEDI'</b> / <b>VENERDI'</b>:</p> <ul> <li>14:45</li> <li>15:30</li> <li>16:15</li> </ul>
+		<p><b>MARTEDI'</b> / <b>GIOVEDI'</b></p> <ul> <li>16:15</li> <li>17:00</li> </ul>
+		
+		<p>I corsi nuoto per adulti sono disponibili quasi tutti i giorni in diversi orari:</p> <p><b>LUNEDI'</b> / <b>MERCOLEDI'</b> / <b>VENERDI'</b>:</p> <ul> <li>8:00</li> <li>8:45</li> <li>12:30</li> <li>13:15</li> <li>14:00</li> <li>18:30</li> </ul>
+		<p><b>MARTEDI'</b> / <b>GIOVEDI'</b></p> <ul> <li>9:30</li> <li>10:15</li> <li>12:30</li> <li>13:15</li> <li>14:00</li> <li>18:30</li> <li>19:15</li> <li>20:00</li> </ul>
+		
+		<!--<ul>	<li><b>Orari</b></li> <li>8:00</li> <li>8:45</li> <li>9:30</li> <li>10:15</li> <li>11:00</li> <li>11:45</li> <li>12:30</li> <li>13:15</li> <li>14:00</li> <li>14:45</li> <li>15:30</li> <li>16:15</li> <li>17:00</li> <li>17:45</li> <li>18:30</li> <li>19:15</li> <li>20:00</li> <li>20:45</li> <li>21:30</li> <li>22:00</li>	</ul>
 		<ul> <li><b>Lunedì</b></li> <li>Corso Adulti</li> <li>
 Corso Adulti</li> <li></li> <li>Corso Adulti</li> <li>Corso Adulti</li> <li>Corso Adulti</li> <li>Corso Ragazzi</li> <li>Corso Ragazzi</li> <li>Corso Ragazzi</li> <li></li>	</ul>
 		<ul> <li><b>Martedì</b></li> <li></li> <li>
@@ -40,12 +55,18 @@ Corso Adulti</li> <li></li> <li>Corso Adulti</li> <li>Corso Adulti</li> <li>Cors
 Corso Adulti</li> <li>Corso Adulti</li> <li></li> <li>Corso Adulti</li> <li>Corso Adulti</li> <li>Corso Adulti</li> <li></li> <li>Corso Ragazzi</li> <li>Corso Ragazzi</li> <li></li> <li>Corso Adulti</li> <li>Corso Adulti</li>	</ul>
 		<ul> <li><b>Venerdì</b></li> <li>Corso Adulti</li> <li>
 Corso Adulti</li> <li></li> <li>Corso Adulti</li> <li>Corso Adulti</li> <li>Corso Adulti</li> <li>Corso Ragazzi</li> <li>Corso Ragazzi</li> <li>Corso Ragazzi</li> <li></li>	</ul>
-		<ul> <li><b>Sabato</b></li> <li>Corso Baby</li> <li>Corso Baby</li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li></li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li>Corso Baby</li> <li>Corso Baby</li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li></li>	</ul>
+		<ul> <li><b>Sabato</b></li> <li>Corso Baby</li> <li>Corso Baby</li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li></li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li>Corso Baby</li> <li>Corso Baby</li> <li>Corso Bambini</li> <li>Corso Bambini</li> <li></li>	</ul>-->
 	</div>
 	<div>
 		<h2>Agonismo</h2>
-		<p>Il settore agonistico di questa piccola struttura si è specializzato negli anni nel campo del nuoto pinnato. Sono presenti degli allenamenti a livello agonistico calibrati per cinque diverse età. Negli orari in cui si allenano gli atleti delle squadre A e B sono a loro disposizione tutte e tre le corsie presenti. Negli altri orari saranno occupate solamente due corsie.</p>
-			<ul>	<li><b>Orari</b></li> <li>8:00</li> <li>8:45</li> <li>9:30</li> <li>10:15</li> <li>11:00</li> <li>11:45</li> <li>12:30</li> <li>13:15</li> <li>14:00</li> <li>14:45</li> <li>15:30</li> <li>16:15</li> <li>17:00</li> <li>17:45</li> <li>18:30</li> <li>19:15</li> <li>20:00</li> <li>20:45</li> <li>21:30</li> <li>22:00</li>	</ul>
+		<p>Il settore agonistico di questa piccola struttura si è specializzato negli anni nel campo del nuoto pinnato. Sono presenti degli allenamenti a livello agonistico calibrati per quattro diverse età. Negli orari in cui si allenano gli atleti delle squadre A e B sono a loro disposizione tutte e tre le corsie presenti. Negli altri orari saranno occupate solamente due corsie.</p>
+
+		<p><b>AGONISMO SQUADRA A</b></p> <p><b>LUNEDI'</b> / <b>MERCOLEDI'</b> / <b>VENERDI'</b>: </p> <p>dalle 19:15 alle 20:45 </p>
+		<p><b>AGONISMO SQUADRA B</b></p> <p><b>LUNEDI'</b> / <b>MERCOLEDI'</b> / <b>VENERDI'</b>: </p> <p>dalle 17:00 alle 18:30 </p>
+		<p><b>AGONISMO GIOVANI</b></p> <p><b>MARTEDI'</b> / <b>GIOVEDI'</b>: </p> <p>dalle 14:45 alle 16:15 </p>
+		<p><b>AGONISMO ESORDIENTI</b></p> <p><b>MARTEDI'</b> / <b>GIOVEDI'</b>: </p> <p>dalle 17:00 alle 18:30 </p>
+		
+			<!--<ul>	<li><b>Orari</b></li> <li>8:00</li> <li>8:45</li> <li>9:30</li> <li>10:15</li> <li>11:00</li> <li>11:45</li> <li>12:30</li> <li>13:15</li> <li>14:00</li> <li>14:45</li> <li>15:30</li> <li>16:15</li> <li>17:00</li> <li>17:45</li> <li>18:30</li> <li>19:15</li> <li>20:00</li> <li>20:45</li> <li>21:30</li> <li>22:00</li>	</ul>
 			<ul> <li><b>Lunedì</b></li> <li></li> <li>Agonismo Squadra B</li> <li>Agonismo Squadra A</li> <li></li>	</ul>
 			<ul> <li><b>Martedì</b></li> <li></li> <li>Esordienti</li> <li>Giovani</li> <li>Apprendisti</li> <li></li>	</ul>
 			<ul> <li><b>Mercoledì</b></li> <li></li> <li>Agonismo Squadra B</li> <li>Agonismo Squadra A</li> <li></li>	</ul>
@@ -53,7 +74,7 @@ Corso Adulti</li> <li></li> <li>Corso Adulti</li> <li>Corso Adulti</li> <li>Cors
 			<ul> <li><b>Venerdì</b></li> <li></li> <li>Agonismo Squadra B</li> <li>Agonismo Squadra A</li> <li></li>	</ul>			
 			<ul><li><b>Sabato</b></li> <li></li> </ul>
 			<ul><li><b>Domenica</b></li> <li></li> </ul>
-	</div>
+	</div>-->
 	<div> 
 		<h2>Nuoto Libero</h2>
 		<p>Nell' orario del nuoto libero sarà sempre presente in vasca un assistente bagnanti. In questi orari è disponibile da una a due corsie, in base ai corsi e alle attività agonistiche che si stanno svolgendo in quel momento.</p>
