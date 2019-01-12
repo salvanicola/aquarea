@@ -1,5 +1,5 @@
 html {
-	background: url("../img/Logo-Background/Background-Standard.jpg") no-repeat  center center;
+	background: #00BFFF no-repeat  center center;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
 	-o-background-size: cover;
@@ -7,61 +7,73 @@ html {
 }
 
 body{
-	margin: 3% 8% 3% 8%;
-	background-color:white;
+	margin:0;
+	margin-top:15%;
 	font-family: 'Montserrat';
+}
+
+#unicorni{
+	display:none;
+}
+
+#footer img{
+	padding:0.5%;
+	width:2%;
 }
 /*
 =====================================
 MENU
 =====================================
 */
-#header{
-	position: fixed;
+#headerformobile{
+	position:fixed;
 	top:0;
-	left:0;
 	width:100%;
+	background-color:#000099;
 }
-#header img{
-	float:left;
-	width: 10%;
-	max-width:7.5em;
-	margin-left:0%;
-	padding-left: 1em;
-	padding-top:0.35%;
+#headerformobile img{
+	width:35%;
+	padding:2%;
 }
 
-#header {
-	background-color: #000099;
-	overflow: hidden;
+#headerformobile span{
+	font-size:3.5em;
+	text-align:center;
+	padding:5%;
+	float:right;
+	color:white;
 }
-
-.headeright{
-	float: right;
-	color: #ffffff;
-	text-align: center;
-	padding: 0.5em 0.5em;
-	text-decoration: none;
-	font-size: 1.5em;
-	font-family: 'Montserrat';
-}
-
-.headeright:hover{
-	background-color: #000066;
-	color: #8c8c8c;
-	transition: .8s ease;	
 	
+
+#header{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #000099;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 
-#header .active {
-	float: right;
-	background-color: #4d94ff;
-	color: white;
-	text-align: center;
-	padding: 0.5em 0.5em;
+#header img{
+	display:none;
+}
+
+#header a {
+	padding:8%;
+	text-align:right;
+	font-size:3.5em;
 	text-decoration: none;
-	font-size: 1.5em;
-	font-family: 'Montserrat';
+	color: white;
+	display: block;
+	transition: 0.3s;
+}
+
+#header .closebtn {
+	font-size:5em;
+	padding:5%;
 }
 
 #menu #external{
