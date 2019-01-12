@@ -18,7 +18,7 @@
 <body>
 	<div id="headerformobile">
 		<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
-		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+		<span onclick="openNav()">&#9776; </span>
 	</div>
 	<div id="content">
 		<img src="../img/Logo-Background/nuoto.jpeg" id="unicorni" alt="unicorni"/>
@@ -26,7 +26,7 @@
 	
 	<div id="menu">
 		<ul id="external">
-			<li class="container">Piscina
+			<li class="container"><span onclick="openMen()">Piscina</span>
 				<ul id="piscina" class="overlay">	
 					<li><a href="piscina.html#corsi">Corsi nuoto</a></li>
 					<li><a href="piscina.html#agonismo">Agonismo</a></li>
@@ -48,7 +48,7 @@
 	<!-- inserito header in fondo perchè così copre tutti gli elementi anche gli altri in absolute (come gli overlay) -->	
 
 	<div id="header">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a class="closebtn" onclick="closeNav()">&times;</a>
 		<a id="imglogo">
 			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
 		</a>

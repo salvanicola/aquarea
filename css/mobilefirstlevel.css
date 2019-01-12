@@ -8,7 +8,7 @@ html {
 
 body{
 	margin:0;
-	margin-top:20%;
+	margin-top:15%;
 	font-family: 'Montserrat';
 }
 
@@ -28,19 +28,30 @@ ul{
 .container{
 	display:block;
 	text-align:center;
-	padding:8%;
+	padding-top:8%;
 	text-decoration: none;
-	font-size: 4em;
-	
-	border:0.1em solid #000099;
-	border-top:0em;
+	font-size: 4em;	
 }
 .container:first-of-type{
-	border-top:0.1em solid #000099;
+	border-top:0;
+}
+
+#lavoraconoi, #chisiamo{
+	padding-bottom:8%;
+	border-bottom:0.1em solid #000099;
 }
 
 .overlay{
 	display:none;
+	background-color:#000099;
+	padding:3%;
+	margin-top:8%;
+	transition: 0.5s;
+}
+
+.overlay a{
+	color:white;
+	text-decoration:none;
 }
 
 #headerformobile{
@@ -51,16 +62,15 @@ ul{
 }
 #headerformobile img{
 	width:35%;
-	
+	padding:2%;
 }
 
 #headerformobile span{
+	font-size:3.5em;
 	text-align:center;
-	padding:2%;
+	padding:5%;
 	float:right;
 	color:white;
-	width:20%;
-	height:100%;
 }
 	
 
@@ -74,7 +84,6 @@ ul{
   background-color: #000099;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
 }
 
 #header img{
@@ -82,9 +91,9 @@ ul{
 }
 
 #header a {
+	padding:8%;
 	text-align:right;
-	font-size:3em;
-	padding: 8px 8px 8px 32px;
+	font-size:3.5em;
 	text-decoration: none;
 	color: white;
 	display: block;
@@ -92,9 +101,6 @@ ul{
 }
 
 #header .closebtn {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 36px;
-	margin-left: 50px;
+	font-size:5em;
+	padding:5%;
 }
