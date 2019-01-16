@@ -13,6 +13,9 @@ $errors   = array();
 if (isset($_POST['register_btn'])) {
 	register();
 }
+if (isset($_POST['remove_btn'])) {
+	remove();
+}
 
 // REGISTER USER
 function register(){
@@ -26,14 +29,13 @@ function register(){
 	$password_1  =  e($_POST['password_1']);
 	$password_2  =  e($_POST['password_2']);
 
-	// form validation: ensure that the form is correctly filled
-	if (empty($username)) { 
+		if (empty($username)) { 
 		array_push($errors, "Username is required"); 
 	}
 	if (already('username',$username)) {
 		array_push($errors, "Username is already taken");
 	}
-	if (preg_match('/\W/', $username) == 1)
+	if (preg_match('/\W/', $username))
 	{
 		array_push($errors, "Username must contain only numbers or letters"); 
 	}
@@ -49,6 +51,10 @@ function register(){
 	}
 	if (empty($password_1)) { 
 		array_push($errors, "Password is required"); 
+	}
+	if (!preg_match('/^\S{8,15}$/', $password_1))
+	{
+		array_push($errors, "Password must be between 8 and 15 VALID characters (no spaces)"); 
 	}
 	if ($password_1 != $password_2) {
 		array_push($errors, "The two passwords do not match");
@@ -80,9 +86,61 @@ function register(){
 	}
 }
 
+function remove(){
+	// call these variables with the global keyword to make them available in function
+	global $db, $errors, $username, $email;
+	// receive all input values from the form. Call the e() function
+    // defined below to escape form values
+	$username    =  e($_POST['username']);
+	$email       =  e($_POST['email']);
+
+	// form validation: ensure that the form is correctly filled
+	if (empty($username)) { 
+		array_push($errors, "Username is required"); 
+	}
+	if (preg_match('/\W/', $username))
+	{
+		array_push($errors, "Usernames contain only numbers or letters"); 
+	}
+	if (!already_2('username','email', $username, $email)) {
+		array_push($errors, "Such combination of User/Email do not exist");
+	}
+	if (empty($email)) { 
+		array_push($errors, "Email is required"); 
+	}
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
+		array_push($errors, "Email is not valid"); 
+	}
+	if (count($errors) == 0) {
+		$query = "DELETE FROM users  
+				  WHERE username = '$username' AND email = '$email'";
+		mysqli_query($db, $query);
+		$_SESSION['success']  = "User successfully removed!!";
+		header('location: home.php');
+
+		// get id of the created user
+		$logged_in_user_id = mysqli_insert_id($db);			
+	}
+}
+
 function already($field, $value){
 	global $db;
 	$query = "SELECT * FROM users WHERE $field = '$value'";
+	$result = mysqli_query($db, $query);
+	if($result->num_rows == 0)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+function already_2($field_1, $field_2, $value_1, $value_2){		//da migliorare
+	global $db;
+	$query = "SELECT * FROM users WHERE $field_1 = '$value_1' AND $field_2 = '$value_2'";
 	$result = mysqli_query($db, $query);
 	if($result->num_rows == 0)
 	{

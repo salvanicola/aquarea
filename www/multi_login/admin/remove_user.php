@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration system - Add User</title>
+	<title>Registration system - Remove User</title>
 	<link rel="stylesheet" type="text/css" href="../style.css">
 	<style>
 		.header {
@@ -28,11 +28,10 @@ if (isset($_GET['logout'])) {
 </head>
 <body>
 	<div class="header">
-		<h2>Admin - Add User</h2>
+		<h2>Admin - Remove User</h2>
 	</div>
 	
-	<form method="post" action="create_user.php">
-
+	<form method="post" action="remove_user.php">
 		<?php echo display_error(); ?>
 
 		<div class="input-group">
@@ -44,22 +43,7 @@ if (isset($_GET['logout'])) {
 			<input type="email" name="email" value="<?php echo $email; ?>">
 		</div>
 		<div class="input-group">
-			<label>User type</label>
-			<select name="user_type" id="user_type" >
-				<option value="admin">Admin</option>
-				<option value="mod">Mod</option>
-			</select>
-		</div>
-		<div class="input-group">
-			<label>Password</label>
-			<input type="password" name="password_1">
-		</div>
-		<div class="input-group">
-			<label>Confirm password</label>
-			<input type="password" name="password_2">
-		</div>
-		<div class="input-group">
-			<button type="submit" class="btn" name="register_btn"> + Create user</button>
+			<button type="submit" class="btn" name="remove_btn"> Remove user</button>
 			<a style="margin-left:2%" href="home.php"> Back </a>
 		</div>
 	</form>
