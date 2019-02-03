@@ -56,9 +56,9 @@
 		<table border="1">
         <thead>
             <tr>
-                <td>Titolo</td>
-				<td>Autore</td>
-				<td>Data Pubblicazione</td>
+                <th>Titolo</td>
+				<th>Autore</td>
+				<th>Data Pubblicazione</td>
             </tr>
         </thead>
         <tbody>

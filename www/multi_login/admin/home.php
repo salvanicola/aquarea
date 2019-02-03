@@ -69,9 +69,9 @@ if (isset($_GET['logout'])) {
 		<table border="1">
         <thead>
             <tr>
-                <td>Username</td>
-				<td>Email</td>
-				<td>User Level</td>
+                <th>Username</td>
+				<th>Email</td>
+				<th>User Level</td>
             </tr>
         </thead>
         <tbody>
@@ -107,9 +107,10 @@ if (isset($_GET['logout'])) {
 		<table border="1">
         <thead>
             <tr>
-                <td>Titolo</td>
-				<td>Autore</td>
-				<td>Data Pubblicazione</td>
+                <th>Titolo</td>
+				<th>Autore</td>
+				<th>Data Pubblicazione</td>
+				<th>URL</td>
             </tr>
         </thead>
         <tbody>
@@ -118,7 +119,7 @@ if (isset($_GET['logout'])) {
             if (!$db) {
                 die(mysql_error());
             }
-			$query = "SELECT title, author, rilascio FROM news";
+			$query = "SELECT title, author, rilascio, URL FROM news";
             $results = mysqli_query($db,$query);
             while($row = mysqli_fetch_array($results)) {
             ?>
@@ -126,6 +127,7 @@ if (isset($_GET['logout'])) {
                     <td><?php echo $row['title']?></td>
 					<td><?php echo $row['author']?></td>
 					<td><?php echo $row['rilascio']?></td>
+					<td> <a href="<?php echo $row['URL']?>"><?php echo $row['URL']?> </a></td>
                 </tr>
             <?php
             }

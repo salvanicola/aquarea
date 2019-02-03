@@ -2,6 +2,7 @@
 include('functions.php');
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,7 @@ include('functions.php');
 		<h2>Add News</h2>
 	</div>
 	
-	<form method="post" action="create_news.php">
+	<form method="post" action="create_news.php" enctype="multipart/form-data">
 
 		<?php echo display_error(); ?>
 
@@ -35,15 +36,23 @@ include('functions.php');
 		</div>
 		<div class="input-group">
 			<label>Content</label>
-			<textarea name="content" rows=20 cols=102 value="<?php echo $subtitle; ?>"></textarea>
+			<textarea name="content" rows=20 cols=102 value="<?php echo $content; ?>"></textarea>
 		</div>
 		<div class="input-group">
 			<label>Author</label>
-			<input type="text" name="author">
+			<input type="text" name="author" value="<?php echo $author; ?>">
 		</div>
 		<div class="input-group">
 			<label>Date</label>
-			<input type="date" name="date">
+			<input type="date" name="date" value="<?php echo $date; ?>">
+		</div class="input-group">
+		<div class="input-group">
+			<label>URL</label>
+			<input type="text" name="URL" value="<?php echo $URL; ?>">
+		</div>
+		<div>
+			Select image to upload:
+			<input type="file" name="fileToUpload" id="fileToUpload">
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="register_n_btn">Create News</button>
