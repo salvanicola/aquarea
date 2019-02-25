@@ -6,10 +6,22 @@ function closeNav() {
   document.getElementById("header").style.width = "0";
 }
 
-function openMen() {
-  document.getElementById("piscina").style.display = "block";
+function piscinafun() {
+	var state=document.getElementById("piscina").style.height;
+	console.log(state);
+	if(state != "0px") {
+		setClose();
+	}
+	else{
+		setOpen();	
+	}
 }
 
-function closeMen() {
-  document.getElementById("overlay").style.display = "none";
+function setOpen(){
+	console.log("im opening the menu");
+	document.getElementById("piscina").style.height="100%";
+}
+
+function setClose(){
+	document.getElementById("piscina").style.height="0";
 }

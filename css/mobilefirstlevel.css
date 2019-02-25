@@ -41,12 +41,17 @@ ul{
 	border-bottom:0.1em solid #000099;
 }
 
-.overlay{
-	display:none;
+#piscina{
+	height:0px;
+	transition-property:heigth;
+	transition:0.5s;
 	background-color:#000099;
-	padding:3%;
 	margin-top:8%;
-	transition: 0.5s;
+	overflow-x:hidden;
+}
+
+.overlay li{
+	list-style-type:none;
 }
 
 .overlay a{
