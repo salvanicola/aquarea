@@ -59,7 +59,7 @@ if (isset($_GET['logout'])) {
 		</div>
 	</div>
 	<div class="header" >
-		<h2> Funzionalità </h2>
+		<h2> Gestione utenti </h2>
 	</div>
 	<div class="content">
 		<a class="btn" style="background:#003366" href="create_user.php"> Add User</a>
@@ -69,11 +69,9 @@ if (isset($_GET['logout'])) {
 		<table border="1">
         <thead>
             <tr>
-                <td>Id</td>
-                <td>Username</td>
-				<td>Email</td>
-				<td>User Level</td>
-				<td>Password</td>
+                <th>Username</td>
+				<th>Email</td>
+				<th>User Level</td>
             </tr>
         </thead>
         <tbody>
@@ -82,18 +80,55 @@ if (isset($_GET['logout'])) {
             if (!$db) {
                 die(mysql_error());
             }
-			$query = "SELECT * FROM users";
+			$query = "SELECT username, email, user_type FROM users";
             $results = mysqli_query($db,$query);
             while($row = mysqli_fetch_array($results)) {
             ?>
                 <tr>
-                    <td><?php echo $row['id']?></td>
                     <td><?php echo $row['username']?></td>
 					<td><?php echo $row['email']?></td>
 					<td><?php echo $row['user_type']?></td>
-					<td><?php echo $row['password']?></td>
                 </tr>
 
+            <?php
+            }
+            ?>
+            </tbody>
+            </table>
+	</div>
+	<div class="header" >
+		<h2> Gestione notizie </h2>
+	</div>
+	<div class="content">
+		<a class="btn" style="background:#003366" href="../create_news.php"> Add News</a>
+		<a class="btn" style="background:#003366" href="../remove_news.php"> Remove News</a>
+		<br>
+		<br>
+		<table border="1">
+        <thead>
+            <tr>
+                <th>Titolo</td>
+				<th>Autore</td>
+				<th>Data Pubblicazione</td>
+				<th>URL</td>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+            $db = mysqli_connect('localhost', 'root', '', 'multi_login');
+            if (!$db) {
+                die(mysql_error());
+            }
+			$query = "SELECT title, author, rilascio, URL FROM news";
+            $results = mysqli_query($db,$query);
+            while($row = mysqli_fetch_array($results)) {
+            ?>
+                <tr>
+                    <td><?php echo $row['title']?></td>
+					<td><?php echo $row['author']?></td>
+					<td><?php echo $row['rilascio']?></td>
+					<td> <a href="<?php echo $row['URL']?>"><?php echo $row['URL']?> </a></td>
+                </tr>
             <?php
             }
             ?>

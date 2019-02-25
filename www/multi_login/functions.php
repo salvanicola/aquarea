@@ -8,6 +8,12 @@ $db = mysqli_connect('localhost', 'root', '', 'multi_login');
 $username = "";
 $email    = "";
 $errors   = array(); 
+$title    = "";
+$subtitle = "";
+$content  = "";
+$author   = "";
+$date     = "0000-00-00";
+$URL 	  = "";
 
 // call the register() function if register_btn is clicked
 if (isset($_POST['register_btn'])) {
@@ -15,6 +21,12 @@ if (isset($_POST['register_btn'])) {
 }
 if (isset($_POST['remove_btn'])) {
 	remove();
+}
+if (isset($_POST['register_n_btn'])) {
+	register_n();
+}
+if (isset($_POST['remove_n_btn'])) {
+	remove_n();
 }
 
 // REGISTER USER
@@ -86,6 +98,88 @@ function register(){
 	}
 }
 
+function register_n(){
+	global $db, $errors, $title, $subtitle, $content, $author, $date, $URL;
+
+	$title    =  e($_POST['title']);
+	$subtitle =  e($_POST['subtitle']);
+	$content  =  e($_POST['content']);
+	$author   =  e($_POST['author']);
+	$date     =  e($_POST['date']);
+	$URL	  =  e($_POST['URL']);
+
+	$target_dir = "images/News/";
+	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+	$uploadOk = 1;
+	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+	
+	if (empty($title)) { 
+		array_push($errors, "Title is required"); 
+	}
+	if (empty($content)) { 
+		array_push($errors, "Content is required"); 
+	}
+	if (empty($author)) { 
+		array_push($errors, "Author is required"); 
+	}
+	if (empty($date)) { 
+		array_push($errors, "Date is required"); 
+	}
+	if (empty($URL)) { 
+		array_push($errors, "URL is required"); 
+	}
+	if (!filter_var($URL, FILTER_VALIDATE_URL))
+	{
+		array_push($errors, "URL is not valid"); 
+	}
+    if($check !== false) {
+        $uploadOk = 1;
+    } else {
+        array_push($errors, "File is not an image."); 
+        $uploadOk = 0;
+    }
+	// Check if file already exists
+	if (file_exists($target_file)) {
+		array_push($errors, "Sorry, file already exists."); 
+		$uploadOk = 0;
+	}
+	// Check file size
+	if ($_FILES["fileToUpload"]["size"] > 500000) {
+		array_push($errors, "Sorry, your file is too large.");
+		$uploadOk = 0;
+	}
+	// Allow certain file formats
+	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
+		array_push($errors, "Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+		$uploadOk = 0;
+	}
+	// Check if $uploadOk is set to 0 by an error
+	if ($uploadOk == 0 AND count($errors) == 0) {
+		array_push($errors, "Sorry, your file was not uploaded.");
+		// if everything is ok, try to upload file
+	} else if(count($errors) == 0){
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    } else {
+		array_push($errors, "Sorry, there was an error uploading your file.");
+    }
+}
+	if (count($errors) == 0) {
+		$query = "INSERT INTO news (id, title, subtitle, content, author, rilascio, URL) 
+					 VALUES('0','$title', '$subtitle', '$content', '$author', '$date', '$URL')";
+		mysqli_query($db, $query);
+		$_SESSION['success']  = "News successfully created!!";
+		if(isAdmin())
+		{
+			header('location: admin/home.php');
+		}
+		else
+		{
+			header('location: ../multi_login/index.php');
+		}
+	}
+}
+
 function remove(){
 	// call these variables with the global keyword to make them available in function
 	global $db, $errors, $username, $email;
@@ -102,7 +196,7 @@ function remove(){
 	{
 		array_push($errors, "Usernames contain only numbers or letters"); 
 	}
-	if (!already_2('username','email', $username, $email)) {
+	if (!already_2('users','username','email', $username, $email)) {
 		array_push($errors, "Such combination of User/Email do not exist");
 	}
 	if (empty($email)) { 
@@ -124,6 +218,43 @@ function remove(){
 	}
 }
 
+function remove_n(){
+	global $db, $errors, $title, $author, $date;
+	// receive all input values from the form. Call the e() function
+    // defined below to escape form values
+	$title    =  e($_POST['title']);
+	$author   =  e($_POST['author']);
+	$date     =  e($_POST['date']);
+
+	// form validation: ensure that the form is correctly filled
+	if (empty($title)) { 
+		array_push($errors, "Title is required"); 
+	}
+	if (empty($author)) { 
+		array_push($errors, "Author is required"); 
+	}
+	if (!already_2('news','title','author', $title, $author)) {
+		array_push($errors, "Such news do not exist");
+	}
+	if (empty($date)) { 
+		array_push($errors, "Date is required"); 
+	}
+	if (count($errors) == 0) {
+		$query = "DELETE FROM news  
+				  WHERE title = '$title' AND author = '$author' AND rilascio = '$date'";
+		mysqli_query($db, $query);
+		$_SESSION['success']  = "News successfully removed!!";
+		if(isAdmin())
+		{
+			header('location: admin/home.php');
+		}
+		else
+		{
+			header('location: ../multi_login/index.php');
+		}
+	}
+}
+
 function already($field, $value){
 	global $db;
 	$query = "SELECT * FROM users WHERE $field = '$value'";
@@ -138,9 +269,9 @@ function already($field, $value){
 	}
 }
 
-function already_2($field_1, $field_2, $value_1, $value_2){		//da migliorare
+function already_2($table, $field_1, $field_2, $value_1, $value_2){		//da migliorare
 	global $db;
-	$query = "SELECT * FROM users WHERE $field_1 = '$value_1' AND $field_2 = '$value_2'";
+	$query = "SELECT * FROM $table WHERE $field_1 = '$value_1' AND $field_2 = '$value_2'";
 	$result = mysqli_query($db, $query);
 	if($result->num_rows == 0)
 	{
