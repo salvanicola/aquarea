@@ -7,9 +7,9 @@ function closeNav() {
 }
 
 function openMen() {
-  document.getElementById("piscina").style.display = "block";
+  document.getElementById("piscina").classList.toggle("show");
 }
 
-function closeMen() {
-  document.getElementById("overlay").style.display = "none";
+function openMen2(){
+  document.getElementById("palestra").classList.toggle("show");
 }

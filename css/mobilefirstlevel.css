@@ -46,13 +46,14 @@ ul{
 	background-color:#000099;
 	padding:3%;
 	margin-top:8%;
-	transition: 0.5s;
 }
 
 .overlay a{
 	color:white;
 	text-decoration:none;
 }
+
+.show {display: block;}
 
 #headerformobile{
 	position:fixed;
