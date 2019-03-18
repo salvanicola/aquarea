@@ -12,23 +12,28 @@
 	<link rel="stylesheet" type="text/css" href="../css/mobilefirstlevel.css" media="handheld, screen and (max-device-width:600px)"/>
 	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="screen and (min-device-width:780px)"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/> 
+	<script type="text/javascript" src="../js/scriptsidebar.js"></script>
 </head>
 
 <body>
+	<div id="headerformobile">
+		<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
+		<span onclick="openNav()">&#9776; </span>
+	</div>
 	<div id="content">
 		<img src="../img/Logo-Background/nuoto.jpeg" id="unicorni" alt="unicorni"/>
 	</div>	
 	
 	<div id="menu">
 		<ul id="external">
-			<li class="container">Piscina
-				<ul id="piscina" class="overlay">	
+			<li class="container"><span onclick="openMen()">Piscina</span>
+				<ul id="piscina" class="overlay"> 
 					<li><a href="piscina.html#corsi">Corsi nuoto</a></li>
 					<li><a href="piscina.html#agonismo">Agonismo</a></li>
 					<li xml:lang="en"><a href="piscina.html#acquabike">Acquabike</a></li>
 				</ul>
 			</li>
-			<li class="container">Palestra
+			<li class="container"><span onclick="openMen2()">Palestra</span>
 				<ul id="palestra" class="overlay">	
 					<li><a href="palestra.html#corsi"><span xml:lang="en">Planning</span> Terra</a></li>
 					<li><a href="palestra.html#corsi">Sala Pesi</a></li>
@@ -43,21 +48,25 @@
 	<!-- inserito header in fondo perchè così copre tutti gli elementi anche gli altri in absolute (come gli overlay) -->	
 
 	<div id="header">
+<<<<<<< HEAD
 		<a href="viest.html" id="imglogo">
+=======
+		<a class="closebtn" onclick="closeNav()">&times;</a>
+		<a id="imglogo">
+>>>>>>> e9779401bb5a20bc12b97aa7c3baea561f57b67a
 			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
 		</a>
 		<a href="eventi.html" class="headeright">Eventi</a>
 		<a href="piscinescoperte.html" class="headeright">Piscine Scoperte</a>
 		<a class="headeright, active">Vicenza Est</a>
-		<img src="../img/Menu/Menu.png" id="hamburger" alt="menu hamburger"/>
 	</div>
-	
+
 	<div id="footer">
 		<ul>
 			<li>AQUAREA VICENZA EST</li>
 			<li>via Zamenhof, 813</li>
 			<li>RECAPITI TELEFONICI:</li>
-			<li>0444905548,  04441321226, 3473933547</li>
+			<li>0444910903,  3427381917</li>
 			<li><a href="https://www.facebook.com/AQUAREAVICENZA1/?ref=bookmarks"><img src="../img/Generiche/facebook-icon-png-transparent-logo.png" id="facebook" alt="Logo di Facebook"/></a></li>
 		</ul>
 		

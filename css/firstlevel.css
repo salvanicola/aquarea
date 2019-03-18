@@ -68,6 +68,13 @@ HEADER
 	display:none;
 }
 
+#headerformobile {
+	display:none;
+}
+
+.closebtn{
+	display:none;
+}
 /*
 ==========================
 CONTENT

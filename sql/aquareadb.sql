@@ -13,127 +13,23 @@ Mail VARCHAR(50) UNIQUE,
 FOREIGN KEY (Mail) REFERENCES Utente(Email)
 );
 
-CREATE TABLE IF NOT EXISTS Piscina(
-CodiceP VARCHAR(4) PRIMARY KEY,
-PIVA VARCHAR (11) NOT NULL UNIQUE,
-Nome VARCHAR (50) NOT NULL,
-Proprietario VARCHAR (16) NOT NULL REFERENCES Persona(CF),
-Luogo INT(5) NOT NULL REFERENCES Luogo(Cap),
-Telefono INT(10) NOT NULL UNIQUE,
-Mail VARCHAR(50) NOT NULL UNIQUE
-);
 
 CREATE TABLE IF NOT EXISTS Utente(
-Email VARCHAR (50) PRIMARY KEY,
-Username VARCHAR (20) NOT NULL UNIQUE,
-Password VARCHAR (50) NOT NULL,
-Abbonamento ENUM('Si','No') NOT NULL
+Id INT (10) NOT NULL UNIQUE,
+Email VARCHAR (100) PRIMARY KEY,
+Username VARCHAR (100) NOT NULL UNIQUE,
+Password VARCHAR (100) NOT NULL,
+User_type ENUM('Amministratore','Moderatore') NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Messaggi(
-Email VARCHAR (50) NOT NULL,
-Messaggi VARCHAR (200),
-FOREIGN KEY (Email) REFERENCES Utente(Email)
+CREATE TABLE IF NOT EXISTS News(
+Autore VARCHAR(100) NOT NULL,
+Descrizione VARCHAR (200),
+Data DATE,
+FOREIGN KEY (Autore) REFERENCES Utente(Username)
 );
 
-CREATE TABLE IF NOT EXISTS Staff(
-CodF VARCHAR(16) NOT NULL UNIQUE REFERENCES Persona(CF),
-CodP VARCHAR(4) NOT NULL REFERENCES Piscina(CodiceP)
-);
 
-CREATE TABLE IF NOT EXISTS Corso(
-CodiceC VARCHAR(4) PRIMARY KEY,
-CodP VARCHAR(4) NOT NULL REFERENCES Piscina(CodiceP),
-Nome CHAR (10) NOT NULL,
-Costo INT (100) NOT NULL,
-Istruttore VARCHAR (16) REFERENCES Persona(CF),
-Orario TIME NOT NULL,
-Giorno ENUM('Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica')
-);
-
-CREATE TABLE IF NOT EXISTS Luogo(
-CAP INT (5) PRIMARY KEY,
-Città CHAR (20) NOT NULL,
-Via VARCHAR (50) NOT NULL,
-Nazione CHAR (50) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS Iscritti(
-CodCorso VARCHAR(4) NOT NULL REFERENCES Corso(CodiceC),
-CodIscritto INT (16) NOT NULL REFERENCES Persona(CF),
-Inizio DATE NOT NULL,
-Fine DATE NOT NULL
-);
-
-DROP TRIGGER IF EXISTS CHK_Durata;
-DELIMITER //
-CREATE TRIGGER CHK_Durata BEFORE INSERT ON Iscritti
-FOR EACH ROW
-BEGIN 
-	DECLARE msg VARCHAR(200);
-	IF((NEW.Fine-NEW.Inizio)>1) THEN
-		SET msg='La durata del corso non può superare l`anno';
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-		SET NEW.CodCorso=NULL;
-		SET NEW.CodIscritto=NULL;
-	END IF;
-END
-//
-DELIMITER ;    
-
-DROP TRIGGER IF EXISTS CHK_Durata2;
-DELIMITER //
-CREATE TRIGGER CHK_Durata2 BEFORE UPDATE ON Iscritti
-FOR EACH ROW
-BEGIN 
-	DECLARE msg VARCHAR(200);
-	IF((NEW.Fine-NEW.Inizio)>1) THEN
-		SET msg='La durata del corso non può superare l`anno';
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-		SET NEW.CodCorso=NULL;
-		SET NEW.CodIscritto=NULL;
-	END IF;
-END
-//
-DELIMITER ;  
-
-DROP TRIGGER IF EXISTS CHK_Iscrizioni;
-DELIMITER //
-CREATE TRIGGER CHK_Iscrizioni BEFORE INSERT ON Iscritti
-FOR EACH ROW
-BEGIN
-	DECLARE msg VARCHAR(200);
-    DECLARE t INT(2);
-	SET t=(SELECT COUNT(*) FROM Iscrizioni WHERE NEW.CodIscritto=CodIscritto);
-    IF (t>0) THEN
-		SET msg='L`utente è già iscritto ad un altro corso della palestra';
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-		SET NEW.CodCorso=NULL;
-		SET NEW.CodIscritto=NULL;
-	END IF;
-END
-//
-DELIMITER ;
-
- 
-
-DROP TRIGGER IF EXISTS CHK_Iscrizioni2;
-DELIMITER //
-CREATE TRIGGER CHK_Iscrizioni2 BEFORE UPDATE ON Iscritti
-FOR EACH ROW
-BEGIN
-	DECLARE msg VARCHAR(200);
-    DECLARE t INT(2);
-	SET t=(SELECT COUNT(*) FROM Iscrizioni WHERE NEW.CodIscritto=CodIscritto);
-    IF (t>0) THEN
-		SET msg='L`utente è già iscritto ad un altro corso della palestra';
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-		SET NEW.CodCorso=NULL;
-		SET NEW.CodIscritto=NULL;
-	END IF;
-END
-//
-DELIMITER ; 
 
 DROP TRIGGER IF EXISTS CHK_Inserimento_Utente;
 DELIMITER //
@@ -244,10 +140,12 @@ DELIMITER ;
 
 DROP PROCEDURE IF EXISTS Inserimento_Messaggi;
 DELIMITER //
-CREATE PROCEDURE Inserimento_Messaggi(Mail VARCHAR (50), Messaggio VARCHAR (200))
+CREATE PROCEDURE Inserimento_Messaggi(Autore VARCHAR (100), Messaggio VARCHAR (200))
 BEGIN	
+	DECLARE D DATE;
+    SET D = (SELECT CURRENT_DATE);
 	INSERT INTO Messaggi
-    VALUES (Mail, Messaggio);
+    VALUES (Mail, Messaggio, D);
 END
 //
 DELIMITER ;
