@@ -16,69 +16,17 @@ body{
 	display:none;
 }
 
-#freccetta{
-	text-align:right;
-	font-size:0.5em;
-	color:#000099;
+#footer img{
+	padding:0.5%;
+	width:2%;
 }
-
-ul{
-	padding:0;
-}
-
-.container{
-	display:block;
-	text-align:center;
-	padding-top:8%;
-	text-decoration: none;
-	font-size: 4em;	
-	padding-bottom:8%;
-	border-bottom:0.1em solid #000099;
-}
-.container:first-of-type{
-	border-top:0;
-}
-
-#lavoraconoi a, #chisiamo a{
-	color:white;
-	text-decoration:none;
-}
-
-#lavoraconoi, #chisiamo{
-	padding-bottom:8%;
-	border-bottom:0.1em solid #000099;
-}
-
-#piscina, #palestra{
-	transition-property:heigth;
-	transition:0.5s;
-	background-color:#000099;
-	margin-top:8%;
-	overflow-x:hidden;
-}
-
-
-.overlay{
-      display:none;
-}
-
-.overlay li{
-	list-style-type:none;
-	padding:5%;
-}
-
-.overlay a{
-	color:white;
-	text-decoration:none;
-}
-
-.show {display: block;}
 
 #headerformobile{
 	position:fixed;
 	top:0;
 	width:100%;
 	background-color:#000099;
+	transition: top 0.8s;
 }
 #headerformobile img{
 	width:35%;
@@ -125,15 +73,6 @@ ul{
 	padding:5%;
 }
 
-#footer{
-	margin-top:8%;
-}
-#footer ul li{
-	text-align:center;
-	font-size:115%;
-}
-
-#footer ul li a img{
-	width:10%;
-	padding:2%;
+#things{
+	margin-top:25%;
 }

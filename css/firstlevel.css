@@ -103,6 +103,9 @@ CONTENT
 	width:100%;
 }
 
+#freccetta{
+	display:none;
+}
 .container{
 	position:relative;
 }
