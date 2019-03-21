@@ -1,7 +1,11 @@
 * { margin: 0px; padding: 0px; }
 body {
-	font-size: 120%;
-	background: #F8F8FF;
+	min-width:800px;
+	background: url("../img/Logo-Background/Piscina-Splash.jpg") no-repeat  center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 .header {
 	width: 40%;
@@ -86,4 +90,11 @@ form, .content {
 	content: "";
 	display: block;
 	clear: both;
+}
+.center_text {
+	width: 40%;
+	margin: 50px auto 0px;
+	text-align: center;
+	font-weight: bold;
+	padding: 20px;
 }
