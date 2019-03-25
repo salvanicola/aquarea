@@ -85,3 +85,60 @@ body{
 #things li{
 	text-align:center;
 }
+
+h1{
+	font-size:5em;
+	color:#000099;
+	background-color:#2694d9;
+	padding-bottom:3%;
+	padding-top:3%;
+	border-radius:15px;
+	margin:2%;
+	text-align:center;
+}
+
+h2{
+	font-size:3.5em;
+	color:#000099;
+	background-color:#67b4e4;
+	padding-bottom:3%;
+	padding-top:3%;
+	padding-left:1%;
+	border-radius:15px;
+	margin:2%;
+}
+
+.bold{
+	font-weight:bold;
+}
+
+p{
+	background-color:#7dbfe8;
+	padding-bottom:3%;
+	padding-top:3%;
+	border-radius:15px;
+	margin:2%;
+}
+
+#things a{
+	font-size:0.2em;
+	text-align:right;
+	margin-right:3%;
+	padding:1%;
+	padding-left:35%;
+}
+
+#footer{
+	margin-top:8%;
+}
+#footer ul li{
+	padding:0;
+	list-style-type:none;
+	text-align:center;
+	font-size:115%;
+}
+
+#footer ul li a img{
+	width:10%;
+	padding:2%;
+}
