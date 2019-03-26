@@ -1,5 +1,5 @@
 html {
-	background: #87CEFA no-repeat  center center;
+	background: 	#d5e7f6 no-repeat  center center;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
 	-o-background-size: cover;
@@ -25,7 +25,7 @@ body{
 	position:fixed;
 	top:0;
 	width:100%;
-	background-color:#000099;
+	background-color:#003366;
 	transition: top 0.8s;
 }
 #headerformobile img{
@@ -49,7 +49,7 @@ body{
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #000099;
+  background-color: #003366;
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -89,7 +89,7 @@ body{
 h1{
 	font-size:5em;
 	color:#000099;
-	background-color:#2694d9;
+	background-color:#6cb3e0;
 	padding-bottom:3%;
 	padding-top:3%;
 	border-radius:15px;
@@ -100,7 +100,7 @@ h1{
 h2{
 	font-size:3.5em;
 	color:#000099;
-	background-color:#67b4e4;
+	background-color:#9ac8e5;
 	padding-bottom:3%;
 	padding-top:3%;
 	padding-left:1%;
@@ -113,7 +113,7 @@ h2{
 }
 
 p{
-	background-color:#7dbfe8;
+	background-color:#c0dff2;
 	padding-bottom:3%;
 	padding-top:3%;
 	border-radius:15px;
