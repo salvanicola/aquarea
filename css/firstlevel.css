@@ -141,6 +141,9 @@ ul ul, ol ul {
 #piscina li{
 	line-height:4.5em;
 }
+#palestra li{
+	line-height:9em;
+}
 #chisiamo:hover{
 	background: url("../img/Menu/Chi-siamo.jpg") no-repeat center center;
 	-webkit-background-size: cover;
