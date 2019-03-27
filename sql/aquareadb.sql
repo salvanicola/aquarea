@@ -1,7 +1,7 @@
 /*IN QUESTO FOGLIO SONO CONTENUTI TUTTI I DATI DELLE PISCINE, DELLO STAFF, ISCRITTI E DEGLI UTENTI 
 ISCRITTI AL SITO WEB I QUALI POSSONO INTERAGIRE PER VEDERE I CORSI A CUI SONO ISCRITTI
 O A CUI VOGLIONO ISCRIVERSI */
-CREATE TABLE IF NOT EXISTS Persona(
+/*CREATE TABLE IF NOT EXISTS Persona(
 CF VARCHAR(16) PRIMARY KEY,
 Nome CHAR(20) NOT NULL,
 Cognome CHAR(20) NOT NULL,
@@ -11,7 +11,7 @@ Via VARCHAR(50) NOT NULL,
 Telefono VARCHAR(10) NOT NULL,
 Mail VARCHAR(50) UNIQUE, 
 FOREIGN KEY (Mail) REFERENCES Utente(Email)
-);
+);*/
 
 
 CREATE TABLE IF NOT EXISTS Utente(
@@ -24,7 +24,9 @@ User_type ENUM('Amministratore','Moderatore') NOT NULL
 
 CREATE TABLE IF NOT EXISTS News(
 Autore VARCHAR(100) NOT NULL,
-Descrizione VARCHAR (200),
+Titolo VARCHAR(20) NOT NULL,
+Sottotitolo VARCHAR(60) NOT NULL,
+Contenuto VARCHAR (2040),
 Data DATE,
 FOREIGN KEY (Autore) REFERENCES Utente(Username)
 );
@@ -50,7 +52,21 @@ END
 //
 DELIMITER ;
 
-DROP TRIGGER IF EXISTS CHK_Inserimento_Persona;
+DROP TRIGGER IF EXISTS CHK_Inserimento_News;
+DELIMITER //
+CREATE TRIGGER CHK_Inserimento_News BEFORE INSERT ON News
+FOR EACH ROW
+BEGIN 
+	DECLARE msg VARCHAR(200);
+	IF EXISTS(SELECT * FROM Utente, News WHERE (Username LIKE Autore)) THEN
+				SET msg='L`autore non esiste';
+				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+	END IF;
+END
+//
+DELIMITER ;
+
+/*DROP TRIGGER IF EXISTS CHK_Inserimento_Persona;
 DELIMITER //
 CREATE TRIGGER CHK_Inserimento_Persona BEFORE INSERT ON Persona
 FOR EACH ROW
@@ -95,7 +111,7 @@ BEGIN
     END IF;
 END
 //
-DELIMITER ;
+DELIMITER ;*/
 
 DROP PROCEDURE IF EXISTS Ingresso;
 DELIMITER //
@@ -128,7 +144,7 @@ END
 //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS Inserimento_Persona;
+/*DROP PROCEDURE IF EXISTS Inserimento_Persona;
 DELIMITER //
 CREATE PROCEDURE Inserimento_Persona(CF VARCHAR(16), Nome CHAR(20), Cognome CHAR(20), Nazione CHAR(50), CAP INT(5), Via VARCHAR(50), Telefono VARCHAR(10), Mail VARCHAR(50))
 BEGIN
@@ -136,9 +152,9 @@ BEGIN
     VALUES	(CF, Nome, Cognome, Nazione, CAP, Via, Telefono, Mail);
 END
 //
-DELIMITER ;
+DELIMITER ;*/
 
-DROP PROCEDURE IF EXISTS Inserimento_Messaggi;
+/*DROP PROCEDURE IF EXISTS Inserimento_Messaggi;
 DELIMITER //
 CREATE PROCEDURE Inserimento_Messaggi(Autore VARCHAR (100), Messaggio VARCHAR (200))
 BEGIN	
@@ -148,12 +164,12 @@ BEGIN
     VALUES (Mail, Messaggio, D);
 END
 //
-DELIMITER ;
+DELIMITER ;*/
 
 /*__________________________________________________________________________________________________________________________________________________*/
 
 
-CREATE TABLE IF NOT EXISTS Vasca(
+/*CREATE TABLE IF NOT EXISTS Vasca(
 CodV VARCHAR(4) PRIMARY KEY,
 CodP VARCHAR(4) NOT NULL REFERENCES Piscina(CodiceP)
 );
@@ -163,7 +179,7 @@ CodC VARCHAR(4) PRIMARY KEY,
 Numero INT(10) NOT NULL,
 Codv VARCHAR(4) NOT NULL REFERENCES Vasca(CodV),
 CodC VARCHAR(4) NOT NULL REFERENCES Corso(CodiceC)
-);
+);*/
 
 
 
