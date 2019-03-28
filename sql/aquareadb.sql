@@ -1,19 +1,6 @@
 /*IN QUESTO FOGLIO SONO CONTENUTI TUTTI I DATI DELLE PISCINE, DELLO STAFF, ISCRITTI E DEGLI UTENTI 
 ISCRITTI AL SITO WEB I QUALI POSSONO INTERAGIRE PER VEDERE I CORSI A CUI SONO ISCRITTI
 O A CUI VOGLIONO ISCRIVERSI */
-/*CREATE TABLE IF NOT EXISTS Persona(
-CF VARCHAR(16) PRIMARY KEY,
-Nome CHAR(20) NOT NULL,
-Cognome CHAR(20) NOT NULL,
-Nazione CHAR(50) NOT NULL,
-CAP INT(5) NOT NULL,
-Via VARCHAR(50) NOT NULL,
-Telefono VARCHAR(10) NOT NULL,
-Mail VARCHAR(50) UNIQUE, 
-FOREIGN KEY (Mail) REFERENCES Utente(Email)
-);*/
-
-use aquarea;
 
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS News;
@@ -26,10 +13,8 @@ password VARCHAR (100) NOT NULL,
 user_type ENUM('Admin','Mod') NOT NULL
 );
 
-ALTER TABLE Users AUTO_INCREMENT=50;
-
 CREATE TABLE IF NOT EXISTS News(
-idn INT (10) NOT NULL UNIQUE,
+idn INT (10) NOT NULL UNIQUE AUTO_INCREMENT,
 title VARCHAR(20) NOT NULL UNIQUE,
 subtitle VARCHAR(60) NOT NULL,
 content TEXT NOT NULL,
@@ -97,10 +82,10 @@ DELIMITER ;
 
 DROP PROCEDURE IF EXISTS Inserimento_Utente;
 DELIMITER //
-CREATE PROCEDURE Inserimento_Utente(IN Mail VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50))
+CREATE PROCEDURE Inserimento_Utente(IN email VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50), IN user_type ENUM('Admin','Mod'))
 BEGIN 
-		INSERT INTO Users 
-        VALUES (Mail, username, password, 'No');
+		INSERT INTO Users (email, username, password, user_type) 
+        VALUES (email, username, password, user_type);
 END
 //
 DELIMITER ;
@@ -109,7 +94,7 @@ DROP PROCEDURE IF EXISTS Inserimento_News;
 DELIMITER //
 CREATE PROCEDURE Inserimento_News(IN title VARCHAR (20), IN subtitle VARCHAR (60), IN content TEXT, IN author VARCHAR (100), IN Data DATE, IN URL VARCHAR(1000))
 BEGIN 
-		INSERT INTO News 
+		INSERT INTO News ( title, subtitle, content, author, Data, URL)
         VALUES (title, subtitle, content, author, Data, URL);
 END
 //
