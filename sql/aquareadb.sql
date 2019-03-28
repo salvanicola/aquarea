@@ -13,34 +13,42 @@ Mail VARCHAR(50) UNIQUE,
 FOREIGN KEY (Mail) REFERENCES Utente(Email)
 );*/
 
+use aquarea;
 
-CREATE TABLE IF NOT EXISTS Utente(
-Id INT (10) NOT NULL UNIQUE,
-Email VARCHAR (100) PRIMARY KEY,
-Username VARCHAR (100) NOT NULL UNIQUE,
-Password VARCHAR (100) NOT NULL,
-User_type ENUM('Amministratore','Moderatore') NOT NULL
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS News;
+
+CREATE TABLE IF NOT EXISTS Users(
+idu INT (10) NOT NULL UNIQUE  AUTO_INCREMENT,
+email VARCHAR (100) PRIMARY KEY,
+username VARCHAR (100) NOT NULL UNIQUE,
+password VARCHAR (100) NOT NULL,
+user_type ENUM('Admin','Mod') NOT NULL
 );
 
+ALTER TABLE Users AUTO_INCREMENT=50;
+
 CREATE TABLE IF NOT EXISTS News(
-Autore VARCHAR(100) NOT NULL,
-Titolo VARCHAR(20) NOT NULL,
-Sottotitolo VARCHAR(60) NOT NULL,
-Contenuto VARCHAR (2040),
+idn INT (10) NOT NULL UNIQUE,
+title VARCHAR(20) NOT NULL UNIQUE,
+subtitle VARCHAR(60) NOT NULL,
+content TEXT NOT NULL,
+author VARCHAR(100) NOT NULL,
 Data DATE,
-FOREIGN KEY (Autore) REFERENCES Utente(Username)
+URL VARCHAR(1000) NOT NULL UNIQUE,			/*VARCHAR(2083)*/
+FOREIGN KEY (author) REFERENCES Users(Username)
 );
 
 
 
 DROP TRIGGER IF EXISTS CHK_Inserimento_Utente;
 DELIMITER //
-CREATE TRIGGER CHK_Inserimento_Utente BEFORE INSERT ON Utente
+CREATE TRIGGER CHK_Inserimento_Utente BEFORE INSERT ON Users
 FOR EACH ROW
 BEGIN 
 	DECLARE msg VARCHAR(200);
-	IF EXISTS(SELECT * FROM Utente WHERE ((Email LIKE NEW.Email) OR (Username LIKE NEW.Username))) THEN
-		IF EXISTS (SELECT * FROM Utente WHERE (Email LIKE NEW.Email)) THEN
+	IF EXISTS(SELECT * FROM Users WHERE ((email LIKE NEW.email) OR (Username LIKE NEW.Username))) THEN
+		IF EXISTS (SELECT * FROM Users WHERE (email LIKE NEW.email)) THEN
 				SET msg='La mail utilizzata ha già un profilo collegato';
 				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
 			ELSE 
@@ -58,7 +66,7 @@ CREATE TRIGGER CHK_Inserimento_News BEFORE INSERT ON News
 FOR EACH ROW
 BEGIN 
 	DECLARE msg VARCHAR(200);
-	IF EXISTS(SELECT * FROM Utente, News WHERE (Username LIKE Autore)) THEN
+	IF NOT EXISTS(SELECT * FROM Users WHERE (Username LIKE NEW.author)) THEN
 				SET msg='L`autore non esiste';
 				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
 	END IF;
@@ -66,65 +74,18 @@ END
 //
 DELIMITER ;
 
-/*DROP TRIGGER IF EXISTS CHK_Inserimento_Persona;
-DELIMITER //
-CREATE TRIGGER CHK_Inserimento_Persona BEFORE INSERT ON Persona
-FOR EACH ROW
-BEGIN
-	DECLARE msg VARCHAR(200);
-    IF EXISTS(SELECT * FROM Persona WHERE CF=NEW.CF) THEN
-    SET msg='La persona è già registrata all`interno della struttura';
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-    SET NEW.CF=NULL;
-    END IF;
-END
-//
-DELIMITER ;
-
-DROP TRIGGER IF EXISTS CHK_Abbonamento;
-DELIMITER //
-CREATE TRIGGER CHK_Abbonamento AFTER INSERT ON Persona
-FOR EACH ROW
-BEGIN
-	DECLARE T VARCHAR(50);
-	IF EXISTS(SELECT * FROM Persona P INNER JOIN Utente U ON P.Mail=U.Email WHERE U.Abbonamento='No') THEN
-    SET T=(SELECT Mail FROM Persona P INNER JOIN Utente U ON P.Mail=U.Email WHERE U.Abbonamento='No');
-    UPDATE Utente
-    SET Abbonamento='Si'
-    WHERE T=Email;
-    END IF;
-END
-//
-DELIMITER ;
-
-DROP TRIGGER IF EXISTS CHK_Abbonamento2;
-DELIMITER //
-CREATE TRIGGER CHK_Abbonamento2 AFTER INSERT ON Utente
-FOR EACH ROW
-BEGIN
-	DECLARE T VARCHAR(50);
-	IF EXISTS(SELECT * FROM Persona P INNER JOIN Utente U ON P.Mail=U.Email WHERE U.Abbonamento='No') THEN
-    SET T=(SELECT Mail FROM Persona P INNER JOIN Utente U ON P.Mail=U.Email WHERE U.Abbonamento='No');
-    UPDATE Utente
-    SET Abbonamento='Si'
-    WHERE T=Email;
-    END IF;
-END
-//
-DELIMITER ;*/
-
 DROP PROCEDURE IF EXISTS Ingresso;
 DELIMITER //
 CREATE PROCEDURE Ingresso (usern VARCHAR(50), pass VARCHAR(50))
 BEGIN
 	DECLARE msg VARCHAR(200);
-	IF (SELECT COUNT(*) FROM  Utente WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass))>0 THEN
-		IF (SELECT Abbonamento FROM  Utente WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass)) = 'NO' THEN
-			SELECT M.Messaggi FROM  Utente U INNER JOIN Messaggi M ON U.Email=M.Email WHERE ((U.Email LIKE usern) OR (U.Username LIKE usern)) AND (U.Password LIKE pass);
+	IF (SELECT COUNT(*) FROM  Users WHERE ((email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass))>0 THEN
+		IF (SELECT Abbonamento FROM  Users WHERE ((email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass)) = 'NO' THEN
+			SELECT M.Messaggi FROM  Users U INNER JOIN Messaggi M ON U.email=M.email WHERE ((U.email LIKE usern) OR (U.Username LIKE usern)) AND (U.Password LIKE pass);
 		ELSE
 			SELECT P.Nome AS NomeP, P.Cognome AS CognomeP, P.Telefono, I.Inizio, I.Fine, C.NomeCorso, C.Costo
-			FROM Utente U, Persona P, Iscritti I INNER JOIN Corso C ON I.CodCorso=C.CodiceC
-			WHERE ((Email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass);
+			FROM Users U, Persona P, Iscritti I INNER JOIN Corso C ON I.CodCorso=C.CodiceC
+			WHERE ((email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass);
 		END IF;
 	ELSE
     SET msg='User o Password errati';
@@ -138,48 +99,22 @@ DROP PROCEDURE IF EXISTS Inserimento_Utente;
 DELIMITER //
 CREATE PROCEDURE Inserimento_Utente(IN Mail VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50))
 BEGIN 
-		INSERT INTO Utente 
+		INSERT INTO Users 
         VALUES (Mail, username, password, 'No');
 END
 //
 DELIMITER ;
 
-/*DROP PROCEDURE IF EXISTS Inserimento_Persona;
+DROP PROCEDURE IF EXISTS Inserimento_News;
 DELIMITER //
-CREATE PROCEDURE Inserimento_Persona(CF VARCHAR(16), Nome CHAR(20), Cognome CHAR(20), Nazione CHAR(50), CAP INT(5), Via VARCHAR(50), Telefono VARCHAR(10), Mail VARCHAR(50))
-BEGIN
-	INSERT INTO Persona
-    VALUES	(CF, Nome, Cognome, Nazione, CAP, Via, Telefono, Mail);
+CREATE PROCEDURE Inserimento_News(IN title VARCHAR (20), IN subtitle VARCHAR (60), IN content TEXT, IN author VARCHAR (100), IN Data DATE, IN URL VARCHAR(1000))
+BEGIN 
+		INSERT INTO News 
+        VALUES (title, subtitle, content, author, Data, URL);
 END
 //
-DELIMITER ;*/
+DELIMITER ;
 
-/*DROP PROCEDURE IF EXISTS Inserimento_Messaggi;
-DELIMITER //
-CREATE PROCEDURE Inserimento_Messaggi(Autore VARCHAR (100), Messaggio VARCHAR (200))
-BEGIN	
-	DECLARE D DATE;
-    SET D = (SELECT CURRENT_DATE);
-	INSERT INTO Messaggi
-    VALUES (Mail, Messaggio, D);
-END
-//
-DELIMITER ;*/
-
-/*__________________________________________________________________________________________________________________________________________________*/
-
-
-/*CREATE TABLE IF NOT EXISTS Vasca(
-CodV VARCHAR(4) PRIMARY KEY,
-CodP VARCHAR(4) NOT NULL REFERENCES Piscina(CodiceP)
-);
-
-CREATE TABLE IF NOT EXISTS Corsia(
-CodC VARCHAR(4) PRIMARY KEY,
-Numero INT(10) NOT NULL,
-Codv VARCHAR(4) NOT NULL REFERENCES Vasca(CodV),
-CodC VARCHAR(4) NOT NULL REFERENCES Corso(CodiceC)
-);*/
 
 
 
