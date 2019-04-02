@@ -41,6 +41,8 @@ BEGIN
 				SET msg='Username già utilizzato';
 				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
 			END IF;
+	ELSE
+		SET NEW.password= MD5(NEW.password);
 	END IF;
 END
 //
