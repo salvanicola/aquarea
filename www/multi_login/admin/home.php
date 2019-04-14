@@ -119,14 +119,14 @@ if (isset($_GET['logout'])) {
             if (!$db) {
                 die(mysql_error());
             }
-			$query = "SELECT title, author, rilascio, URL FROM news";
+			$query = "SELECT title, author, Data, URL FROM news";
             $results = mysqli_query($db,$query);
             while($row = mysqli_fetch_array($results)) {
             ?>
                 <tr>
                     <td><?php echo $row['title']?></td>
 					<td><?php echo $row['author']?></td>
-					<td><?php echo $row['rilascio']?></td>
+					<td><?php echo $row['Data']?></td>
 					<td> <a href="<?php echo $row['URL']?>"><?php echo $row['URL']?> </a></td>
                 </tr>
             <?php
