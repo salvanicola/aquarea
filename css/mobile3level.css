@@ -16,10 +16,12 @@ body{
 	display:none;
 }
 
-#footer img{
-	padding:0.5%;
-	width:2%;
-}
+
+/*
+==========================
+header
+==========================
+*/
 
 #headerformobile{
 	position:fixed;
@@ -73,6 +75,12 @@ body{
 	padding:5%;
 }
 
+/*
+=============================
+body
+=============================
+*/
+
 #things{
 	margin-top:25%;
 }
@@ -88,8 +96,8 @@ body{
 
 h1{
 	font-size:5em;
-	color:#000099;
-	background-color:#6cb3e0;
+	color:#003366;
+	background-color:#79b0d2;
 	padding-bottom:3%;
 	padding-top:3%;
 	border-radius:15px;
@@ -99,7 +107,7 @@ h1{
 
 h2{
 	font-size:3.5em;
-	color:#000099;
+	color:#003366;
 	background-color:#9ac8e5;
 	padding-bottom:3%;
 	padding-top:3%;
@@ -113,7 +121,7 @@ h2{
 }
 
 p{
-	background-color:#c0dff2;
+	background-color:#c8ddea;
 	padding-bottom:3%;
 	padding-top:3%;
 	border-radius:15px;
@@ -128,6 +136,12 @@ p{
 	padding-left:35%;
 }
 
+/*
+=============================
+footer
+=============================
+*/
+
 #footer{
 	margin-top:8%;
 }
@@ -141,4 +155,9 @@ p{
 #footer ul li a img{
 	width:10%;
 	padding:2%;
+}
+
+#footer img{
+	padding:0.5%;
+	width:2%;
 }

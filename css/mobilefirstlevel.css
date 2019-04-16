@@ -1,5 +1,5 @@
 html {
-	background: #87CEFA no-repeat  center center;
+	background: #d5e7f6 no-repeat  center center;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
 	-o-background-size: cover;
@@ -19,40 +19,50 @@ body{
 #freccetta{
 	text-align:right;
 	font-size:0.5em;
-	color:#000099;
+	color:#003366;
 }
 
 ul{
 	padding:0;
 }
 
+/*
+=============================
+body
+=============================
+*/
+
 .container{
+	color:#003366;
 	display:block;
 	text-align:center;
 	padding-top:8%;
 	text-decoration: none;
 	font-size: 4em;	
 	padding-bottom:8%;
-	border-bottom:0.1em solid #000099;
+	border-bottom:0.1em solid #003366;
 }
 .container:first-of-type{
 	border-top:0;
 }
 
 #lavoraconoi a, #chisiamo a{
-	color:white;
+	color:#FFA500;
+	text-decoration:none;
+}
+
+#lavoraconoi a:visited, #chisiamo a:visited{
+	color:#DC143C;
 	text-decoration:none;
 }
 
 #lavoraconoi, #chisiamo{
 	padding-bottom:8%;
-	border-bottom:0.1em solid #000099;
+	border-bottom:0.1em solid #003366;
 }
 
 #piscina, #palestra{
-	transition-property:heigth;
-	transition:0.5s;
-	background-color:#000099;
+	background-color:#003366;
 	margin-top:8%;
 	overflow-x:hidden;
 }
@@ -74,11 +84,17 @@ ul{
 
 .show {display: block;}
 
+/*
+=============================
+header
+=============================
+*/
+
 #headerformobile{
 	position:fixed;
 	top:0;
 	width:100%;
-	background-color:#000099;
+	background-color:#003366;
 }
 #headerformobile img{
 	width:35%;
@@ -98,10 +114,9 @@ ul{
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
   top: 0;
   right: 0;
-  background-color: #000099;
+  background-color: #003366;
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -118,13 +133,18 @@ ul{
 	color: white;
 	display: block;
 	transition: 0.3s;
-transition-property: right;
 }
 
 #header .closebtn {
 	font-size:5em;
 	padding:5%;
 }
+
+/*
+=============================
+footer
+=============================
+*/
 
 #footer{
 	margin-top:8%;

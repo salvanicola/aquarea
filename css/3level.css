@@ -1,4 +1,181 @@
 html {
+		min-width:800px;
+	background: url("../img/Logo-Background/Piscina-Splash.jpg") no-repeat  center center;
+	/*background: #d5e7f6 no-repeat  center center;*/
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body{
+	margin:0;
+	font-family: 'Montserrat';
+}
+
+#unicorni{
+	display:none;
+}
+
+/*
+==========================
+header
+==========================
+*/
+
+#header{
+	min-width:780px;
+	position: fixed;
+	top:0;
+	width:100%;
+}
+#header img{
+	float:left;
+	/*width: 10%;*/
+	width:7.5em;
+	margin-left:0%;
+	padding-left: 1em;
+	padding-top:0.35%;
+}
+
+#header {
+	background-color: #003366;
+	overflow: hidden;
+}
+
+.headeright{
+	float: right;
+	color: #ffffff;
+	text-align: center;
+	padding: 0.5em 0.5em;
+	text-decoration: none;
+	font-size: 1.5em;
+	font-family: 'Montserrat';
+}
+
+.headeright:hover{
+	background-color: #000066;
+	color: #8c8c8c;
+	transition: .8s ease;	
+	
+}
+
+#header .active {
+	float: right;
+	background-color: #4d94ff;
+	color: white;
+	text-align: center;
+	padding: 0.5em 0.5em;
+	text-decoration: none;
+	font-size: 1.5em;
+	font-family: 'Montserrat';
+}
+
+#hamburger{
+	display:none;
+}
+
+#headerformobile {
+	display:none;
+}
+
+.closebtn{
+	display:none;
+}
+
+/*
+=============================
+body
+=============================
+*/
+
+#things{
+	margin-top:5%;
+}
+
+#things ul{
+	padding:0;
+	list-style-type:none;
+	margin:0.5%;
+}
+
+#things li{
+	text-align:center;
+	font-weight:bold;
+}
+
+h1{
+	font-size:3em;
+	color:#000099;
+	background-color:#6cb3e0;
+	padding-bottom:1%;
+	padding-top:1%;
+	border-radius:15px;
+	margin:1%;
+	text-align:center;
+}
+
+h2{
+	font-size:1.5em;
+	color:#000099;
+	background-color:#9ac8e5;
+	padding-bottom:1%;
+	padding-top:1%;
+	padding-left:1%;
+	border-radius:15px;
+	margin:0.5%;
+}
+
+h2 a{
+	display:none;
+}
+
+.bold{
+	font-weight:bold;
+}
+
+p{
+	background-color:#c0dff2;
+	padding:1%;
+	border-radius:15px;
+	margin:0.5%;
+}
+
+.hour{
+	background:none;
+	text-align:center;
+	font-weight:bold;
+}
+
+
+
+/*
+=============================
+footer
+=============================
+*/
+
+#footer ul{
+	margin-top:3%;
+	background-color: rgba(0,0,0, 0.2);
+	padding-top:3%;
+	text-align:center;
+}
+
+#footer ul li{
+	display:block;
+	padding:0;
+	list-style-type:none;
+	text-align:center;
+	font-size:115%;
+}
+
+#footer ul li a img{
+	margin-top:1%;
+	width:2%;
+	padding:2%;
+}
+/*html {
 	background: #00BFFF no-repeat  center center;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
@@ -24,7 +201,7 @@ body{
 =====================================
 MENU
 =====================================
-*/
+
 #headerformobile{
 	position:fixed;
 	top:0;
@@ -93,7 +270,7 @@ MENU
 	color: black;
 	font-weight: bold;
 }
-/*
+
 ==========================
 CONTENT
 ==========================
@@ -103,7 +280,7 @@ CONTENT
 ===========================================
 FOO TER FIGHTER
 ===========================================
-*/
+
 #footer{
 	background:none;
 }
@@ -133,3 +310,4 @@ FOO TER FIGHTER
 	transition: .8s ease;
 	color: #595959;
 }
+*/
