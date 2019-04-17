@@ -122,6 +122,10 @@ function register_n(){
 	if (empty($author)) { 
 		array_push($errors, "Author is required"); 
 	}
+	else if(!already('username', $author))
+	{
+		array_push($errors, "Such Author does not exist");
+	}
 	if (empty($date)) { 
 		array_push($errors, "Date is required"); 
 	}

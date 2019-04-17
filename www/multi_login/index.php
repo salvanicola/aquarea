@@ -4,6 +4,11 @@
 	$_SESSION['msg'] = "You must log in first";
 	header('location: login.php');
 	}
+	
+	if (isAdmin()) {
+	$_SESSION['msg'] = "Redirecting";
+	header('location: /multi_login/admin/home.php');
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +34,7 @@
 		<?php endif ?>
 		<!-- logged in user information -->
 		<div class="profile_info">
-			<img src="images/user_profile.png"  >
+			<img src="images/user_profil.png"  >
 
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
@@ -67,14 +72,14 @@
             if (!$db) {
                 die(mysql_error());
             }
-			$query = "SELECT title, author, rilascio FROM news";
+			$query = "SELECT title, author, Data FROM news";
             $results = mysqli_query($db,$query);
             while($row = mysqli_fetch_array($results)) {
             ?>
                 <tr>
                     <td><?php echo $row['title']?></td>
 					<td><?php echo $row['author']?></td>
-					<td><?php echo $row['rilascio']?></td>
+					<td><?php echo $row['Data']?></td>
                 </tr>
             <?php
             }

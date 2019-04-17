@@ -36,7 +36,16 @@ include('functions.php');
 		</div>
 		<div class="input-group">
 			<label>Content</label>
-			<textarea name="content" rows=20 cols=102 value="<?php echo $content; ?>"></textarea>
+			<textarea name="content" id="content">
+				<?php if(isset($_POST['content'])) {  
+				echo $_POST['content']; }?>
+			</textarea>
+			<script src='tinymce/tinymce.min.js'></script>
+			<script>
+			tinymce.init({
+				selector: '#content'
+			});
+			</script>
 		</div>
 		<div class="input-group">
 			<label>Author</label>

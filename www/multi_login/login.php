@@ -1,4 +1,14 @@
-<?php include('functions.php') ?>
+<?php include('functions.php');
+	if (isLoggedIn()) {
+		$_SESSION['msg'] = "You are already logged in";
+		if (isAdmin()) {
+			header('location: /multi_login/admin/home.php');
+		}
+		else {
+			header('location: /multi_login/index.php');
+		}
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
