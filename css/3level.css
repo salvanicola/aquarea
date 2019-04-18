@@ -1,5 +1,5 @@
 html {
-		min-width:800px;
+	min-width:800px;
 	background: url("../img/Logo-Background/Piscina-Splash.jpg") no-repeat  center center;
 	/*background: #d5e7f6 no-repeat  center center;*/
 	-webkit-background-size: cover;
@@ -88,6 +88,25 @@ header
 body
 =============================
 */
+
+.piscimg{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding:1%;
+	width:30%;
+}
+
+#piscinescop{
+	margin-top:5%;
+}
+
+#piscinescop ul{
+	padding:2%;
+	list-style-type:none;
+	text-align:center;
+	font-weight:bold;
+}
 
 #things{
 	margin-top:5%;
