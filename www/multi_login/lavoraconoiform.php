@@ -19,19 +19,22 @@ include('functions.php');
 
 <body>
 	<div id="header">
-		<a href="viest.html" id="imglogo">
+		<a href="../html/viest.html" id="imglogo">
 			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
 		</a>
-		<a href="eventi.html" class="headeright">Eventi</a>
-		<a href="piscinescoperte.html" class="headeright">Piscine Scoperte</a>
+		<a href="../html/eventi.html" class="headeright">Eventi</a>
+		<a href="../html/piscinescoperte.html" class="headeright">Piscine Scoperte</a>
 		<a class="headeright, active">Vicenza Est</a>
 	</div>
 
 	<div>
-		<p>SE VUOI LAVORARE CON NOI INVIA LA TUA DISPONIBILITA'</br>E IL TUO CURRICULUM VIA MAIL A:</br>CV.AQUAREA@GMAIL.COM</br>O CONSEGNALO PERSONALMENTE PRESSO IL NOSTRO IMPIANTO </br> </p>
+		<!--<p>SE VUOI LAVORARE CON NOI INVIA LA TUA DISPONIBILITA'</br>E IL TUO CURRICULUM VIA MAIL A:</br>CV.AQUAREA@GMAIL.COM</br>O CONSEGNALO PERSONALMENTE PRESSO IL NOSTRO IMPIANTO </br> </p> -->
+	<br>
+	<br>
+	<br>
 	</div>
 	<div class="header">
-		<h2>Invia il tuo Curriculum</h2>
+		<h2>Richiedi un colloquio</h2>
 	</div>
 	
 	<form method="post" action="create_news.php" enctype="multipart/form-data">
@@ -67,13 +70,14 @@ include('functions.php');
 		</div>
 		<div>
 			Seleziona il file .pdf del tuo CV:
-			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="file" name="pdfToUpload" id="pdfToUpload">
 		</div>
 		<div class="input-group">
-			<button type="submit" class="btn" name="register_n_btn">Send Request</button>
+			<button type="submit" class="btn" name="request_btn">Send Request</button>
 		</div>
 	</form>
 <!-- inserito header in fondo perchè così copre tutti gli elementi anche gli altri in absolute (come gli overlay) -->
+	<br>
 	<div id="footer">
 		<ul>
 			<li>AQUAREA VICENZA EST</li>

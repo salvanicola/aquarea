@@ -28,6 +28,9 @@ if (isset($_POST['register_n_btn'])) {
 if (isset($_POST['remove_n_btn'])) {
 	remove_n();
 }
+if (isset($_POST['request_btn'])) {
+	request_c();
+}
 
 // REGISTER USER
 function register(){
@@ -44,7 +47,7 @@ function register(){
 		if (empty($username)) { 
 		array_push($errors, "Username is required"); 
 	}
-	if (already('username',$username)) {
+	if (already('users','username',$username)) {
 		array_push($errors, "Username is already taken");
 	}
 	if (preg_match('/\W/', $username))
@@ -54,7 +57,7 @@ function register(){
 	if (empty($email)) { 
 		array_push($errors, "Email is required"); 
 	}		
-	else if (already('email',$email)) {
+	else if (already('users','email',$email)) {
 		array_push($errors, "An account with this Email already exist");
 	}
 	else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -122,7 +125,7 @@ function register_n(){
 	if (empty($author)) { 
 		array_push($errors, "Author is required"); 
 	}
-	else if(!already('username', $author))
+	else if(!already('users','username', $author))
 	{
 		array_push($errors, "Such Author does not exist");
 	}
@@ -166,6 +169,85 @@ function register_n(){
 		// if everything is ok, try to upload file
 	} else if(count($errors) == 0){
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    } else {
+		array_push($errors, "Sorry, there was an error uploading your file.");
+    }
+}
+	if (count($errors) == 0) {
+		$query = "INSERT INTO news (title, subtitle, content, author, Data, URL) 
+					 VALUES('$title', '$subtitle', '$content', '$author', '$date', '$URL')";
+		mysqli_query($db, $query);
+		$_SESSION['success']  = "News successfully created!!";
+		if(isAdmin())
+		{
+			header('location: admin/home.php');
+		}
+		else
+		{
+			header('location: ../multi_login/index.php');
+		}
+	}
+}
+
+function request_c(){
+	global $db, $errors, $name, $surname, $date, $email, $note;
+
+	$name    =  e($_POST['Nome']);
+	$surname =  e($_POST['Cognome']);
+	$date  =  e($_POST['Data']);
+	$email   =  e($_POST['Email']);
+	$note     =  e($_POST['Note']);
+
+	$target_dir = "documents/curriculum/";
+	$target_file = $target_dir . basename($_FILES['pdfToUpload']['name']);
+	$uploadOk = 1;
+	$FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		
+	if (empty($name)) { 
+		array_push($errors, "Name is required"); 
+	}
+	if (empty($surname)) { 
+		array_push($errors, "Surname is required"); 
+	}
+	if (empty($date)) { 
+		array_push($errors, "Date is required"); 
+	}
+	if (empty($email)) { 
+		array_push($errors, "Email is required"); 
+	}
+	else if (already('requests','Email',$email)) {
+		array_push($errors, "A request from this Email already exist");
+	}
+	else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
+		array_push($errors, "Email is not valid"); 
+	}
+	if ($_FILES['pdfToUpload']['size'] == 0) {
+		array_push($errors, "File is required");
+	} else {
+		$check = filesize($_FILES['pdfToUpload']['tmp_name']);
+		if($check !== false) {
+			$uploadOk = 1;
+		} else {
+			array_push($errors, "File is not a PDF");
+			$uploadOk = 0;
+		}
+		if ($_FILES["pdfToUpload"]["size"] > 500000) {
+			array_push($errors, "Sorry, your file is too large.");
+			$uploadOk = 0;
+		}
+		if($imageFileType != "pdf") {
+			array_push($errors, "Sorry, only PDF files are allowed.");
+			$uploadOk = 0;
+		}
+	}
+    
+	// Check if $uploadOk is set to 0 by an error
+	if ($uploadOk == 0 AND count($errors) == 0) {
+		array_push($errors, "Sorry, your file was not uploaded.");
+		// if everything is ok, try to upload file
+	} else if(count($errors) == 0){
+    if (move_uploaded_file($_FILES["pdfToUpload"]["tmp_name"], $target_file)) {
     } else {
 		array_push($errors, "Sorry, there was an error uploading your file.");
     }
@@ -261,9 +343,9 @@ function remove_n(){
 	}
 }
 
-function already($field, $value){
+function already($table, $field, $value){
 	global $db;
-	$query = "SELECT * FROM users WHERE $field = '$value'";
+	$query = "SELECT * FROM $table WHERE $field = '$value'";
 	$result = mysqli_query($db, $query);
 	if($result->num_rows == 0)
 	{
