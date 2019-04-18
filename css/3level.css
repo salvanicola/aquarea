@@ -1,7 +1,7 @@
 html {
 	min-width:800px;
-	background: url("../img/Logo-Background/aqua-blue-blue-water-1147124.jpg") no-repeat  center center;
-	/*background: #d5e7f6 no-repeat  center center;*/
+	/*background: url("../img/Logo-Background/aqua-blue-blue-water-1147124.jpg") no-repeat  center center;*/
+	background: #d5e7f6 no-repeat  center center;
 	-webkit-background-size: cover;
 	-moz-background-size:cover;
 	-o-background-size: cover;
@@ -130,8 +130,8 @@ body
 	padding-right:3%;
 	padding-top:1%;
 	padding-bottom:1%;
-	color:white;
 }
+
 
 h1{
 	font-size:3em;
@@ -139,9 +139,8 @@ h1{
 	background-color:#6cb3e0;
 	padding-bottom:1%;
 	padding-top:1%;
-	border-radius:15px;
-	margin:1%;
 	text-align:center;
+	margin:0;
 }
 
 h2{
@@ -151,11 +150,10 @@ h2{
 	padding-bottom:1%;
 	padding-top:1%;
 	padding-left:1%;
-	border-radius:15px;
-	margin:0.5%;
+		margin:0;
 }
 
-h2 a{
+h2 a, h1 a{
 	display:none;
 }
 
@@ -166,15 +164,13 @@ h2 a{
 p{
 	background-color:#c0dff2;
 	padding:1%;
-	border-radius:15px;
-	margin:0.5%;
+		margin:0;
 }
 
 .hour{
 	background:none;
 	text-align:center;
 	font-weight:bold;
-	color:white;
 }
 
 
@@ -187,7 +183,7 @@ footer
 
 #footer ul{
 	margin-top:3%;
-	background-color: rgba(0,0,0, 0.2);
+	background-color: rgba(0,0,0, 0.05);
 	padding-top:3%;
 	text-align:center;
 }
