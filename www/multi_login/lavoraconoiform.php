@@ -19,16 +19,19 @@ include('functions.php');
 
 <body>
 	<div id="header">
-		<a href="viest.html" id="imglogo">
+		<a href="../html/viest.html" id="imglogo">
 			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
 		</a>
-		<a href="eventi.html" class="headeright">Eventi</a>
-		<a href="piscinescoperte.html" class="headeright">Piscine Scoperte</a>
+		<a href="../html/eventi.html" class="headeright">Eventi</a>
+		<a href="../html/piscinescoperte.html" class="headeright">Piscine Scoperte</a>
 		<a class="headeright, active">Vicenza Est</a>
 	</div>
 
 	<div>
-		<p>SE VUOI LAVORARE CON NOI INVIA LA TUA DISPONIBILITA'</br>E IL TUO CURRICULUM VIA MAIL A:</br>CV.AQUAREA@GMAIL.COM</br>O CONSEGNALO PERSONALMENTE PRESSO IL NOSTRO IMPIANTO </br> </p>
+		<!--<p>SE VUOI LAVORARE CON NOI INVIA LA TUA DISPONIBILITA'</br>E IL TUO CURRICULUM VIA MAIL A:</br>CV.AQUAREA@GMAIL.COM</br>O CONSEGNALO PERSONALMENTE PRESSO IL NOSTRO IMPIANTO </br> </p> -->
+	<br>
+	<br>
+	<br>
 	</div>
 	<div class="header">
 		<h2>Richiedi un colloquio</h2>
@@ -74,6 +77,7 @@ include('functions.php');
 		</div>
 	</form>
 <!-- inserito header in fondo perchè così copre tutti gli elementi anche gli altri in absolute (come gli overlay) -->
+	<br>
 	<div id="footer">
 		<ul>
 			<li>AQUAREA VICENZA EST</li>
