@@ -9,8 +9,10 @@ html {
 }
 
 body{
-	margin:0;
 	font-family: 'Montserrat';
+	background: #d5e7f6 no-repeat  center center;
+	width:70%;
+	margin:auto;
 }
 
 #unicorni{
@@ -27,7 +29,10 @@ header
 	min-width:780px;
 	position: fixed;
 	top:0;
+	left:0;
 	width:100%;
+	background-color: #003366;
+	overflow: hidden;
 }
 #header img{
 	float:left;
@@ -38,10 +43,6 @@ header
 	padding-top:0.35%;
 }
 
-#header {
-	background-color: #003366;
-	overflow: hidden;
-}
 
 .headeright{
 	float: right;
@@ -109,7 +110,7 @@ body
 }
 
 #chisiamobod{
-	margin-top:30%;
+	margin-top:5%;
 }
 
 #things{
@@ -130,8 +131,8 @@ body
 	padding-right:3%;
 	padding-top:1%;
 	padding-bottom:1%;
-	color:white;
 }
+
 
 h1{
 	font-size:3em;
@@ -139,9 +140,8 @@ h1{
 	background-color:#6cb3e0;
 	padding-bottom:1%;
 	padding-top:1%;
-	border-radius:15px;
-	margin:1%;
 	text-align:center;
+	margin:0;
 }
 
 h2{
@@ -151,11 +151,10 @@ h2{
 	padding-bottom:1%;
 	padding-top:1%;
 	padding-left:1%;
-	border-radius:15px;
-	margin:0.5%;
+		margin:0;
 }
 
-h2 a{
+h2 a, h1 a{
 	display:none;
 }
 
@@ -166,15 +165,13 @@ h2 a{
 p{
 	background-color:#c0dff2;
 	padding:1%;
-	border-radius:15px;
-	margin:0.5%;
+		margin:0;
 }
 
 .hour{
 	background:none;
 	text-align:center;
 	font-weight:bold;
-	color:white;
 }
 
 
@@ -187,7 +184,7 @@ footer
 
 #footer ul{
 	margin-top:3%;
-	background-color: rgba(0,0,0, 0.2);
+	background-color: rgba(0,0,0, 0.05);
 	padding-top:3%;
 	text-align:center;
 }
