@@ -14,6 +14,10 @@ $content  = "";
 $author   = "";
 $date     = "0000-00-00";
 $URL 	  = "";
+$name    =  "";
+$surname =  "";
+$note = "";
+$output = "Inserisci qui i tuoi dati";
 
 // call the register() function if register_btn is clicked
 if (isset($_POST['register_btn'])) {
@@ -44,7 +48,7 @@ function register(){
 	$password_1  =  e($_POST['password_1']);
 	$password_2  =  e($_POST['password_2']);
 
-		if (empty($username)) { 
+	if (empty($username)) { 
 		array_push($errors, "Username is required"); 
 	}
 	if (already('users','username',$username)) {
@@ -192,11 +196,11 @@ function register_n(){
 function request_c(){
 	global $db, $errors, $name, $surname, $date, $email, $note;
 
-	$name    =  e($_POST['Nome']);
-	$surname =  e($_POST['Cognome']);
-	$date  =  e($_POST['Data']);
-	$email   =  e($_POST['Email']);
-	$note     =  e($_POST['Note']);
+	$name    =  e($_POST['name']);
+	$surname =  e($_POST['surname']);
+	$date  =  e($_POST['date']);
+	$email   =  e($_POST['email']);
+	$note     =  e($_POST['note']); 
 
 	$target_dir = "documents/curriculum/";
 	$target_file = $target_dir . basename($_FILES['pdfToUpload']['name']);
@@ -236,7 +240,7 @@ function request_c(){
 			array_push($errors, "Sorry, your file is too large.");
 			$uploadOk = 0;
 		}
-		if($imageFileType != "pdf") {
+		if($FileType != "pdf") {
 			array_push($errors, "Sorry, only PDF files are allowed.");
 			$uploadOk = 0;
 		}
@@ -253,18 +257,11 @@ function request_c(){
     }
 }
 	if (count($errors) == 0) {
-		$query = "INSERT INTO news (title, subtitle, content, author, Data, URL) 
-					 VALUES('$title', '$subtitle', '$content', '$author', '$date', '$URL')";
+		$query = "INSERT INTO requests (name, surname, date, email, note) 
+					 VALUES('$name', '$surname', '$date', '$email', '$note')";
 		mysqli_query($db, $query);
-		$_SESSION['success']  = "News successfully created!!";
-		if(isAdmin())
-		{
-			header('location: admin/home.php');
-		}
-		else
-		{
-			header('location: ../multi_login/index.php');
-		}
+		header('location: lavoraconoiform.php');
+		$output = "Request successfully sent!!";
 	}
 }
 
