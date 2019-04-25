@@ -1,6 +1,9 @@
 <?php 
 include('functions.php');
-
+if (!isLoggedIn()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +28,7 @@ include('functions.php');
 	<form method="post" action="create_news.php" enctype="multipart/form-data">
 
 		<?php echo display_error(); ?>
-
+		
 		<div class="input-group">
 			<label>Title</label>
 			<input type="text" name="title" value="<?php echo $title; ?>">
