@@ -17,7 +17,7 @@
 
 <body>
 	<div id="headerformobile">
-		<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
+		<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
 		<span onclick="openNav()">&#9776; </span>
 	</div>
 	<div id="content">
@@ -26,7 +26,7 @@
 	
 	<div id="menu">
 		<ul id="external">
-			<li class="container"><span onclick="openMen()" >Piscina <span id="freccetta">&#9660</span></span>
+			<li class="container"><span onclick="openMen()" >Piscina <span class="freccetta">&#9660;</span></span>
 				<ul id="piscina" class="overlay"> 
 					<li><a href="piscina.html#corsi">Corsi nuoto</a></li>
 					<li><a href="piscina.html#agonismo">Agonismo</a></li>
@@ -34,7 +34,7 @@
 					<li xml:lang="en"><a href="piscina.html#altricorsi">Altri Corsi</a></li>
 				</ul>
 			</li>
-			<li class="container"><span onclick="openMen2()" >Palestra <span id="freccetta">&#9660</span></span>
+			<li class="container"><span onclick="openMen2()" >Palestra <span class="freccetta">&#9660;</span></span>
 				<ul id="palestra" class="overlay">	
 					<li><a href="palestra.html#corsi"><span xml:lang="en">Planning</span> Terra</a></li>
 					<li><a href="palestra.html#corsi">Sala Pesi</a></li>
@@ -48,10 +48,9 @@
 	<!-- inserito header in fondo perchè così copre tutti gli elementi anche gli altri in absolute (come gli overlay) -->	
 
 	<div id="header">
-		<a href="viest.html" id="imglogo">
 		<a class="closebtn" onclick="closeNav()">&times;</a>
-		<a id="imglogo">
-			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
+		<a id="imglogo" href="viest.html">
+			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
 		</a>
 		<a href="eventi.html" class="headeright">Eventi</a>
 		<a href="piscinescoperte.html" class="headeright">Piscine Scoperte</a>
