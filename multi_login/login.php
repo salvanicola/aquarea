@@ -2,10 +2,10 @@
 	if (isLoggedIn()) {
 		$_SESSION['msg'] = "You are already logged in";
 		if (isAdmin()) {
-			header('location: /aquarea/multi_login/admin/home.php');
+			header('location: admin/home.php');
 		}
 		else {
-			header('location: /aquarea/multi_login/index.php');
+			header('location: index.php');
 		}
 	}
 ?>
