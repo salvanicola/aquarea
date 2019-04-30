@@ -194,7 +194,7 @@ function register_n(){
 }
 
 function request_c(){
-	global $db, $errors, $name, $surname, $date, $email, $note;
+	global $db, $errors, $name, $surname, $date, $email, $note, $test;
 
 	$name    =  e($_POST['name']);
 	$surname =  e($_POST['surname']);
@@ -257,8 +257,9 @@ function request_c(){
     }
 }
 	if (count($errors) == 0) {
+		$test = $_FILES["pdfToUpload"]["name"];
 		$query = "INSERT INTO requests (name, surname, date, email, note) 
-					 VALUES('$name', '$surname', '$date', '$email', '$note')";
+					 VALUES('$name', '$surname', '$date', '$email', '$test')";
 		mysqli_query($db, $query);
 		header('location: lavoraconoiform.php');
 		$output = "Request successfully sent!!";
@@ -283,6 +284,9 @@ function remove(){
 	}
 	if (!already_2('users','username','email', $username, $email)) {
 		array_push($errors, "Such combination of User/Email do not exist");
+	}
+	if ($_SESSION['user']['username'] == $username) {
+		array_push($errors, "You can't delete your own account");
 	}
 	if (empty($email)) { 
 		array_push($errors, "Email is required"); 
