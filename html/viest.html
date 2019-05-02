@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="screen and (min-device-width:780px)"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/> 
 	<script type="text/javascript" src="../js/scriptsidebar.js"></script>
+	<script type="text/javascript" src="../js/slideshow.js"></script>
 </head>
 
 <body>
@@ -20,10 +21,28 @@
 		<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
 		<span onclick="openNav()">&#9776; </span>
 	</div>
-	<div id="content">
-		<img src="../img/Logo-Background/nuoto.jpeg" id="unicorni" alt="unicorni"/>
-	</div>	
-	
+	<div class="slideshow-container">
+		<div class="mySlides fade">
+			<img class="slideshow-img" src="../img/News/news1.jpg" onload="Sliding()">
+			<div class="text">
+				<h1> Notizia 1 </h1>
+				<h2 class="text-date"> 02/05/2019 </h2>
+				<h3> Questo è il testo della prima notizia </h3>
+			</div>
+		</div>
+		<div class="mySlides fade">
+			<img class="slideshow-img" src="../img/News/news2.jpg" onload="Sliding()">
+			<div class="text">
+				<h1> Notizia 2 </h1>
+				<h2 class="text-date"> 03/05/2019 </h2>
+				<h3> Questo è il testo della seconda notizia </h3>
+				</div>
+		</div>
+	</div>
+	<div class="dots">
+			<span class="dot"></span> 
+			<span class="dot"></span> 
+		</div>
 	<div id="menu">
 		<ul id="external">
 			<li class="container"><span onclick="openMen()" >Piscina <span class="freccetta">&#9660;</span></span>
