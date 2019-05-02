@@ -42,7 +42,15 @@
 	
 	<form method="post" action="lavoraconoiform.php" enctype="multipart/form-data">
 		<?php echo display_error(); ?>
-		
+		<?php if (!empty($output)) : ?>
+			<div class="error success" >
+				<h3>
+					<?php 					
+							echo $output;
+					?>
+				</h3>
+			</div>
+		<?php endif ?>
 		
 		<div class="input-group">
 			<label>Nome</label>
@@ -59,15 +67,14 @@
 		<div class="input-group">
 			<label>Sesso</label>
 			<select name="sesso" id="sesso" >
-				<option value="admin">Maschio</option>
-				<option value="mod">Femmina</option>
+				<option value="Maschio">Maschio</option>
+				<option value="Femmina">Femmina</option>
 			</select>
 		</div>
 		<div class="input-group">
 			<label>Email</label>
 			<input type="email" name="email" value="<?php echo $email; ?>">
 		</div>
-		<!-- da aggiungere il conferma email -->
 		<div class="input-group">
 			<label>Note aggiuntive</label>
 			<textarea name="note" rows=4 cols=102><?php echo $note; ?></textarea>

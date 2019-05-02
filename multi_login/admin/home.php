@@ -66,7 +66,7 @@ if (isset($_GET['logout'])) {
 		<a class="btn" style="background:#003366" href="remove_user.php"> Remove User</a>
 		<br>
 		<br>
-		<table border="1">
+		<table border="1" width="100%">
         <thead>
             <tr>
                 <th>Username</th>
@@ -82,6 +82,13 @@ if (isset($_GET['logout'])) {
             }
 			$query = "SELECT username, email, user_type FROM users";
             $results = mysqli_query($db,$query);
+			if ($results->num_rows == 0)
+			{?>
+				<tr>
+					<td colspan="6"><?php echo "Nessun utente trovata"?></td>
+				</tr>
+			<?php
+			}
             while($row = mysqli_fetch_array($results)) {
             ?>
                 <tr>
@@ -104,7 +111,7 @@ if (isset($_GET['logout'])) {
 		<a class="btn" style="background:#003366" href="../remove_news.php"> Remove News</a>
 		<br>
 		<br>
-		<table border="1">
+		<table border="1" width="100%">
         <thead>
             <tr>
                 <th>Titolo</th>
@@ -121,6 +128,13 @@ if (isset($_GET['logout'])) {
             }
 			$query = "SELECT title, author, Data, URL FROM news";
             $results = mysqli_query($db,$query);
+			if ($results->num_rows == 0)
+			{?>
+				<tr>
+					<td colspan="6"><?php echo "Nessuna news trovata"?></td>
+				</tr>
+			<?php
+			}
             while($row = mysqli_fetch_array($results)) {
             ?>
                 <tr>
@@ -139,10 +153,10 @@ if (isset($_GET['logout'])) {
 		<h2> Gestione richieste </h2>
 	</div>
 	<div class="content">
-		<a class="btn" style="background:#003366" href=""> Remove Request</a>
+		<a class="btn" style="background:#003366" href="../remove_request.php"> Remove Request</a>
 		<br>
 		<br>
-		<table border="1">
+		<table border="1" width="100%">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -159,8 +173,15 @@ if (isset($_GET['logout'])) {
             if (!$db) {
                 die(mysql_error());
             }
-			$query = "SELECT name, surname, sesso, date, email, note FROM requests";
+			$query = "SELECT name, surname, sesso, date, email, cv FROM requests";
             $results = mysqli_query($db,$query);
+			if ($results->num_rows == 0)
+			{?>
+				<tr>
+					<td colspan="6"><?php echo "Nessuna richiesta trovata"?></td>
+				</tr>
+			<?php
+			}
             while($row = mysqli_fetch_array($results)) {
             ?>
                 <tr>
@@ -169,7 +190,7 @@ if (isset($_GET['logout'])) {
 					<td><?php echo $row['sesso']?></td>
 					<td><?php echo $row['date']?></td>
 					<td><?php echo $row['email']?></td>
-					<td> <a href="../documents/curriculum/<?php echo $row['note']?>">Download</a></td>
+					<td> <a href="../documents/curriculum/<?php echo $row['cv']?>">Download</a></td>
                 </tr>
             <?php
             }

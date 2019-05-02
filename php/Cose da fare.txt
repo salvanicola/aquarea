@@ -1,9 +1,5 @@
 Cose da fare php:
 
-- Home/Index
--- Inserire funzionalità di gestione richieste di colloquio
--- Legare file caricati ed entry nel database
-
 - Estetica pannello Amministrativo
 -- Eventualmente Fixare tutto il css e dare una sistemata al codice
 
