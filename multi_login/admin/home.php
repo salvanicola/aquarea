@@ -66,12 +66,12 @@ if (isset($_GET['logout'])) {
 		<a class="btn" style="background:#003366" href="remove_user.php"> Remove User</a>
 		<br>
 		<br>
-		<table border="1">
+		<table border="1" width="100%">
         <thead>
             <tr>
-                <th>Username</td>
-				<th>Email</td>
-				<th>User Level</td>
+                <th>Username</th>
+				<th>Email</th>
+				<th>User Level</th>
             </tr>
         </thead>
         <tbody>
@@ -82,6 +82,13 @@ if (isset($_GET['logout'])) {
             }
 			$query = "SELECT username, email, user_type FROM users";
             $results = mysqli_query($db,$query);
+			if ($results->num_rows == 0)
+			{?>
+				<tr>
+					<td colspan="6"><?php echo "Nessun utente trovata"?></td>
+				</tr>
+			<?php
+			}
             while($row = mysqli_fetch_array($results)) {
             ?>
                 <tr>
@@ -104,13 +111,13 @@ if (isset($_GET['logout'])) {
 		<a class="btn" style="background:#003366" href="../remove_news.php"> Remove News</a>
 		<br>
 		<br>
-		<table border="1">
+		<table border="1" width="100%">
         <thead>
             <tr>
-                <th>Titolo</td>
-				<th>Autore</td>
-				<th>Data Pubblicazione</td>
-				<th>URL</td>
+                <th>Titolo</th>
+				<th>Autore</th>
+				<th>Data Pubblicazione</th>
+				<th>URL</th>
             </tr>
         </thead>
         <tbody>
@@ -121,6 +128,13 @@ if (isset($_GET['logout'])) {
             }
 			$query = "SELECT title, author, Data, URL FROM news";
             $results = mysqli_query($db,$query);
+			if ($results->num_rows == 0)
+			{?>
+				<tr>
+					<td colspan="6"><?php echo "Nessuna news trovata"?></td>
+				</tr>
+			<?php
+			}
             while($row = mysqli_fetch_array($results)) {
             ?>
                 <tr>
@@ -128,6 +142,55 @@ if (isset($_GET['logout'])) {
 					<td><?php echo $row['author']?></td>
 					<td><?php echo $row['Data']?></td>
 					<td> <a href="<?php echo $row['URL']?>"><?php echo $row['URL']?> </a></td>
+                </tr>
+            <?php
+            }
+            ?>
+            </tbody>
+            </table>
+	</div>
+	<div class="header" >
+		<h2> Gestione richieste </h2>
+	</div>
+	<div class="content">
+		<a class="btn" style="background:#003366" href="../remove_request.php"> Remove Request</a>
+		<br>
+		<br>
+		<table border="1" width="100%">
+        <thead>
+            <tr>
+                <th>Nome</th>
+				<th>Cognome</th>
+				<th>Sesso</th>
+				<th>Data di Nascita</th>
+				<th>Email</th>
+				<th>Curriculum</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+            $db = mysqli_connect('localhost', 'root', '', 'multi_login');
+            if (!$db) {
+                die(mysql_error());
+            }
+			$query = "SELECT name, surname, sesso, date, email, cv FROM requests";
+            $results = mysqli_query($db,$query);
+			if ($results->num_rows == 0)
+			{?>
+				<tr>
+					<td colspan="6"><?php echo "Nessuna richiesta trovata"?></td>
+				</tr>
+			<?php
+			}
+            while($row = mysqli_fetch_array($results)) {
+            ?>
+                <tr>
+                    <td><?php echo $row['name']?></td>
+					<td><?php echo $row['surname']?></td>
+					<td><?php echo $row['sesso']?></td>
+					<td><?php echo $row['date']?></td>
+					<td><?php echo $row['email']?></td>
+					<td> <a href="../documents/curriculum/<?php echo $row['cv']?>">Download</a></td>
                 </tr>
             <?php
             }
