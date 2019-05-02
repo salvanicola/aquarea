@@ -55,13 +55,14 @@ HEADER
 
 #header .active {
 	float: right;
-	background-color: #4d94ff;
+	background-color: #6cb3e0;
 	color: white;
 	text-align: center;
 	padding: 0.5em 0.5em;
 	text-decoration: none;
 	font-size: 1.5em;
 	font-family: 'Montserrat';
+	border-bottom:2px solid white;
 }
 
 #hamburger{
