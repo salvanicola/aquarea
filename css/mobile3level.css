@@ -23,10 +23,6 @@ header
 ==========================
 */
 
-#header .active{
-	display:none;
-}
-
 #headerformobile{
 	position:fixed;
 	top:0;

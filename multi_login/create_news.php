@@ -34,10 +34,6 @@ if (!isLoggedIn()) {
 			<input type="text" name="title" value="<?php echo $title; ?>">
 		</div>
 		<div class="input-group">
-			<label>Subtitle</label>
-			<input type="text" name="subtitle" value="<?php echo $subtitle; ?>">
-		</div>
-		<div class="input-group">
 			<label>Content</label>
 			<textarea name="content" id="content">
 				<?php if(isset($_POST['content'])) {  
@@ -58,10 +54,6 @@ if (!isLoggedIn()) {
 			<label>Date</label>
 			<input type="date" name="date" value="<?php echo $date; ?>">
 		</div class="input-group">
-		<div class="input-group">
-			<label>URL</label>
-			<input type="text" name="URL" value="<?php echo $URL; ?>">
-		</div>
 		<div>
 			Select image to upload:
 			<input type="file" name="fileToUpload" id="fileToUpload">

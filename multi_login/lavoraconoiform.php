@@ -13,19 +13,13 @@
 	<meta name="keywords" content="piscina, palestra, corsi nuoto, acquagym, agonismo, " />
 	<meta name="language" content="italian it" />
 	<meta name="author" content="Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele" />
-	<link rel="stylesheet" type="text/css" href="../css/mobilefirstlevel.css" media="handheld, screen and (max-device-width:600px)"/>
-	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="handheld, screen and (min-device-width:780px)"/> 
+	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="handheld, screen"/> 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> 
-	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:780px)"/>
-	<script type="text/javascript" src="../js/scriptsidebar.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
 
 <body>
-	<div id="headerformobile">
-		<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
-		<span onclick="openNav()">&#9776; </span>
-	</div>
 	<div id="header">
 		<a href="../html/viest.html" id="imglogo">
 			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
@@ -48,15 +42,6 @@
 	
 	<form method="post" action="lavoraconoiform.php" enctype="multipart/form-data">
 		<?php echo display_error(); ?>
-		<?php if (!empty($output)) : ?>
-			<div class="error success" >
-				<h3>
-					<?php 					
-							echo $output;
-					?>
-				</h3>
-			</div>
-		<?php endif ?>
 		
 		<div class="input-group">
 			<label>Nome</label>

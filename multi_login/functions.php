@@ -9,11 +9,9 @@ $username = "";
 $email    = "";
 $errors   = array(); 
 $title    = "";
-$subtitle = "";
 $content  = "";
 $author   = "";
 $date     = "0000-00-00";
-$URL 	  = "";
 $name     =  "";
 $surname  =  "";
 $note     = "";
@@ -109,10 +107,9 @@ function register(){
 }
 
 function register_n(){
-	global $db, $errors, $title, $subtitle, $content, $author, $date, $URL;
+	global $db, $errors, $title, $content, $author, $date;
 
 	$title    =  e($_POST['title']);
-	$subtitle =  e($_POST['subtitle']);
 	$content  =  e($_POST['content']);
 	$author   =  e($_POST['author']);
 	$date     =  e($_POST['date']);
@@ -139,17 +136,11 @@ function register_n(){
 	if (empty($date)) { 
 		array_push($errors, "Date is required"); 
 	}
-	if (empty($URL)) { 
-		array_push($errors, "URL is required"); 
-	}
-	else if (!filter_var($URL, FILTER_VALIDATE_URL))
-	{
-		array_push($errors, "URL is not valid"); 
-	}
 	if ($_FILES['fileToUpload']['size'] == 0) {
 		array_push($errors, "File is required");
 	} else {
 		$check = getimagesize($_FILES['fileToUpload']['tmp_name']);
+		list($width, $height) = $check;
 		if($check !== false) {
 			$uploadOk = 1;
 		} else {
@@ -168,6 +159,11 @@ function register_n(){
 			array_push($errors, "Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
 			$uploadOk = 0;
 		}
+		if($width != 1920 || $height != 784)
+		{
+			array_push($errors, "Sorry, your image resolution is not correct ''(''must be 1920x784'')''");
+			$uploadOk = 0;
+		}
 	}
     
 	// Check if $uploadOk is set to 0 by an error
@@ -181,8 +177,8 @@ function register_n(){
     }
 }
 	if (count($errors) == 0) {
-		$query = "INSERT INTO news (title, subtitle, content, author, Data, URL) 
-					 VALUES('$title', '$subtitle', '$content', '$author', '$date', '$URL')";
+		$query = "INSERT INTO news (title, content, author, Data) 
+					 VALUES('$title', '$content', '$author', '$date')";
 		mysqli_query($db, $query);
 		$_SESSION['success']  = "News successfully created!!";
 		if(isAdmin())
