@@ -31,7 +31,8 @@ surname VARCHAR(100) NOT NULL,
 date DATE NOT NULL,
 email VARCHAR (100) PRIMARY KEY,
 Sesso ENUM('Maschio','Femmina') NOT NULL,
-note TEXT
+note TEXT,
+cv VARCHAR (100) NOT NULL UNIQUE
 );
 
 
