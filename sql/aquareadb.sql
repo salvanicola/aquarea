@@ -21,6 +21,7 @@ title VARCHAR(20) NOT NULL UNIQUE,
 content VARCHAR(150) NOT NULL,
 author VARCHAR(100) NOT NULL,
 Data DATE,
+img VARCHAR(100) NOT NULL,
 FOREIGN KEY (author) REFERENCES users(username)
 );
 
