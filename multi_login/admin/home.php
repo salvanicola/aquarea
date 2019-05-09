@@ -85,7 +85,7 @@ if (isset($_GET['logout'])) {
 			if ($results->num_rows == 0)
 			{?>
 				<tr>
-					<td colspan="6"><?php echo "Nessun utente trovata"?></td>
+					<td colspan="6"><?php echo "Nessun utente trovato"?></td>
 				</tr>
 			<?php
 			}
@@ -117,7 +117,7 @@ if (isset($_GET['logout'])) {
                 <th>Titolo</th>
 				<th>Autore</th>
 				<th>Data Pubblicazione</th>
-				<th>URL</th>
+				<th>Image</th>
             </tr>
         </thead>
         <tbody>
@@ -126,7 +126,7 @@ if (isset($_GET['logout'])) {
             if (!$db) {
                 die(mysql_error());
             }
-			$query = "SELECT title, author, Data, URL FROM news";
+			$query = "SELECT title, author, Data, img FROM news";
             $results = mysqli_query($db,$query);
 			if ($results->num_rows == 0)
 			{?>
@@ -141,7 +141,7 @@ if (isset($_GET['logout'])) {
                     <td><?php echo $row['title']?></td>
 					<td><?php echo $row['author']?></td>
 					<td><?php echo $row['Data']?></td>
-					<td> <a href="<?php echo $row['URL']?>"><?php echo $row['URL']?> </a></td>
+					<td> <a href="../../img/News/<?php echo $row['img']?>">View image</a></td>
                 </tr>
             <?php
             }
@@ -173,7 +173,7 @@ if (isset($_GET['logout'])) {
             if (!$db) {
                 die(mysql_error());
             }
-			$query = "SELECT name, surname, sesso, date, email, cv FROM requests";
+			$query = "SELECT name, surname, date, email, Sesso, cv FROM requests";
             $results = mysqli_query($db,$query);
 			if ($results->num_rows == 0)
 			{?>

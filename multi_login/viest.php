@@ -24,47 +24,59 @@
 	</div>
 	<div id="slide">
 		<div class="slideshow-container">
-			<div class="mySlides fade">
-				<img class="slideshow-img" src="../img/News/news1.jpg" onload="showSlides()">
-				<div class="text">
-					<h1> Notizia 1 </h1>
-					<h2 class="text-date"> 02/05/2019 </h2>
-					<h3> Questo è il testo della prima notiziaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </h3>
+		<?php
+			$db = mysqli_connect('localhost', 'root', '', 'multi_login');
+			if (!$db) {
+				die(mysql_error());
+			}
+			$query = "SELECT title, content, Data, img FROM news";
+			$results = mysqli_query($db,$query);
+			$check = false;
+			while($row = mysqli_fetch_array($results)) {
+			?>
+				<div class="mySlides fade">
+					<img class="slideshow-img" src="../img/News/<?php echo $row['img']?>" <?php if($check == false){?> onload="showSlides()" <?php $check = true;}?>>
+					<div class="text">
+						<h1> <?php echo $row['title']?> </h1>
+						<h2 class="text-date"> <?php echo $row['Data']?> </h2>
+						<h3> <?php echo $row['content']?> </h3>
+					</div>
 				</div>
-			</div>
-			<div class="mySlides fade">
-				<img class="slideshow-img" src="../img/News/news2.jpg">
-				<div class="text">
-					<h1> Notizia 2 </h1>
-					<h2 class="text-date"> 03/05/2019 </h2>
-					<h3> Questo è il testo della seconda notizia </h3>
-				</div>
-			</div>
+			<?php
+			}
+			?>
 			<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a class="next" onclick="plusSlides(1)">&#10095;</a> </div>
 		</div>
-		<div class="dots">
-			<span class="dot" onclick="currentSlide(1)"></span> 
-			<span class="dot" onclick="currentSlide(2)"></span> 
+		<div class="dots">	
+			<?php
+			$i = 1;
+			while ($i <= ($results->num_rows)){
+			?>
+				<span class="dot" onclick="currentSlide(<?php echo $i ?>)"></span>
+			<?php
+				$i = $i + 1;
+			}
+			?>
 		</div>
 	</div>
 	<div id="menu">
 		<ul id="external">
 			<li class="container"><span onclick="openMen()" >Piscina <span class="freccetta">&#9660;</span></span>
 				<ul id="piscina" class="overlay"> 
-					<li><a href="piscina.html#corsi">Corsi nuoto</a></li>
-					<li><a href="piscina.html#agonismo">Agonismo</a></li>
-					<li> <a href="piscina.html#nuotolibero">Nuoto Libero</a></li>
-					<li xml:lang="en"><a href="piscina.html#altricorsi">Altri Corsi</a></li>
+					<li><a href="../html/piscina.html#corsi">Corsi nuoto</a></li>
+					<li><a href="../html/piscina.html#agonismo">Agonismo</a></li>
+					<li> <a href="../html/piscina.html#nuotolibero">Nuoto Libero</a></li>
+					<li xml:lang="en"><a href="../html/piscina.html#altricorsi">Altri Corsi</a></li>
 				</ul>
 			</li>
 			<li class="container"><span onclick="openMen2()" >Palestra <span class="freccetta">&#9660;</span></span>
 				<ul id="palestra" class="overlay">	
-					<li><a href="palestra.html#corsi"><span xml:lang="en">Planning</span> Terra</a></li>
-					<li><a href="palestra.html#corsi">Sala Pesi</a></li>
+					<li><a href="../html/palestra.html#corsi"><span xml:lang="en">Planning</span> Terra</a></li>
+					<li><a href="../html/palestra.html#corsi">Sala Pesi</a></li>
 				</ul>
 			</li>
 			<li id="lavoraconoi" class="container"><a href="../multi_login/lavoraconoiform.php">Lavora con noi</a></li>
-			<li id="chisiamo" class="container"><a href="chisiamo.html">Chi siamo</a></li>
+			<li id="chisiamo" class="container"><a href="../html/chisiamo.html">Chi siamo</a></li>
 		</ul>
 	</div>
 	
@@ -72,11 +84,12 @@
 
 	<div id="header">
 		<a class="closebtn" onclick="closeNav()">&times;</a>
-		<a id="imglogo" href="viest.html">
+		<a id="imglogo" href="viest.php">
 			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
 		</a>
-		<a href="eventi.html" class="headeright">Eventi</a>
-		<a href="piscinescoperte.html" class="headeright">Piscine Scoperte</a>
+		<a href="../html/piscinescoperte.html" class="headeright">Piscine Scoperte</a>
+		<a href="../html/palestra.html" class="headeright">Palestra</a>
+		<a href="../html/piscina.html" class="headeright">Piscina</a>
 	</div>
 
 	<div id="footer">
@@ -91,4 +104,3 @@
 	</div>
 </body>
 </html>
-

@@ -21,12 +21,12 @@
 
 <body>
 	<div id="header">
-		<a href="../html/viest.html" id="imglogo">
+		<a href="viest.php" id="imglogo">
 			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
 		</a>
-		<a href="../html/eventi.html" class="headeright">Eventi</a>
 		<a href="../html/piscinescoperte.html" class="headeright">Piscine Scoperte</a>
-		<a class="headeright, active">Vicenza Est</a>
+		<a href="../html/palestra.html" class="headeright">Palestra</a>
+		<a href="../html/piscina.html" class="headeright">Piscina</a>
 	</div>
 
 	<div>

@@ -107,15 +107,14 @@ function register(){
 }
 
 function register_n(){
-	global $db, $errors, $title, $content, $author, $date;
+	global $db, $errors, $title, $content, $author, $date, $img;
 
 	$title    =  e($_POST['title']);
 	$content  =  e($_POST['content']);
 	$author   =  e($_POST['author']);
 	$date     =  e($_POST['date']);
-	$URL	  =  e($_POST['URL']);
 
-	$target_dir = "images/News/";
+	$target_dir = "../img/News/";
 	$target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -125,6 +124,10 @@ function register_n(){
 	}
 	if (empty($content)) { 
 		array_push($errors, "Content is required"); 
+	}
+	else if(strlen($content)>150)
+	{
+		array_push($errors, "Content can have 150 characters max"); 
 	}
 	if (empty($author)) { 
 		array_push($errors, "Author is required"); 
@@ -151,7 +154,7 @@ function register_n(){
 			array_push($errors, "Sorry, file already exists."); 
 			$uploadOk = 0;
 		}
-		if ($_FILES["fileToUpload"]["size"] > 500000) {
+		if ($_FILES["fileToUpload"]["size"] > 1000000) {
 			array_push($errors, "Sorry, your file is too large.");
 			$uploadOk = 0;
 		}
@@ -177,8 +180,9 @@ function register_n(){
     }
 }
 	if (count($errors) == 0) {
-		$query = "INSERT INTO news (title, content, author, Data) 
-					 VALUES('$title', '$content', '$author', '$date')";
+		$img = $_FILES["fileToUpload"]["name"];
+		$query = "INSERT INTO news (title, content, author, Data, img) 
+					 VALUES('$title', '$content', '$author', '$date', '$img')";
 		mysqli_query($db, $query);
 		$_SESSION['success']  = "News successfully created!!";
 		if(isAdmin())
@@ -331,9 +335,15 @@ function remove_n(){
 		array_push($errors, "Date is required"); 
 	}
 	if (count($errors) == 0) {
+		$query = "SELECT img FROM news
+				  WHERE title = '$title' AND author = '$author' AND Data = '$date'";
+		$result = mysqli_query($db, $query);
+		$result_a = mysqli_fetch_assoc($result);
+		$cleanup = implode($result_a);
 		$query = "DELETE FROM news  
 				  WHERE title = '$title' AND author = '$author' AND Data = '$date'";
 		mysqli_query($db, $query);
+		unlink("../img/News/$cleanup") or die("Couldn't delete file");
 		$_SESSION['success']  = "News successfully removed!!";
 		if(isAdmin())
 		{
