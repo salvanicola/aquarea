@@ -43,7 +43,18 @@ if (isset($_GET['logout'])) {
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="reject_btn"> Reject request</button>
-			<a style="margin-left:2%" href="javascript:history.back()"> Back </a>
+			<?php
+			if (isAdmin()) {
+			?>
+				<a style="margin-left:2%" href="admin/home.php"> Back </a>
+			<?php
+			}
+			else {
+			?>
+				<a style="margin-left:2%" href="index.php"> Back </a>
+			<?php
+			}
+			?>
 		</div>
 	</form>
 </body>

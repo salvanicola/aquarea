@@ -33,8 +33,8 @@ if (isset($_GET['logout'])) {
 			<div class="error success" >
 				<h3>
 					<?php 
-						echo $_SESSION['success']; 
-						unset($_SESSION['success']);
+						echo $_SESSION['success'];
+						unset ($_SESSION['success']);
 					?>
 				</h3>
 			</div>
@@ -42,7 +42,7 @@ if (isset($_GET['logout'])) {
 
 		<!-- logged in user information -->
 		<div class="profile_info">
-			<img src="../images/admin_profil.png"  >
+			<img src="../images/admin_profile.png"  >
 
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
@@ -187,7 +187,7 @@ if (isset($_GET['logout'])) {
                 <tr>
                     <td><?php echo $row['name']?></td>
 					<td><?php echo $row['surname']?></td>
-					<td><?php echo $row['sesso']?></td>
+					<td><?php echo $row['Sesso']?></td>
 					<td><?php echo $row['date']?></td>
 					<td><?php echo $row['email']?></td>
 					<td> <a href="../documents/curriculum/<?php echo $row['cv']?>">Download</a></td>

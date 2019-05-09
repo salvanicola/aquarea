@@ -34,7 +34,7 @@
 		<?php endif ?>
 		<!-- logged in user information -->
 		<div class="profile_info">
-			<img src="images/user_profil.png"  >
+			<img src="images/user_profile.png"  >
 
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
@@ -54,8 +54,8 @@
 		<h2> Gestione notizie </h2>
 	</div>
 	<div class="content">
-		<a class="btn" style="background:#003366" href="../create_news.php"> Add News</a>
-		<a class="btn" style="background:#003366" href="../remove_news.php"> Remove News</a>
+		<a class="btn" style="background:#003366" href="create_news.php"> Add News</a>
+		<a class="btn" style="background:#003366" href="remove_news.php"> Remove News</a>
 		<br>
 		<br>
 		<table border="1" width="100%">
@@ -64,7 +64,7 @@
                 <th>Titolo</th>
 				<th>Autore</th>
 				<th>Data Pubblicazione</th>
-				<th>URL</th>
+				<th>Image</th>
             </tr>
         </thead>
         <tbody>
@@ -73,7 +73,7 @@
             if (!$db) {
                 die(mysql_error());
             }
-			$query = "SELECT title, author, Data, URL FROM news";
+			$query = "SELECT title, author, Data, img FROM news";
             $results = mysqli_query($db,$query);
 			if ($results->num_rows == 0)
 			{?>
@@ -88,7 +88,7 @@
                     <td><?php echo $row['title']?></td>
 					<td><?php echo $row['author']?></td>
 					<td><?php echo $row['Data']?></td>
-					<td> <a href="<?php echo $row['URL']?>"><?php echo $row['URL']?> </a></td>
+					<td> <a href="../../img/News/<?php echo $row['img']?>">View image</a></td>
                 </tr>
             <?php
             }
@@ -100,7 +100,7 @@
 		<h2> Gestione richieste </h2>
 	</div>
 	<div class="content">
-		<a class="btn" style="background:#003366" href="../remove_request.php"> Remove Request</a>
+		<a class="btn" style="background:#003366" href="remove_request.php"> Remove Request</a>
 		<br>
 		<br>
 		<table border="1" width="100%">
@@ -134,7 +134,7 @@
                 <tr>
                     <td><?php echo $row['name']?></td>
 					<td><?php echo $row['surname']?></td>
-					<td><?php echo $row['sesso']?></td>
+					<td><?php echo $row['Sesso']?></td>
 					<td><?php echo $row['date']?></td>
 					<td><?php echo $row['email']?></td>
 					<td> <a href="../documents/curriculum/<?php echo $row['cv']?>">Download</a></td>

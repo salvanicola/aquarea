@@ -265,8 +265,9 @@ function request_c(){
 		$query = "INSERT INTO requests (name, surname, date, email, Sesso, note, cv) 
 					 VALUES('$name', '$surname', '$date', '$email', '$sesso', '$note', '$cv')";
 		mysqli_query($db, $query);
+		$_SESSION['success'] = "Request successfully sent!";
 		header('location: lavoraconoiform.php');
-		$output = "Request successfully sent!";
+		exit(0);
 	}
 }
 

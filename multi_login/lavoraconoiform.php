@@ -42,7 +42,19 @@
 	
 	<form method="post" action="lavoraconoiform.php" enctype="multipart/form-data">
 		<?php echo display_error(); ?>
-		
+		<!-- notification message -->
+		<?php if (isset($_SESSION['success'])) { ?>
+			<div class="error success" >
+				<h3>
+					<?php
+						echo $_SESSION['success'];
+						unset ($_SESSION['success']);
+					?>
+				</h3>
+			</div>
+		<?php
+		} 
+		?>
 		<div class="input-group">
 			<label>Nome</label>
 			<input type="text" name="name" value="<?php echo $name; ?>">
