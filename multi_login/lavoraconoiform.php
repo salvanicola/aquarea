@@ -13,16 +13,23 @@
 	<meta name="keywords" content="piscina, palestra, corsi nuoto, acquagym, agonismo, " />
 	<meta name="language" content="italian it" />
 	<meta name="author" content="Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele" />
-	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="handheld, screen"/> 
+	<link rel="stylesheet" type="text/css" href="../css/mobile3level.css" media="handheld, screen and (max-device-width:600px)"/>
+	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="handheld, screen and (min-device-width:780px)"/> 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> 
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:780px)"/>
+	<script type="text/javascript" src="../js/scriptsidebar.js"></script>
 </head>
 
 
 <body>
+		<div id="headerformobile">
+		<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
+		<span onclick="openNav()">&#9776; </span>
+		</div>
 	<div id="header">
-		<a href="viest.php" id="imglogo">
-			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
+		<a class="closebtn" onclick="closeNav()">&times;</a>
+		<a id="imglogo" href="../multi_login/viest.php">
+			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
 		</a>
 		<a href="../html/piscinescoperte.html" class="headeright">Piscine Scoperte</a>
 		<a href="../html/palestra.html" class="headeright">Palestra</a>

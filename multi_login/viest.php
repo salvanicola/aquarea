@@ -84,7 +84,7 @@
 
 	<div id="header">
 		<a class="closebtn" onclick="closeNav()">&times;</a>
-		<a id="imglogo" href="viest.php">
+		<a id="imglogo" href="../multi_login/viest.php">
 			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
 		</a>
 		<a href="../html/piscinescoperte.html" class="headeright">Piscine Scoperte</a>
