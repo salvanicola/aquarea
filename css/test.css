@@ -21,16 +21,7 @@ form, .content {
 	font-family: 'Montserrat';
 	
 }
-.normal {
-	height: auto;
-	width:90%;
-	margin: 0px auto;
-	padding: 0px;
-	/*border: 1px solid #B0C4DE;*/
-	background: #d5e7f6;
-	border-radius: 0px 0px 10px 10px;
-	font-family: 'Montserrat';
-}
+
 .formobile{
 	background: #003366;
 	padding: 50px;
@@ -62,6 +53,32 @@ form, .content {
 	border-radius: 30px;
 	border: 1px solid gray;
 }
+
+.normal {
+	margin: 0px 0px 50px 0px;
+	background: #d5e7f6;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 20px 20px 20px 20px;
+	padding: 20px;
+}
+.normal label{
+	display: block;
+	text-align: left;
+	margin: 3px;
+	font-weight: 500;
+	font-size: 370%;
+	color: #003366;
+}
+
+.normal input {
+	height: 80px;
+	width: 90%;
+	padding: 5px 10px;
+	font-size: 200%;
+}
+
 #user_type {
 	height: 40px;
 	width: 98%;
@@ -72,12 +89,14 @@ form, .content {
 	border: 1px solid gray;
 }
 .btn {
+	height: 30%;
+	width: 60%;
 	padding: 10px;
-	font-size: 15px;
+	font-size: 300%;
 	color: white;
 	background: #003366;
 	border: none;
-	border-radius: 5px;
+	border-radius: 30px;
 }
 .error {
 	width: 92%; 
