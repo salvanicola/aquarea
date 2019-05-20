@@ -1,15 +1,16 @@
 .header {
-	width: 86%;
+	width: 90%;
 	margin-top: 25%;
 	margin-left:5%;
 	margin-right:5%;
+	padding-top:2%;
+	padding-bottom:2%;
 	color: white;
 	background: #003366;
 	text-align: center;
 	/*border: 1px solid #B0C4DE;*/
 	border-bottom: none;
 	border-radius: 10px 10px 0px 0px;
-	padding: 20px;
 	font-family: 'Montserrat';
 }
 form, .content {
@@ -18,12 +19,13 @@ form, .content {
 	margin-left:5%;
 	margin-right:5%;
 	padding: 0;
-	/*border: 1px solid #B0C4DE;*/
 	background: #d5e7f6;
 	border-radius: 0px 0px 10px 10px;
 	font-family: 'Montserrat';
 	
 }
+
+
 
 .formobile{
 	background: #003366;
