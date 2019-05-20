@@ -1,37 +1,55 @@
 .header {
-	width: 40%;
+	width: 90%;
 	margin: 50px auto 0px;
 	color: white;
 	background: #003366;
 	text-align: center;
-	border: 1px solid #B0C4DE;
+	/*border: 1px solid #B0C4DE;*/
 	border-bottom: none;
 	border-radius: 10px 10px 0px 0px;
 	padding: 20px;
 }
 form, .content {
-	width: 40%;
+	height: auto;
+	width:90%;
 	margin: 0px auto;
-	padding: 20px;
-	border: 1px solid #B0C4DE;
-	background: white;
+	padding: 0px;
+	/*border: 1px solid #B0C4DE;*/
+	background: #d5e7f6;
 	border-radius: 0px 0px 10px 10px;
+	font-family: 'Montserrat';
+	
+}
+
+.formobile{
+	background: #003366;
+	padding: 50px;
+	margin: 0px auto;
 }
 
 .input-group {
-	margin: 10px 0px 10px 0px;
+	margin: 0px 0px 50px 0px;
+	background: #d5e7f6;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 20px 20px 20px 20px;
+	padding: 20px;
 }
 .input-group label {
 	display: block;
 	text-align: left;
 	margin: 3px;
+	font-weight: 500;
+	font-size: 370%;
+	color: #003366;
 }
 .input-group input {
-	height: 30px;
-	width: 93%;
+	height: 80px;
+	width: 90%;
 	padding: 5px 10px;
-	font-size: 16px;
-	border-radius: 5px;
+	font-size: 350%;
+	border-radius: 30px;
 	border: 1px solid gray;
 }
 #user_type {
@@ -89,4 +107,21 @@ form, .content {
 	text-align: center;
 	font-weight: bold;
 	padding: 20px;
+}
+
+#sesso{
+	height: 80px;
+	width: 90%;
+	padding: 5px 10px;
+	font-size: 50px;
+	border-radius: 30px;
+	border: 1px solid gray;
+}
+.sex{
+	height: 80px;
+	width: 90%;
+	padding: 5px 10px;
+	font-size: 10x;
+	border-radius: 30px;
+	border: 1px solid gray;
 }

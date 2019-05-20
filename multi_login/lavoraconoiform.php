@@ -15,9 +15,9 @@
 	<meta name="author" content="Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele" />
 	<link rel="stylesheet" type="text/css" href="../css/mobile3level.css" media="handheld, screen and (max-device-width:600px)"/>
 	<link rel="stylesheet" type="text/css" href="../css/test.css" media="handheld, screen and (max-device-width:600px)"/>
-	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="handheld, screen and (min-device-width:780px)"/> 
+	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="handheld, screen and (min-device-width:600px)"/> 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> 
-	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:780px)"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)"/>
 	<script type="text/javascript" src="../js/scriptsidebar.js"></script>
 </head>
 
@@ -65,6 +65,7 @@
 		<?php
 		} 
 		?>
+	<div class="formobile">
 		<div class="input-group">
 			<label>Nome</label>
 			<input type="text" name="name" value="<?php echo $name; ?>">
@@ -80,8 +81,8 @@
 		<div class="input-group">
 			<label>Sesso</label>
 			<select name="sesso" id="sesso" >
-				<option value="Maschio">Maschio</option>
-				<option value="Femmina">Femmina</option>
+				<option value="Maschio" class="sex">Maschio</option>
+				<option value="Femmina" class="sex">Femmina</option>
 			</select>
 		</div>
 		<div class="input-group">
@@ -92,13 +93,12 @@
 			<label>Note aggiuntive</label>
 			<textarea name="note" rows=4 cols=102><?php echo $note; ?></textarea>
 		</div>
-		<div>
+		<div class="input-group">
 			Seleziona il file .pdf del tuo CV:
 			<input type="file" name="pdfToUpload" id="pdfToUpload">
-		</div>
-		<div class="input-group">
 			<button type="submit" class="btn" name="request_btn">Send Request</button>
 		</div>
+	</div>
 	</form>
 <!-- inserito header in fondo perchè così copre tutti gli elementi anche gli altri in absolute (come gli overlay) -->
 	<br>

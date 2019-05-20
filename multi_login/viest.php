@@ -10,7 +10,7 @@
 	<meta name="language" content="italian it" />
 	<meta name="author" content="Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele" />
 	<link rel="stylesheet" type="text/css" href="../css/mobilefirstlevel.css" media="handheld, screen and (max-device-width:600px)"/>
-	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="screen and (min-device-width:780px)"/>
+	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="screen and (min-device-width:600px)"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/> 
 	<script type="text/javascript" src="../js/scriptsidebar.js"></script>
 	<script type="text/javascript" src="../js/slideshow.js"></script>
