@@ -32,6 +32,10 @@ body
 =============================
 */
 
+.slideshow-img{
+	display:none;
+}
+
 .container{
 	color:#003366;
 	display:block;
