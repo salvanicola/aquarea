@@ -39,12 +39,6 @@
 		<a href="../html/piscina.html" class="headeright">Piscina</a>
 	</div>
 
-	<div>
-		<!--<p>SE VUOI LAVORARE CON NOI INVIA LA TUA DISPONIBILITA'</br>E IL TUO CURRICULUM VIA MAIL A:</br>CV.AQUAREA@GMAIL.COM</br>O CONSEGNALO PERSONALMENTE PRESSO IL NOSTRO IMPIANTO </br> </p> -->
-	<br>
-	<br>
-	<br>
-	</div>
 	<div class="header">
 		<h2>Richiedi un colloquio</h2>
 	</div>
@@ -98,7 +92,7 @@
 			<input type="file" name="pdfToUpload" id="pdfToUpload">
 		<div class="input-group">
 			<button type="submit" class="btn" name="request_btn">Send Request</button>
-
+        </div>
 		</div>
 	</div>
 	</form>
