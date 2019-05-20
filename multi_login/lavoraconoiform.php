@@ -93,10 +93,12 @@
 			<label>Note aggiuntive</label>
 			<textarea name="note" rows=4 cols=102><?php echo $note; ?></textarea>
 		</div>
-		<div class="input-group">
+		<div class="normal">
 			Seleziona il file .pdf del tuo CV:
 			<input type="file" name="pdfToUpload" id="pdfToUpload">
+		<div class="input-group">
 			<button type="submit" class="btn" name="request_btn">Send Request</button>
+			</div>
 		</div>
 	</div>
 	</form>

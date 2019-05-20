@@ -1,5 +1,5 @@
 .header {
-	width: 90%;
+	width: 86%;
 	margin: 50px auto 0px;
 	color: white;
 	background: #003366;
@@ -8,6 +8,7 @@
 	border-bottom: none;
 	border-radius: 10px 10px 0px 0px;
 	padding: 20px;
+	font-family: 'Montserrat';
 }
 form, .content {
 	height: auto;
@@ -20,7 +21,16 @@ form, .content {
 	font-family: 'Montserrat';
 	
 }
-
+.normal {
+	height: auto;
+	width:90%;
+	margin: 0px auto;
+	padding: 0px;
+	/*border: 1px solid #B0C4DE;*/
+	background: #d5e7f6;
+	border-radius: 0px 0px 10px 10px;
+	font-family: 'Montserrat';
+}
 .formobile{
 	background: #003366;
 	padding: 50px;
@@ -118,10 +128,6 @@ form, .content {
 	border: 1px solid gray;
 }
 .sex{
-	height: 80px;
-	width: 90%;
-	padding: 5px 10px;
-	font-size: 10x;
-	border-radius: 30px;
-	border: 1px solid gray;
+	font-size: 20px;
+
 }
