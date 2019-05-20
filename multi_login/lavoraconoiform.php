@@ -85,7 +85,7 @@
 		</div>
 		<div class="input-group">
 			<label>Note aggiuntive</label>
-			<textarea name="note" rows=4 cols=102><?php echo $note; ?></textarea>
+			<input type="note" name="note" value="<?php echo $note; ?>">
 		</div>
 		<div class="normal">
 			<label>Seleziona il file .pdf del tuo CV:</label>
