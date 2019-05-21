@@ -1,22 +1,11 @@
 Cose da fare php:
 
-- Create News/Remove News
--- Content che si cancella
--- Check su Autore da inserire (per parificarlo con sql)
--- Test di stabilità vari da fare
--- Possibile rework del pulsante di back?
-
-- Home/Index
--- Togliere la possibilità agli amministratori di entrare in Index
--- Sistemare immagini provvisorie con roba più seria
--- Eventualmente testo le funzionalità come Moderatore
-
-- Add User/Remove User
--- Test vari di stabilità
-
-- Estetica pannello Amministrativo
--- Eventualmente Fixare tutto il css e dare una sistemata al codice
-
 - Lavora con Noi
--- Copiare il codice già fatto (dopo averlo sistemato) e convertirlo per l'utilizzo di curriculum
--- Sistemo il css
+-- Fixare il bug del messaggio di successo
+-- Inserimento del lavora con noi nell'header?
+
+- Viest
+-- Immagine logo che cambia dimensione tra home e pagine collegate
+-- Far sistemare il CSS da Nic/Manu/M&M
+
+--Check generale

@@ -9,15 +9,14 @@ $username = "";
 $email    = "";
 $errors   = array(); 
 $title    = "";
-$subtitle = "";
 $content  = "";
 $author   = "";
 $date     = "0000-00-00";
-$URL 	  = "";
-$name    =  "";
-$surname =  "";
-$note = "";
-$output = "Inserisci qui i tuoi dati";
+$name     =  "";
+$surname  =  "";
+$note     = "";
+$cv 	  = "";
+$output   = "";
 
 // call the register() function if register_btn is clicked
 if (isset($_POST['register_btn'])) {
@@ -35,7 +34,9 @@ if (isset($_POST['remove_n_btn'])) {
 if (isset($_POST['request_btn'])) {
 	request_c();
 }
-
+if (isset($_POST['reject_btn'])) {
+	reject_request();
+}
 // REGISTER USER
 function register(){
 	// call these variables with the global keyword to make them available in function
@@ -64,7 +65,7 @@ function register(){
 	else if (already('users','email',$email)) {
 		array_push($errors, "An account with this Email already exist");
 	}
-	else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL))
 	{
 		array_push($errors, "Email is not valid"); 
 	}
@@ -106,16 +107,14 @@ function register(){
 }
 
 function register_n(){
-	global $db, $errors, $title, $subtitle, $content, $author, $date, $URL;
+	global $db, $errors, $title, $content, $author, $date, $img;
 
 	$title    =  e($_POST['title']);
-	$subtitle =  e($_POST['subtitle']);
 	$content  =  e($_POST['content']);
 	$author   =  e($_POST['author']);
 	$date     =  e($_POST['date']);
-	$URL	  =  e($_POST['URL']);
 
-	$target_dir = "images/News/";
+	$target_dir = "../img/News/";
 	$target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -125,6 +124,10 @@ function register_n(){
 	}
 	if (empty($content)) { 
 		array_push($errors, "Content is required"); 
+	}
+	else if(strlen($content)>150)
+	{
+		array_push($errors, "Content can have 150 characters max"); 
 	}
 	if (empty($author)) { 
 		array_push($errors, "Author is required"); 
@@ -136,17 +139,11 @@ function register_n(){
 	if (empty($date)) { 
 		array_push($errors, "Date is required"); 
 	}
-	if (empty($URL)) { 
-		array_push($errors, "URL is required"); 
-	}
-	else if (!filter_var($URL, FILTER_VALIDATE_URL))
-	{
-		array_push($errors, "URL is not valid"); 
-	}
 	if ($_FILES['fileToUpload']['size'] == 0) {
 		array_push($errors, "File is required");
 	} else {
 		$check = getimagesize($_FILES['fileToUpload']['tmp_name']);
+		list($width, $height) = $check;
 		if($check !== false) {
 			$uploadOk = 1;
 		} else {
@@ -157,12 +154,17 @@ function register_n(){
 			array_push($errors, "Sorry, file already exists."); 
 			$uploadOk = 0;
 		}
-		if ($_FILES["fileToUpload"]["size"] > 500000) {
+		if ($_FILES["fileToUpload"]["size"] > 1000000) {
 			array_push($errors, "Sorry, your file is too large.");
 			$uploadOk = 0;
 		}
 		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
 			array_push($errors, "Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+			$uploadOk = 0;
+		}
+		if($width != 1920 || $height != 784)
+		{
+			array_push($errors, "Sorry, your image resolution is not correct ''(''must be 1920x784'')''");
 			$uploadOk = 0;
 		}
 	}
@@ -178,8 +180,9 @@ function register_n(){
     }
 }
 	if (count($errors) == 0) {
-		$query = "INSERT INTO news (title, subtitle, content, author, Data, URL) 
-					 VALUES('$title', '$subtitle', '$content', '$author', '$date', '$URL')";
+		$img = $_FILES["fileToUpload"]["name"];
+		$query = "INSERT INTO news (title, content, author, Data, img) 
+					 VALUES('$title', '$content', '$author', '$date', '$img')";
 		mysqli_query($db, $query);
 		$_SESSION['success']  = "News successfully created!!";
 		if(isAdmin())
@@ -194,13 +197,14 @@ function register_n(){
 }
 
 function request_c(){
-	global $db, $errors, $name, $surname, $date, $email, $note;
+	global $db, $errors, $name, $surname, $date, $email, $note, $cv, $sesso;
 
 	$name    =  e($_POST['name']);
 	$surname =  e($_POST['surname']);
-	$date  =  e($_POST['date']);
+	$date  	 =  e($_POST['date']);
 	$email   =  e($_POST['email']);
-	$note     =  e($_POST['note']); 
+	$sesso	 =  e($_POST['sesso']);
+	$note    =  e($_POST['note']); 
 
 	$target_dir = "documents/curriculum/";
 	$target_file = $target_dir . basename($_FILES['pdfToUpload']['name']);
@@ -251,17 +255,19 @@ function request_c(){
 		array_push($errors, "Sorry, your file was not uploaded.");
 		// if everything is ok, try to upload file
 	} else if(count($errors) == 0){
-    if (move_uploaded_file($_FILES["pdfToUpload"]["tmp_name"], $target_file)) {
-    } else {
+		if (move_uploaded_file($_FILES["pdfToUpload"]["tmp_name"], $target_file)) {
+		} else {
 		array_push($errors, "Sorry, there was an error uploading your file.");
-    }
-}
+		}
+	}
 	if (count($errors) == 0) {
-		$query = "INSERT INTO requests (name, surname, date, email, note) 
-					 VALUES('$name', '$surname', '$date', '$email', '$note')";
+		$cv = $_FILES["pdfToUpload"]["name"];
+		$query = "INSERT INTO requests (name, surname, date, email, Sesso, note, cv) 
+					 VALUES('$name', '$surname', '$date', '$email', '$sesso', '$note', '$cv')";
 		mysqli_query($db, $query);
+		$_SESSION['success'] = "Request successfully sent!";
 		header('location: lavoraconoiform.php');
-		$output = "Request successfully sent!!";
+		exit(0);
 	}
 }
 
@@ -281,15 +287,20 @@ function remove(){
 	{
 		array_push($errors, "Usernames contain only numbers or letters"); 
 	}
-	if (!already_2('users','username','email', $username, $email)) {
-		array_push($errors, "Such combination of User/Email do not exist");
+	if ($_SESSION['user']['username'] == $username) {
+		array_push($errors, "You can't delete your own account");
 	}
 	if (empty($email)) { 
 		array_push($errors, "Email is required"); 
 	}
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+	else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
 	{
 		array_push($errors, "Email is not valid"); 
+	}
+	if (count($errors) == 0) {
+		if (!already_2('users','username','email', $username, $email)) {
+		array_push($errors, "Such combination of User/Email do not exist");
+		}
 	}
 	if (count($errors) == 0) {
 		$query = "DELETE FROM users  
@@ -325,9 +336,15 @@ function remove_n(){
 		array_push($errors, "Date is required"); 
 	}
 	if (count($errors) == 0) {
+		$query = "SELECT img FROM news
+				  WHERE title = '$title' AND author = '$author' AND Data = '$date'";
+		$result = mysqli_query($db, $query);
+		$result_a = mysqli_fetch_assoc($result);
+		$cleanup = implode($result_a);
 		$query = "DELETE FROM news  
 				  WHERE title = '$title' AND author = '$author' AND Data = '$date'";
 		mysqli_query($db, $query);
+		unlink("../img/News/$cleanup") or die("Couldn't delete file");
 		$_SESSION['success']  = "News successfully removed!!";
 		if(isAdmin())
 		{
@@ -337,6 +354,58 @@ function remove_n(){
 		{
 			header('location: ../multi_login/index.php');
 		}
+	}
+}
+
+function reject_request(){
+	// call these variables with the global keyword to make them available in function
+	global $db, $errors, $name, $surname, $email, $result, $result_a, $cleanup;
+	// receive all input values from the form. Call the e() function
+    // defined below to escape form values
+	$name    =  e($_POST['name']);
+	$surname =  e($_POST['surname']);
+	$email       =  e($_POST['email']);
+
+	// form validation: ensure that the form is correctly filled
+	if (empty($name)) { 
+		array_push($errors, "Name is required"); 
+	}
+	if (empty($surname)) { 
+		array_push($errors, "Surname is required"); 
+	}
+	if (empty($email)) { 
+		array_push($errors, "Email is required"); 
+	}
+	else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
+		array_push($errors, "Email is not valid"); 
+	}
+	if (count($errors) == 0) {
+		if (!already_3('requests','name','surname','email', $name, $surname, $email)) {
+		array_push($errors, "Such Request do not exist");
+		}
+	}
+	if (count($errors) == 0) {
+		$query = "SELECT cv FROM requests 
+				  WHERE name = '$name' AND surname = '$surname' AND email = '$email'";
+		$result = mysqli_query($db, $query);
+		$result_a = mysqli_fetch_assoc($result);
+		$cleanup = implode($result_a);
+		$query = "DELETE FROM requests
+				  WHERE name = '$name' AND surname = '$surname' AND email = '$email'";
+		mysqli_query($db, $query);
+		unlink("documents/curriculum/$cleanup") or die("Couldn't delete file");
+		$_SESSION['success']  = "Request successfully rejected!!";
+		if(isAdmin())
+		{
+			header('location: admin/home.php');
+		}
+		else
+		{
+			header('location: ../multi_login/index.php');
+		}
+		// get id of the created user
+		$logged_in_user_id = mysqli_insert_id($db);		
 	}
 }
 

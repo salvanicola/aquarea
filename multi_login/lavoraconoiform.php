@@ -13,28 +13,32 @@
 	<meta name="keywords" content="piscina, palestra, corsi nuoto, acquagym, agonismo, " />
 	<meta name="language" content="italian it" />
 	<meta name="author" content="Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele" />
-	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="handheld, screen"/> 
+	<link rel="stylesheet" type="text/css" href="../css/mobile3level.css" media="handheld, screen and (max-device-width:600px)"/>
+	<link rel="stylesheet" type="text/css" href="../css/test.css" media="handheld, screen and (max-device-width:600px)"/>
+	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="handheld, screen and (min-device-width:600px)"/> 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> 
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)"/>
+	<script type="text/javascript" src="../js/scriptsidebar.js"></script>
 </head>
 
 
 <body>
-	<div id="header">
-		<a href="../html/viest.html" id="imglogo">
-			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" id="LogoAquarea" alt="Logo Aquarea Vicenza"/>
+		<div id="headerformobile">
+		<a id="imglogo" href="../multi_login/viest.php">
+		<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
 		</a>
-		<a href="../html/eventi.html" class="headeright">Eventi</a>
+		<span onclick="openNav()">&#9776; </span>
+		</div>
+	<div id="header">
+		<a class="closebtn" onclick="closeNav()">&times;</a>
+		<a id="imglogo" href="../multi_login/viest.php">
+			<img src="../img/Logo-Background/Aquarea-Logo-short-white.png" alt="Logo Aquarea Vicenza"/>
+		</a>
 		<a href="../html/piscinescoperte.html" class="headeright">Piscine Scoperte</a>
-		<a class="headeright, active">Vicenza Est</a>
+		<a href="../html/palestra.html" class="headeright">Palestra</a>
+		<a href="../html/piscina.html" class="headeright">Piscina</a>
 	</div>
 
-	<div>
-		<!--<p>SE VUOI LAVORARE CON NOI INVIA LA TUA DISPONIBILITA'</br>E IL TUO CURRICULUM VIA MAIL A:</br>CV.AQUAREA@GMAIL.COM</br>O CONSEGNALO PERSONALMENTE PRESSO IL NOSTRO IMPIANTO </br> </p> -->
-	<br>
-	<br>
-	<br>
-	</div>
 	<div class="header">
 		<h2>Richiedi un colloquio</h2>
 	</div>
@@ -42,8 +46,20 @@
 	
 	<form method="post" action="lavoraconoiform.php" enctype="multipart/form-data">
 		<?php echo display_error(); ?>
-		
-		
+		<!-- notification message -->
+		<?php if (isset($_SESSION['success'])) { ?>
+			<div class="error success" >
+				<h3>
+					<?php
+						echo $_SESSION['success'];
+						unset ($_SESSION['success']);
+					?>
+				</h3>
+			</div>
+		<?php
+		} 
+		?>
+	<div class="formobile">
 		<div class="input-group">
 			<label>Nome</label>
 			<input type="text" name="name" value="<?php echo $name; ?>">
@@ -59,26 +75,26 @@
 		<div class="input-group">
 			<label>Sesso</label>
 			<select name="sesso" id="sesso" >
-				<option value="admin">Maschio</option>
-				<option value="mod">Femmina</option>
+				<option value="Maschio" class="sex">Maschio</option>
+				<option value="Femmina" class="sex">Femmina</option>
 			</select>
 		</div>
 		<div class="input-group">
 			<label>Email</label>
 			<input type="email" name="email" value="<?php echo $email; ?>">
 		</div>
-		<!-- da aggiungere il conferma email -->
 		<div class="input-group">
 			<label>Note aggiuntive</label>
-			<textarea name="note" rows=4 cols=102><?php echo $note; ?></textarea>
+			<input type="note" name="note" value="<?php echo $note; ?>">
 		</div>
-		<div>
-			Seleziona il file .pdf del tuo CV:
+		<div class="normal">
+			<label>Seleziona il file .pdf del tuo CV:</label>
 			<input type="file" name="pdfToUpload" id="pdfToUpload">
-		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="request_btn">Send Request</button>
+        </div>
 		</div>
+	</div>
 	</form>
 <!-- inserito header in fondo perchè così copre tutti gli elementi anche gli altri in absolute (come gli overlay) -->
 	<br>
@@ -88,7 +104,7 @@
 			<li>via Zamenhof, 813</li>
 			<li>RECAPITI TELEFONICI:</li>
 			<li>0444910903,  3427381917</li>
-			<a href="https://www.facebook.com/AQUAREAVICENZA1/?ref=bookmarks"><img src="../img/Generiche/facebook-icon-png-transparent-logo.png" id="facebook" alt="Logo di Facebook"/></a>
+			<li><a href="https://www.facebook.com/AQUAREAVICENZA1/?ref=bookmarks"><img src="../img/Generiche/facebook-icon-png-transparent-logo.png" id="facebook" alt="Logo di Facebook"/></a></li>
 		</ul>	
 	</div>
 </body>

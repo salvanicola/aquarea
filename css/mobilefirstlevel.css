@@ -16,7 +16,7 @@ body{
 	display:none;
 }
 
-#freccetta{
+.freccetta{
 	text-align:right;
 	font-size:0.5em;
 	color:#003366;
@@ -31,6 +31,10 @@ ul{
 body
 =============================
 */
+
+.slideshow-img{
+	display:none;
+}
 
 .container{
 	color:#003366;
