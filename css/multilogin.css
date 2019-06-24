@@ -1,42 +1,56 @@
-* { margin: 0px; padding: 0px; }
-body {
-	min-width:800px;
-}
 .header {
-	width: 40%;
-	margin: 50px auto 0px;
+	width: 200%;
+	margin-top: 25%;
+	margin-left:5%;
+	margin-right:5%;
+	padding-top:2%;
+	padding-bottom:2%;
 	color: white;
 	background: #003366;
+	text-align: center;	
+	/*border: 1px solid #B0C4DE;*/
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	font-family: 'Montserrat';
+}
+form, .content {
+	height: auto;
+	width:90%;
+	margin-left:5%;
+	margin-right:5%;
+	padding: 0;
+	background: #d5e7f6;
+	border-radius: 0px 0px 10px 10px;
+	font-family: 'Montserrat';
+	
+}
+
+.input-group {
+	margin: 0px 0px 50px 0px;
+	background: #d5e7f6;
 	text-align: center;
 	border: 1px solid #B0C4DE;
 	border-bottom: none;
-	border-radius: 10px 10px 0px 0px;
+	border-radius: 20px 20px 20px 20px;
 	padding: 20px;
-}
-form, .content {
-	width: 40%;
-	margin: 0px auto;
-	padding: 20px;
-	border: 1px solid #B0C4DE;
-	background: white;
-	border-radius: 0px 0px 10px 10px;
-}
-.input-group {
-	margin: 10px 0px 10px 0px;
 }
 .input-group label {
 	display: block;
 	text-align: left;
 	margin: 3px;
+	font-weight: 500;
+	font-size: 370%;
+	color: #003366;
 }
 .input-group input {
-	height: 30px;
-	width: 93%;
+	height: 80px;
+	width: 90%;
 	padding: 5px 10px;
-	font-size: 16px;
-	border-radius: 5px;
+	font-size: 350%;
+	border-radius: 30px;
 	border: 1px solid gray;
 }
+
 #user_type {
 	height: 40px;
 	width: 98%;
@@ -47,16 +61,17 @@ form, .content {
 	border: 1px solid gray;
 }
 .btn {
+	height: 30%;
+	width: 60%;
 	padding: 10px;
-	font-size: 15px;
+	font-size: 300%;
 	color: white;
 	background: #003366;
 	border: none;
-	border-radius: 5px;
+	border-radius: 30px;
 }
 .error {
-	width: 92%; 
-	margin: 0px auto; 
+	margin: 0; 
 	padding: 10px; 
 	border: 1px solid #a94442; 
 	color: #a94442; 
