@@ -14,7 +14,7 @@
 	<meta name="language" content="italian it" />
 	<meta name="author" content="Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele" />
 	<link rel="stylesheet" type="text/css" href="../css/mobile3level.css" media="handheld, screen and (max-device-width:600px)"/>
-	<link rel="stylesheet" type="text/css" href="../css/test.css" media="handheld, screen and (max-device-width:600px)"/>
+	<link rel="stylesheet" type="text/css" href="../css/lavoraconnoimobile.css" media="handheld, screen and (max-device-width:600px)"/>
 	<link rel="stylesheet" type="text/css" href="../css/firstlevel.css" media="handheld, screen and (min-device-width:600px)"/> 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> 
 	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)"/>
