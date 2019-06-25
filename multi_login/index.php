@@ -120,7 +120,7 @@
             if (!$db) {
                 die(mysql_error());
             }
-			$query = "SELECT name, surname, sesso, date, email, cv FROM requests";
+			$query = "SELECT name, surname, date, email, Sesso, cv FROM requests";
             $results = mysqli_query($db,$query);
 			if ($results->num_rows == 0)
 			{?>

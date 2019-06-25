@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 	}
 	</style>
 </head>
-<body>
+<body style="margin-bottom:5%">
 	<div class="header">
 		<h2>Admin - Home Page</h2>
 	</div>
