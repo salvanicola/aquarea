@@ -48,20 +48,20 @@ if (!isLoggedIn()) {
 			<input type="date" name="date" value="<?php echo $date; ?>">
 		</div class="input-group">
 		<div>
-			Select image to upload:
-			<input type="file" name="fileToUpload" id="fileToUpload">
+			Select image to upload (must be 1920x784):
+			<input type="file" name="fileToUpload" id="fileToUpload" accept="image/jpeg">
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="register_n_btn">Create News</button>
 			<?php
 			if (isAdmin()) {
 			?>
-				<a style="margin-left:2%" href="admin/home.php"> Back </a>
+				<a href="admin/home.php"> Back </a>
 			<?php
 			}
 			else {
 			?>
-				<a style="margin-left:2%" href="index.php"> Back </a>
+				<a href="index.php"> Back </a>
 			<?php
 			}
 			?>

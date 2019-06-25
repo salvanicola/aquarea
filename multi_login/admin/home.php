@@ -18,13 +18,8 @@ if (isset($_GET['logout'])) {
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
-	<style>
-	.header {
-		background: #003366;
-	}
-	</style>
 </head>
-<body style="margin-bottom:5%">
+<body>
 	<div class="header">
 		<h2>Admin - Home Page</h2>
 	</div>
@@ -50,9 +45,9 @@ if (isset($_GET['logout'])) {
 					<strong><?php echo $_SESSION['user']['username']; ?></strong>
 
 					<small>
-						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
+						<i>(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
 						<br>
-						<a href="home.php?logout='1'" style="color: red;">logout</a> &nbsp; 
+						<a href="home.php?logout='1'">logout</a> &nbsp; 
 					</small>
 
 				<?php endif ?>
@@ -63,8 +58,8 @@ if (isset($_GET['logout'])) {
 		<h2> Gestione utenti </h2>
 	</div>
 	<div class="content">
-		<a class="btn" style="background:#003366" href="create_user.php"> Add User</a>
-		<a class="btn" style="background:#003366" href="remove_user.php"> Remove User</a>
+		<a class="btn" href="create_user.php"> Add User</a>
+		<a class="btn" href="remove_user.php"> Remove User</a>
 		<br>
 		<br>
 		<table border="1" width="100%">
@@ -108,8 +103,8 @@ if (isset($_GET['logout'])) {
 		<h2> Gestione notizie </h2>
 	</div>
 	<div class="content">
-		<a class="btn" style="background:#003366" href="../create_news.php"> Add News</a>
-		<a class="btn" style="background:#003366" href="../remove_news.php"> Remove News</a>
+		<a class="btn" href="../create_news.php"> Add News</a>
+		<a class="btn" href="../remove_news.php"> Remove News</a>
 		<br>
 		<br>
 		<table border="1" width="100%">
@@ -154,7 +149,7 @@ if (isset($_GET['logout'])) {
 		<h2> Gestione richieste </h2>
 	</div>
 	<div class="content">
-		<a class="btn" style="background:#003366" href="../remove_request.php"> Remove Request</a>
+		<a class="btn" href="../remove_request.php"> Remove Request</a>
 		<br>
 		<br>
 		<table border="1" width="100%">

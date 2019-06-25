@@ -42,9 +42,9 @@
 					<strong><?php echo $_SESSION['user']['username']; ?></strong>
 
 					<small>
-						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
+						<i>(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
 						<br>
-						<a href="index.php?logout='1'" style="color: red;">logout</a>
+						<a href="index.php?logout='1'">logout</a>
 					</small>
 
 				<?php endif ?>
@@ -55,8 +55,8 @@
 		<h2> Gestione notizie </h2>
 	</div>
 	<div class="content">
-		<a class="btn" style="background:#003366" href="create_news.php"> Add News</a>
-		<a class="btn" style="background:#003366" href="remove_news.php"> Remove News</a>
+		<a class="btn" href="create_news.php"> Add News</a>
+		<a class="btn" href="remove_news.php"> Remove News</a>
 		<br>
 		<br>
 		<table border="1" width="100%">
@@ -101,7 +101,7 @@
 		<h2> Gestione richieste </h2>
 	</div>
 	<div class="content">
-		<a class="btn" style="background:#003366" href="remove_request.php"> Remove Request</a>
+		<a class="btn" href="remove_request.php"> Remove Request</a>
 		<br>
 		<br>
 		<table border="1" width="100%">

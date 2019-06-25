@@ -18,14 +18,6 @@ if (isset($_GET['logout'])) {
 	<title>Registration system - Remove User</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
-	<style>
-		.header {
-			background: #003366;
-		}
-		button[name=register_btn] {
-			background: #003366;
-		}
-	</style>
 </head>
 <body>
 	<div class="header">
@@ -45,7 +37,7 @@ if (isset($_GET['logout'])) {
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="remove_btn"> Remove user</button>
-			<a style="margin-left:2%" href="home.php"> Back </a>
+			<a href="home.php"> Back </a>
 		</div>
 	</form>
 </body>

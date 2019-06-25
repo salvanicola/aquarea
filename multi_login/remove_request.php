@@ -13,14 +13,6 @@ if (isset($_GET['logout'])) {
 	<title>Curriculum system - Reject Request</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
-	<style>
-		.header {
-			background: #003366;
-		}
-		button[name=register_btn] {
-			background: #003366;
-		}
-	</style>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
 </head>
@@ -49,12 +41,12 @@ if (isset($_GET['logout'])) {
 			<?php
 			if (isAdmin()) {
 			?>
-				<a style="margin-left:2%" href="admin/home.php"> Back </a>
+				<a href="admin/home.php"> Back </a>
 			<?php
 			}
 			else {
 			?>
-				<a style="margin-left:2%" href="index.php"> Back </a>
+				<a href="index.php"> Back </a>
 			<?php
 			}
 			?>
