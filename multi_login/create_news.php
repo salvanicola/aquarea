@@ -35,7 +35,13 @@ if (!isLoggedIn()) {
 			<script src='tinymce/tinymce.min.js'></script>
 			<script>
 			tinymce.init({
-				selector: '#content'
+				selector: '#content',
+				theme: 'silver',
+				mobile: {
+					theme: 'mobile',
+					plugins: [ 'autosave', 'lists', 'autolink' ],
+					toolbar: [ 'undo', 'bold', 'italic', 'styleselect' ]
+				}
 			});
 			</script>
 		</div>
