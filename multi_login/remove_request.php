@@ -26,15 +26,15 @@ if (isset($_GET['logout'])) {
 
 		<div class="input-group">
 			<label>Nome</label>
-			<input type="text" name="name" value="<?php echo $name; ?>">
+			<input type="text" name="name" value="<?php echo $name; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Cognome</label>
-			<input type="text" name="surname" value="<?php echo $surname; ?>">
+			<input type="text" name="surname" value="<?php echo $surname; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $email; ?>">
+			<input type="email" name="email" value="<?php echo $email; ?>" required>
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="reject_btn"> Reject request</button>

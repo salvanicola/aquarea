@@ -29,11 +29,11 @@ if (isset($_GET['logout'])) {
 
 		<div class="input-group">
 			<label>Username</label>
-			<input type="text" name="username" value="<?php echo $username; ?>">
+			<input type="text" name="username" value="<?php echo $username; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $email; ?>">
+			<input type="email" name="email" value="<?php echo $email; ?>" required>
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="remove_btn"> Remove user</button>

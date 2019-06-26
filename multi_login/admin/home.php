@@ -58,19 +58,17 @@ if (isset($_GET['logout'])) {
 		<h2> Gestione utenti </h2>
 	</div>
 	<div class="content">
-		<a class="btn" href="create_user.php"> Add User</a>
-		<a class="btn" href="remove_user.php"> Remove User</a>
+		<div class="center-btn">
+			<a class="btn" href="create_user.php"> Add User</a>
+			<a class="btn" href="remove_user.php"> Remove User</a>
+		</div>
 		<br>
 		<br>
-		<table border="1" width="100%">
-        <thead>
-            <tr>
-                <th>Username</th>
-				<th>Email</th>
-				<th>User Level</th>
-            </tr>
-        </thead>
-        <tbody>
+		<ul class="center">
+			<li class="side-by-side-1"><strong> Username </strong></li>
+			<li class="side-by-side-1"><strong> Email </strong></li>
+			<li class="side-by-side-1"><strong> User Level </strong></li>
+		</ul>
         <?php
             $db = mysqli_connect('localhost', 'root', '', 'multi_login');
             if (!$db) {
@@ -80,43 +78,38 @@ if (isset($_GET['logout'])) {
             $results = mysqli_query($db,$query);
 			if ($results->num_rows == 0)
 			{?>
-				<tr>
-					<td colspan="6"><?php echo "Nessun utente trovato"?></td>
-				</tr>
+				<ul class="center">
+					<li class="side-by-side-1"><?php echo "Nessun utente trovato"?></li>
+				</ul>
 			<?php
 			}
             while($row = mysqli_fetch_array($results)) {
             ?>
-                <tr>
-                    <td><?php echo $row['username']?></td>
-					<td><?php echo $row['email']?></td>
-					<td><?php echo $row['user_type']?></td>
-                </tr>
-
+				<ul class="center">
+					<li class="side-by-side-1"><?php echo $row['username']?></li>
+					<li class="side-by-side-1"><?php echo $row['email']?></li>
+					<li class="side-by-side-1"><?php echo $row['user_type']?></li>
+				</ul>
             <?php
             }
             ?>
-            </tbody>
-            </table>
 	</div>
 	<div class="header" >
 		<h2> Gestione notizie </h2>
 	</div>
 	<div class="content">
-		<a class="btn" href="../create_news.php"> Add News</a>
-		<a class="btn" href="../remove_news.php"> Remove News</a>
+		<div class="center-btn">
+			<a class="btn" href="../create_news.php"> Add News</a>
+			<a class="btn" href="../remove_news.php"> Remove News</a>
+		</div>
 		<br>
 		<br>
-		<table border="1" width="100%">
-        <thead>
-            <tr>
-                <th>Titolo</th>
-				<th>Autore</th>
-				<th>Data Pubblicazione</th>
-				<th>Image</th>
-            </tr>
-        </thead>
-        <tbody>
+		<ul class="center">
+			<li class="side-by-side-2"><strong> Titolo </strong></li>
+			<li class="side-by-side-2"><strong> Autore </strong></li>
+			<li class="side-by-side-2"><strong> Data Pubblicazione </strong></li>
+			<li class="side-by-side-2"><strong> Image </strong></li>
+		</ul>
         <?php
             $db = mysqli_connect('localhost', 'root', '', 'multi_login');
             if (!$db) {
@@ -126,43 +119,40 @@ if (isset($_GET['logout'])) {
             $results = mysqli_query($db,$query);
 			if ($results->num_rows == 0)
 			{?>
-				<tr>
-					<td colspan="6"><?php echo "Nessuna news trovata"?></td>
-				</tr>
+				<ul class="center">
+					<li class="side-by-side-1"><?php echo "Nessuna news trovata"?></li>
+				</ul>
 			<?php
 			}
             while($row = mysqli_fetch_array($results)) {
             ?>
-                <tr>
-                    <td><?php echo $row['title']?></td>
-					<td><?php echo $row['author']?></td>
-					<td><?php echo $row['Data']?></td>
-					<td> <a href="../../img/News/<?php echo $row['img']?>">View image</a></td>
-                </tr>
+				<ul class="center">
+					<li class="side-by-side-2"><?php echo $row['title']?></li>
+					<li class="side-by-side-2"><?php echo $row['author']?></li>
+					<li class="side-by-side-2"><?php echo $row['Data']?></li>
+					<li class="side-by-side-2"><a href="../../img/News/<?php echo $row['img']?>">View image</a></li>
+				</ul>
             <?php
             }
             ?>
-            </tbody>
-            </table>
 	</div>
 	<div class="header" >
 		<h2> Gestione richieste </h2>
 	</div>
 	<div class="content">
-		<a class="btn" href="../remove_request.php"> Remove Request</a>
+		<div class="center-btn">
+			<a class="btn" href="../remove_request.php"> Remove Request</a>
+		</div>
 		<br>
 		<br>
-		<table border="1" width="100%">
-        <thead>
-            <tr>
-                <th>Nome</th>
-				<th>Cognome</th>
-				<th>Sesso</th>
-				<th>Data di Nascita</th>
-				<th>Email</th>
-				<th>Curriculum</th>
-            </tr>
-        </thead>
+        <ul class="center">
+			<li class="side-by-side-3"><strong> Nome </strong></li>
+			<li class="side-by-side-3"><strong> Cognome </strong></li>
+			<li class="side-by-side-3 Sesso"><strong> Sesso </strong></li>
+			<li class="side-by-side-3 DataNascita"><strong> Data di Nascita </strong></li>
+			<li class="side-by-side-3 email"><strong> Email </strong></li>
+			<li class="side-by-side-3"><strong> Curriculum </strong></li>
+		</ul>
         <tbody>
         <?php
             $db = mysqli_connect('localhost', 'root', '', 'multi_login');
@@ -173,26 +163,24 @@ if (isset($_GET['logout'])) {
             $results = mysqli_query($db,$query);
 			if ($results->num_rows == 0)
 			{?>
-				<tr>
-					<td colspan="6"><?php echo "Nessuna richiesta trovata"?></td>
-				</tr>
+				<ul class="center">
+					<li class="side-by-side-3"><?php echo "Nessuna richiesta trovata"?></li>
+				</ul>
 			<?php
 			}
             while($row = mysqli_fetch_array($results)) {
             ?>
-                <tr>
-                    <td><?php echo $row['name']?></td>
-					<td><?php echo $row['surname']?></td>
-					<td><?php echo $row['Sesso']?></td>
-					<td><?php echo $row['date']?></td>
-					<td><?php echo $row['email']?></td>
-					<td> <a href="../documents/curriculum/<?php echo $row['cv']?>">Download</a></td>
-                </tr>
+				<ul class="center">
+					<li class="side-by-side-3"><?php echo $row['name']?></li>
+					<li class="side-by-side-3"><?php echo $row['surname']?></li>
+					<li class="side-by-side-3 Sesso"><?php if($row['Sesso'] == "Maschio"){ echo "M";} else if ($row['Sesso'] == "Femmina"){ echo "F";}?></li>
+					<li class="side-by-side-3 DataNascita"><?php echo $row['date']?></li>
+					<li class="side-by-side-3 email"><?php echo $row['email']?></li>
+					<li class="side-by-side-3"><a href="../documents/curriculum/<?php echo $row['cv']?>">Download</a></li>
+				</ul>
             <?php
             }
             ?>
-            </tbody>
-            </table>
 	</div>
 </body>
 </html>

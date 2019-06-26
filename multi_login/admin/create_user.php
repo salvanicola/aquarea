@@ -30,11 +30,11 @@ if (isset($_GET['logout'])) {
 
 		<div class="input-group">
 			<label>Username</label>
-			<input type="text" name="username" value="<?php echo $username; ?>">
+			<input type="text" name="username" value="<?php echo $username; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $email; ?>">
+			<input type="email" name="email" value="<?php echo $email; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>User type</label>
@@ -45,11 +45,11 @@ if (isset($_GET['logout'])) {
 		</div>
 		<div class="input-group">
 			<label>Password</label>
-			<input type="password" name="password_1">
+			<input type="password" name="password_1" required>
 		</div>
 		<div class="input-group">
 			<label>Confirm password</label>
-			<input type="password" name="password_2">
+			<input type="password" name="password_2" required>
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="register_btn"> Create user</button>

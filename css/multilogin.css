@@ -87,15 +87,15 @@ form, .content {
 	margin-bottom: 20px;
 }
 .profile_info img {
-	display: inline-block;  
-	margin: 5%;
+	display: inline-block; 
+	width: 50px; 
+	height: 50px; 
+	margin: 5px;
 	float: left;
 }
 .profile_info div {
 	display: inline-block; 
-	margin-top: 15%;
-	margin-left:10%;
-	font-size: 300%;
+	margin: 5px;
 }
 .profile_info:after {
 	content: "";
@@ -109,6 +109,7 @@ form, .content {
 	font-weight: bold;
 	padding: 20px;
 }
+<<<<<<< HEAD
 
 .content table{
 	font-size: 200%;
@@ -140,3 +141,5 @@ form, .content {
 	width: 90%;
 	font-size: 200%;
 }
+=======
+>>>>>>> e38de1085fb8d90fa88202ae7a552dc069259eb8
