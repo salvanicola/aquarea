@@ -24,7 +24,7 @@ if (!isLoggedIn()) {
 		
 		<div class="input-group">
 			<label>Title</label>
-			<input type="text" name="title" value="<?php echo $title; ?>">
+			<input type="text" name="title" value="<?php echo $title; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Content</label>
@@ -47,15 +47,15 @@ if (!isLoggedIn()) {
 		</div>
 		<div class="input-group">
 			<label>Author</label>
-			<input type="text" name="author" value="<?php echo $author; ?>">
+			<input type="text" name="author" value="<?php echo $author; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Date</label>
-			<input type="date" name="date" value="<?php echo $date; ?>">
+			<input type="date" name="date" value="<?php echo $date; ?>" required>
 		</div class="input-group">
 		<div>
-			Select image to upload (must be 1920x784):
-			<input type="file" name="fileToUpload" id="fileToUpload" accept="image/jpeg">
+			<label>Select image to upload (must be 1920x784):</label>
+			<input type="file" name="fileToUpload" id="fileToUpload" accept="image/jpeg" value="Carica" required>
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="register_n_btn">Create News</button>

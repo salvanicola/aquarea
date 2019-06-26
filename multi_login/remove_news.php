@@ -22,15 +22,15 @@ if (!isLoggedIn()) {
 
 		<div class="input-group">
 			<label>Title</label>
-			<input type="text" name="title" value="<?php echo $title; ?>">
+			<input type="text" name="title" value="<?php echo $title; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Author</label>
-			<input type="text" name="author" value="<?php echo $author; ?>">
+			<input type="text" name="author" value="<?php echo $author; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Date</label>
-			<input type="date" name="date" value="<?php echo $date; ?>">
+			<input type="date" name="date" value="<?php echo $date; ?>" required>
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="remove_n_btn"> Remove news</button>

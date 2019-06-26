@@ -62,15 +62,15 @@
 	<div class="formobile">
 		<div class="input-group">
 			<label>Nome</label>
-			<input type="text" name="name" value="<?php echo $name; ?>">
+			<input type="text" name="name" value="<?php echo $name; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Cognome</label>
-			<input type="text" name="surname" value="<?php echo $surname; ?>">
+			<input type="text" name="surname" value="<?php echo $surname; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Data di Nascita</label>
-			<input type="date" name="date" value="<?php echo $date; ?>">
+			<input type="date" name="date" value="<?php echo $date; ?>" required>
 		</div class="input-group">
 		<div class="input-group">
 			<label>Sesso</label>
@@ -81,15 +81,15 @@
 		</div>
 		<div class="input-group">
 			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $email; ?>">
+			<input type="email" name="email" value="<?php echo $email; ?>" required>
 		</div>
 		<div class="input-group">
 			<label>Note aggiuntive</label>
-			<input type="note" name="note" value="<?php echo $note; ?>">
+			<input type="note" name="note" value="<?php echo $note; ?>" required>
 		</div>
 		<div class="normal">
 			<label>Seleziona il file .pdf del tuo CV:</label>
-			<input type="file" name="pdfToUpload" id="pdfToUpload">
+			<input type="file" name="pdfToUpload" id="pdfToUpload" required>
 		<div class="input-group">
 			<button type="submit" class="btn" name="request_btn">Send Request</button>
         </div>
