@@ -34,15 +34,16 @@ if (!isLoggedIn()) {
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="remove_n_btn"> Remove news</button>
+			</br>
 			<?php
 			if (isAdmin()) {
 			?>
-				<a href="admin/home.php"> Back </a>
+				<a class="back" href="admin/home.php"> Back </a>
 			<?php
 			}
 			else {
 			?>
-				<a href="index.php"> Back </a>
+				<a class="back" href="index.php"> Back </a>
 			<?php
 			}
 			?>

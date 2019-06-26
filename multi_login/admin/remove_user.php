@@ -37,7 +37,8 @@ if (isset($_GET['logout'])) {
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="remove_btn"> Remove user</button>
-			<a href="home.php"> Back </a>
+			</br>
+			<a class="back" href="home.php"> Back </a>
 		</div>
 	</form>
 </body>

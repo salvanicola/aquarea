@@ -44,19 +44,22 @@ form, .content {
 	height: 80px;
 	width: 90%;
 	padding: 5px 10px;
-	font-size: 280%;
+	font-size: 350%;
 	border-radius: 30px;
 	border: 1px solid gray;
 }
 
 #user_type {
-	height: 40px;
 	width: 98%;
-	padding: 5px 10px;
+	padding-top:2%;
+	padding-bottom:2%;
 	background: white;
-	font-size: 16px;
-	border-radius: 5px;
+	font-size: 250%;
+	border-radius: 30px 30px 30px 30px;
 	border: 1px solid gray;
+}
+.type{
+	font-size: 38%;
 }
 .btn {
 	height: 30%;
@@ -108,5 +111,32 @@ form, .content {
 }
 
 .content table{
+	font-size: 200%;
+}
+
+.back {
+	font-size: 275%;
+}
+
+.permobile{
+	margin: 0px 0px 50px 0px;
+	background: #d5e7f6;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 20px 20px 20px 20px;
+	padding: 20px;
+}
+.permobile label{
+	display: block;
+	text-align: left;
+	margin: 3px;
+	font-weight: 500;
+	font-size: 370%;
+	color: #003366;
+}
+
+.permobile input {
+	width: 90%;
 	font-size: 200%;
 }

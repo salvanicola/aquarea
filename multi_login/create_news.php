@@ -53,21 +53,22 @@ if (!isLoggedIn()) {
 			<label>Date</label>
 			<input type="date" name="date" value="<?php echo $date; ?>">
 		</div class="input-group">
-		<div>
-			Select image to upload (must be 1920x784):
+		<div class="permobile">
+			<label>Select image to upload (must be 1920x784):</label>
 			<input type="file" name="fileToUpload" id="fileToUpload" accept="image/jpeg">
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="register_n_btn">Create News</button>
+			</br>
 			<?php
 			if (isAdmin()) {
 			?>
-				<a href="admin/home.php"> Back </a>
+				<a class="back" href="admin/home.php"> Back </a>
 			<?php
 			}
 			else {
 			?>
-				<a href="index.php"> Back </a>
+				<a class="back" href="index.php"> Back </a>
 			<?php
 			}
 			?>

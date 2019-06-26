@@ -38,15 +38,16 @@ if (isset($_GET['logout'])) {
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="reject_btn"> Reject request</button>
+			</br>
 			<?php
 			if (isAdmin()) {
 			?>
-				<a href="admin/home.php"> Back </a>
+				<a class="back" href="admin/home.php"> Back </a>
 			<?php
 			}
 			else {
 			?>
-				<a href="index.php"> Back </a>
+				<a class="back" href="index.php"> Back </a>
 			<?php
 			}
 			?>

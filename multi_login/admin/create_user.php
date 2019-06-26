@@ -39,8 +39,8 @@ if (isset($_GET['logout'])) {
 		<div class="input-group">
 			<label>User type</label>
 			<select name="user_type" id="user_type" >
-				<option value="admin">Admin</option>
-				<option value="mod">Mod</option>
+				<option value="admin" class="type">Admin</option>
+				<option value="mod" class="type">Mod</option>
 			</select>
 		</div>
 		<div class="input-group">
@@ -53,7 +53,8 @@ if (isset($_GET['logout'])) {
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="register_btn"> Create user</button>
-			<a href="home.php"> Back </a>
+			</br>
+			<a class="back" href="home.php"> Back </a>
 		</div>
 	</form>
 </body>
