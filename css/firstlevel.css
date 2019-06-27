@@ -24,8 +24,7 @@ HEADER
 }
 #header img{
 	float:left;
-	/*width: 10%;*/
-	width:7.5em;
+	width:8.5em;
 	margin-left:0%;
 	padding-left: 1em;
 	padding-top:0.35%;
