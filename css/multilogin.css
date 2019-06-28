@@ -48,6 +48,9 @@ form, .content {
 	border-radius: 30px;
 	border: 1px solid gray;
 }
+.igf input{
+	padding: 5%;
+}
 
 #user_type {
 	width: 98%;
@@ -114,3 +117,7 @@ form, .content {
 	font-size: 275%;
 }
 
+.upload-img {
+	background: url("../img/Logo-Background/Upload.png") no-repeat  center center;
+	background-color: #79b0d2;
+}

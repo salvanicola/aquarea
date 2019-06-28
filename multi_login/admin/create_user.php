@@ -51,7 +51,7 @@ if (isset($_GET['logout'])) {
 			<label>Confirm password</label>
 			<input type="password" name="password_2" required>
 		</div>
-		<div class="input-group">
+		<div class="input-group center-btn">
 			<button type="submit" class="btn" name="register_btn"> Create user</button>
 			</br>
 			<a class="back" href="home.php"> Back </a>

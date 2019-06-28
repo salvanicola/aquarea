@@ -36,7 +36,7 @@ if (isset($_GET['logout'])) {
 			<label>Email</label>
 			<input type="email" name="email" value="<?php echo $email; ?>" required>
 		</div>
-		<div class="input-group">
+		<div class="input-group center-btn">
 			<button type="submit" class="btn" name="reject_btn"> Reject request</button>
 			</br>
 			<?php

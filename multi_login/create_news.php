@@ -10,7 +10,7 @@ if (!isLoggedIn()) {
 <html>
 <head>
 	<title>Archive system - Add News</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)">
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
 </head>
 <body>
@@ -53,11 +53,11 @@ if (!isLoggedIn()) {
 			<label>Date</label>
 			<input type="date" name="date" value="<?php echo $date; ?>" required>
 		</div>
-		<div class="input-group">
+		<div class="input-group igf">
 			<label>Select image to upload (must be 1920x784):</label>
-			<input type="file" name="fileToUpload" id="fileToUpload" accept="image/jpeg" required>
+			<input type="file" class="upload-img" name="fileToUpload" id="fileToUpload" accept="image/jpeg" required> 
 		</div>
-		<div class="input-group">
+		<div class="input-group center-btn">
 			<button type="submit" class="btn" name="register_n_btn">Create News</button>
 			</br>
 			<?php

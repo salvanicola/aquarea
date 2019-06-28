@@ -153,7 +153,6 @@ if (isset($_GET['logout'])) {
 			<li class="side-by-side-3 email"><strong> Email </strong></li>
 			<li class="side-by-side-3"><strong> Curriculum </strong></li>
 		</ul>
-        <tbody>
         <?php
             $db = mysqli_connect('localhost', 'root', '', 'multi_login');
             if (!$db) {

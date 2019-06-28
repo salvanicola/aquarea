@@ -32,7 +32,7 @@ if (!isLoggedIn()) {
 			<label>Date</label>
 			<input type="date" name="date" value="<?php echo $date; ?>" required>
 		</div>
-		<div class="input-group">
+		<div class="input-group center-btn">
 			<button type="submit" class="btn" name="remove_n_btn"> Remove news</button>
 			</br>
 			<?php
