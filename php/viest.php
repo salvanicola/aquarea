@@ -11,6 +11,7 @@
 	<meta name="author" content="Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele" />
 	<link rel="stylesheet" type="text/css" href="../css/work_viest.css" media="handheld, screen"/> 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> 
+	<link rel="shortcut icon" href="../favicon.ico" />
 </head>
 
 <body>

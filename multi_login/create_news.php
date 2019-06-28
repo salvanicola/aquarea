@@ -12,6 +12,7 @@ if (!isLoggedIn()) {
 	<title>Archive system - Add News</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
+	<link rel="shortcut icon" href="../favicon.ico" />
 </head>
 <body>
 	<div class="header">

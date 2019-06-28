@@ -182,3 +182,12 @@ footer
 	width:10%;
 	padding:2%;
 }
+#footer ul li a{
+	text-decoration:none;
+	color: black;
+	padding:2%;
+}
+
+#footer ul li a:visited{
+	color: tomato;
+}
