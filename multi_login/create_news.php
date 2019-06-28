@@ -52,16 +52,10 @@ if (!isLoggedIn()) {
 		<div class="input-group">
 			<label>Date</label>
 			<input type="date" name="date" value="<?php echo $date; ?>" required>
-		</div class="input-group">
-<<<<<<< HEAD
-		<div class="permobile">
+		</div>
+		<div class="input-group">
 			<label>Select image to upload (must be 1920x784):</label>
-			<input type="file" name="fileToUpload" id="fileToUpload" accept="image/jpeg">
-=======
-		<div>
-			<label>Select image to upload (must be 1920x784):</label>
-			<input type="file" name="fileToUpload" id="fileToUpload" accept="image/jpeg" value="Carica" required>
->>>>>>> e38de1085fb8d90fa88202ae7a552dc069259eb8
+			<input type="file" name="fileToUpload" id="fileToUpload" accept="image/jpeg" required>
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="register_n_btn">Create News</button>
