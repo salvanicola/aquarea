@@ -60,6 +60,7 @@ if (!isLoggedIn()) {
 		<div class="input-group center-btn">
 			<button type="submit" class="btn" name="register_n_btn">Create News</button>
 			</br>
+			</br>
 			<?php
 			if (isAdmin()) {
 			?>

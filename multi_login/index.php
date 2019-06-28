@@ -56,13 +56,13 @@
 	</div>
 	<div class="content">
 		<div class="center-btn">
-			<a class="btn" href="../create_news.php"> Add News</a>
-			<a class="btn" href="../remove_news.php"> Remove News</a>
+			<a class="btn" href="create_news.php"> Add News</a>
+			<a class="btn" href="remove_news.php"> Remove News</a>
 		</div>
 		<br>
 		<br>
 		<ul class="center">
-			<li class="side-by-side-2"><strong> Titolo </strong></li>
+			<li class="side-by-side-2 gtitles"><strong> Titolo </strong></li>
 			<li class="side-by-side-2"><strong> Autore </strong></li>
 			<li class="side-by-side-2"><strong> Data Pubblicazione </strong></li>
 			<li class="side-by-side-2"><strong> Image </strong></li>
@@ -84,10 +84,10 @@
             while($row = mysqli_fetch_array($results)) {
             ?>
 				<ul class="center">
-					<li class="side-by-side-2"><?php echo $row['title']?></li>
+					<li class="side-by-side-2 gtitles"><?php echo $row['title']?></li>
 					<li class="side-by-side-2"><?php echo $row['author']?></li>
 					<li class="side-by-side-2"><?php echo $row['Data']?></li>
-					<li class="side-by-side-2"><a href="../../img/News/<?php echo $row['img']?>">View image</a></li>
+					<li class="side-by-side-2"><a href="../img/News/<?php echo $row['img']?>">View image</a></li>
 				</ul>
             <?php
             }
@@ -98,12 +98,12 @@
 	</div>
 	<div class="content">
 		<div class="center-btn">
-			<a class="btn" href="../remove_request.php"> Remove Request</a>
+			<a class="btn" href="remove_request.php"> Remove Request</a>
 		</div>
 		<br>
 		<br>
         <ul class="center">
-			<li class="side-by-side-3"><strong> Nome </strong></li>
+			<li class="side-by-side-3 gtitles"><strong> Nome </strong></li>
 			<li class="side-by-side-3"><strong> Cognome </strong></li>
 			<li class="side-by-side-3 Sesso"><strong> Sesso </strong></li>
 			<li class="side-by-side-3 DataNascita"><strong> Data di Nascita </strong></li>
@@ -127,12 +127,12 @@
             while($row = mysqli_fetch_array($results)) {
             ?>
 				<ul class="center">
-					<li class="side-by-side-3"><?php echo $row['name']?></li>
+					<li class="side-by-side-3 gtitles"><?php echo $row['name']?></li>
 					<li class="side-by-side-3"><?php echo $row['surname']?></li>
 					<li class="side-by-side-3 Sesso"><?php if($row['Sesso'] == "Maschio"){ echo "M";} else if ($row['Sesso'] == "Femmina"){ echo "F";}?></li>
 					<li class="side-by-side-3 DataNascita"><?php echo $row['date']?></li>
 					<li class="side-by-side-3 email"><?php echo $row['email']?></li>
-					<li class="side-by-side-3"><a href="../documents/curriculum/<?php echo $row['cv']?>">Download</a></li>
+					<li class="side-by-side-3"><a href="documents/curriculum/<?php echo $row['cv']?>">Download</a></li>
 				</ul>
             <?php
             }

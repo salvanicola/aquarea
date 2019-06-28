@@ -54,6 +54,7 @@ if (isset($_GET['logout'])) {
 		<div class="input-group center-btn">
 			<button type="submit" class="btn" name="register_btn"> Create user</button>
 			</br>
+			</br>
 			<a class="back" href="home.php"> Back </a>
 		</div>
 	</form>

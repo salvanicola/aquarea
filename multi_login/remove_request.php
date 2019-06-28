@@ -39,6 +39,7 @@ if (isset($_GET['logout'])) {
 		<div class="input-group center-btn">
 			<button type="submit" class="btn" name="reject_btn"> Reject request</button>
 			</br>
+			</br>
 			<?php
 			if (isAdmin()) {
 			?>

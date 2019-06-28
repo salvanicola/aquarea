@@ -35,6 +35,7 @@ if (!isLoggedIn()) {
 		<div class="input-group center-btn">
 			<button type="submit" class="btn" name="remove_n_btn"> Remove news</button>
 			</br>
+			</br>
 			<?php
 			if (isAdmin()) {
 			?>
