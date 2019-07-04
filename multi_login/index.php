@@ -78,7 +78,7 @@
 			if ($results->num_rows == 0)
 			{?>
 				<ul class="center">
-					<li class="side-by-side-1"><?php echo "Nessuna news trovata"?></li>
+					<li class="side-null"><?php echo "Nessuna news trovata"?></li>
 				</ul>
 			<?php
 			}
@@ -121,7 +121,7 @@
 			if ($results->num_rows == 0)
 			{?>
 				<ul class="center">
-					<li class="side-by-side-3"><?php echo "Nessuna richiesta trovata"?></li>
+					<li class="side-null><?php echo "Nessuna richiesta trovata"?></li>
 				</ul>
 			<?php
 			}
