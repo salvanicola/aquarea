@@ -18,6 +18,7 @@ if (isset($_GET['logout'])) {
 	<title>Registration system - Remove User</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
+	<link rel="stylesheet" type="text/css" href="../../css/printmultilogin.css" media="print"/>
 	<link rel="shortcut icon" href="../../favicon.ico" />
 </head>
 <body>
