@@ -71,5 +71,5 @@ END
 DELIMITER ;
 
 INSERT INTO users (email, username, password, user_type) 
-        VALUES ('admin@stuendi.unipd.it','admin','admin','Admin'),
-			   ('user.salvadore@stuendi.unipd.it','user','user','User');
+        VALUES ('admin@stuendi.unipd.it','admin', MD5('admin'),'Admin'),
+			   ('user@stuendi.unipd.it','user', MD5('user'),'Mod');
