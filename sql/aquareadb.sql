@@ -45,14 +45,12 @@ BEGIN
 	DECLARE msg VARCHAR(200);
 	IF EXISTS(SELECT * FROM users WHERE ((email LIKE NEW.email) OR (Username LIKE NEW.Username))) THEN
 		IF EXISTS (SELECT * FROM users WHERE (email LIKE NEW.email)) THEN
-				SET msg='La mail utilizzata ha già un profilo collegato';
-				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-			ELSE 
-				SET msg='Username già utilizzato';
-				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-			END IF;
-	ELSE
-		SET NEW.password= MD5(NEW.password);
+			SET msg='La mail utilizzata ha già un profilo collegato';
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+		ELSE 
+			SET msg='Username già utilizzato';
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+		END IF;
 	END IF;
 END
 //
@@ -72,50 +70,6 @@ END
 //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS Ingresso;
-DELIMITER //
-CREATE PROCEDURE Ingresso (usern VARCHAR(50), pass VARCHAR(50))
-BEGIN
-	DECLARE msg VARCHAR(200);
-	IF (SELECT COUNT(*) FROM  users WHERE ((email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass))>0 THEN
-		IF (SELECT Abbonamento FROM  users WHERE ((email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass)) = 'NO' THEN
-			SELECT M.Messaggi FROM  users U INNER JOIN Messaggi M ON U.email=M.email WHERE ((U.email LIKE usern) OR (U.Username LIKE usern)) AND (U.Password LIKE pass);
-		ELSE
-			SELECT P.Nome AS NomeP, P.Cognome AS CognomeP, P.Telefono, I.Inizio, I.Fine, C.NomeCorso, C.Costo
-			FROM users U, Persona P, Iscritti I INNER JOIN Corso C ON I.CodCorso=C.CodiceC
-			WHERE ((email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass);
-		END IF;
-	ELSE
-    SET msg='User o Password errati';
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-    END IF;
-END
-//
-DELIMITER ;
-
-DROP PROCEDURE IF EXISTS Inserimento_Utente;
-DELIMITER //
-CREATE PROCEDURE Inserimento_Utente(IN email VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50), IN user_type ENUM('Admin','Mod'))
-BEGIN 
-		INSERT INTO users (email, username, password, user_type) 
-        VALUES (email, username, password, user_type);
-END
-//
-DELIMITER ;
-
-DROP PROCEDURE IF EXISTS Inserimento_news;
-DELIMITER //
-CREATE PROCEDURE Inserimento_news(IN title VARCHAR (20), IN subtitle VARCHAR (60), IN content TEXT, IN author VARCHAR (100), IN Data DATE, IN URL VARCHAR(100))
-BEGIN 
-		INSERT INTO news ( title, subtitle, content, author, Data, URL)
-        VALUES (title, subtitle, content, author, Data, URL);
-END
-//
-DELIMITER ;
-
-
-
-
-
-
-
+INSERT INTO users (email, username, password, user_type) 
+        VALUES ('admin@stuendi.unipd.it','admin','admin','Admin'),
+			   ('user.salvadore@stuendi.unipd.it','user','user','User');
