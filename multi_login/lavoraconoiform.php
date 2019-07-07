@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> 
 	<link rel="stylesheet" type="text/css" href="../css/3levelprint.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)"/>
+	<link rel="stylesheet" type="text/css" href="../css/styleprint.css" media="print"/>
 	<link rel="shortcut icon" href="../favicon.ico" />
 	<script type="text/javascript" src="../js/scriptsidebar.js"></script>
 </head>
