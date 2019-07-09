@@ -179,13 +179,12 @@ p{
 
 /*
 =============================
-FOO TER FIGHTER
+footer
 =============================
 */
 
 #footer ul{
 	margin-top:3%;
-	padding-bottom:3%;
 	background-color: rgba(0,0,0, 0.05);
 	padding-top:3%;
 	text-align:center;
@@ -204,17 +203,6 @@ FOO TER FIGHTER
 	width:2%;
 	padding:2%;
 }
-
-#footer ul li a{
-	text-decoration:none;
-	color: black;
-	padding:2%;
-}
-
-#footer ul li a:visited{
-	color: tomato;
-}
-
 /*html {
 	background: #00BFFF no-repeat  center center;
 	-webkit-background-size: cover;

@@ -2,7 +2,7 @@
 include('../functions.php');
 
 if (!isAdmin()) {
-	$_SESSION['msg'] = "You must log in first";
+	$_SESSION['msg'] = "Devi effettuare il login";
 	header('location: ../login.php');
 }
 
@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration system - Remove User</title>
+	<title>Stistema di Gestione - Rimuovi Utente</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
 	<link rel="stylesheet" type="text/css" href="../../css/printmultilogin.css" media="print"/>
@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 </head>
 <body>
 	<div class="header">
-		<h2>Admin - Remove User</h2>
+		<h2>Admin - Rimuovi Utente</h2>
 	</div>
 	
 	<form method="post" action="remove_user.php">
@@ -38,10 +38,10 @@ if (isset($_GET['logout'])) {
 			<input type="email" name="email" value="<?php echo $email; ?>" required>
 		</div>
 		<div class="input-group center-btn">
-			<button type="submit" class="btn" name="remove_btn"> Remove user</button>
+			<button type="submit" class="btn" name="remove_btn"> Rimuovi Utente</button>
 			</br>
 			</br>
-			<a class="back" href="home.php"> Back </a>
+			<a class="back" href="home.php"> Indietro </a>
 		</div>
 	</form>
 </body>

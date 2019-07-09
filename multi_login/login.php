@@ -1,6 +1,6 @@
 <?php include('functions.php');
 	if (isLoggedIn()) {
-		$_SESSION['msg'] = "You are already logged in";
+		$_SESSION['msg'] = "Hai già effettuato il login";
 		if (isAdmin()) {
 			header('location: admin/home.php');
 		}
@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration system PHP and MySQL</title>
+	<title>Sistema amministrativo Aquarea</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
 	<link rel="stylesheet" type="text/css" href="../css/printmultilogin.css" media="print"/>
