@@ -1,7 +1,5 @@
-/*IN QUESTO FOGLIO SONO CONTENUTI TUTTI I DATI DELLE PISCINE, DELLO STAFF, ISCRITTI E DEGLI UTENTI 
-ISCRITTI AL SITO WEB I QUALI POSSONO INTERAGIRE PER VEDERE I CORSI A CUI SONO ISCRITTI
-O A CUI VOGLIONO ISCRIVERSI */
-
+/*Script sql per la creazione del server MySQL del sito Aquarea per il progetto
+di Tecweb1819 Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele */
 
 DROP TABLE IF EXISTS news;
 DROP TABLE IF EXISTS users;
