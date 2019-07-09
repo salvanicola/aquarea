@@ -21,7 +21,7 @@ title VARCHAR(20) NOT NULL UNIQUE,
 content VARCHAR(150) NOT NULL,
 author VARCHAR(100) NOT NULL,
 Data DATE,
-img VARCHAR(100) NOT NULL,
+img VARCHAR(100) NOT NULL UNIQUE,
 FOREIGN KEY (author) REFERENCES users(username)
 );
 
@@ -81,7 +81,7 @@ INSERT INTO news (title, content, author, data, img)
 		VALUES ('Benvenuti sul sito ', 'di Aquarea Vicenza', 'admin', '19/07/03', 'news1.jpg'),
 			   ('il nostro nuovo sito', 'potete trovare tutte le informazioni riguardanti le strutture, orari dei corsi, 
 			   inviare curriculum per entrare a far parte del nostro staff', 'user', '19/07/03', 'news2.jpg'),
-			   ('Seuguici su Facebook', 'per non perdierti nuove offerte di corsi e tanto altro', 'user', '19/07/06', 'ec29cabf47ff3fc7b738e4591bcc6e77.jpg');
+			   ('Seuguici su Facebook', 'per non perdierti nuove offerte di corsi e tanto altro', 'user', '19/07/06', 'img3.png');
 			   
 INSERT INTO requests (name, surname, date, email, sesso, note, cv)
 		VALUES ('Andrea', 'Schiavo', '98/03/16', 'andreaschiavo@gmail.com', 'Maschio', '', 'cv1.pdf'),
