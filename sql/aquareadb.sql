@@ -1,7 +1,5 @@
-/*IN QUESTO FOGLIO SONO CONTENUTI TUTTI I DATI DELLE PISCINE, DELLO STAFF, ISCRITTI E DEGLI UTENTI 
-ISCRITTI AL SITO WEB I QUALI POSSONO INTERAGIRE PER VEDERE I CORSI A CUI SONO ISCRITTI
-O A CUI VOGLIONO ISCRIVERSI */
-
+/*Script sql per la creazione del server MySQL del sito Aquarea per il progetto
+di Tecweb1819 Varo Manuel, Sgreva Alessandro, Salvadore Nicola, Motterle Michele */
 
 DROP TABLE IF EXISTS news;
 DROP TABLE IF EXISTS users;
@@ -21,7 +19,7 @@ title VARCHAR(20) NOT NULL UNIQUE,
 content VARCHAR(150) NOT NULL,
 author VARCHAR(100) NOT NULL,
 Data DATE,
-img VARCHAR(100) NOT NULL,
+img VARCHAR(100) NOT NULL UNIQUE,
 FOREIGN KEY (author) REFERENCES users(username)
 );
 
@@ -45,14 +43,12 @@ BEGIN
 	DECLARE msg VARCHAR(200);
 	IF EXISTS(SELECT * FROM users WHERE ((email LIKE NEW.email) OR (Username LIKE NEW.Username))) THEN
 		IF EXISTS (SELECT * FROM users WHERE (email LIKE NEW.email)) THEN
-				SET msg='La mail utilizzata ha già un profilo collegato';
-				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-			ELSE 
-				SET msg='Username già utilizzato';
-				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-			END IF;
-	ELSE
-		SET NEW.password= MD5(NEW.password);
+			SET msg='La mail utilizzata ha già un profilo collegato';
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+		ELSE 
+			SET msg='Username già utilizzato';
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+		END IF;
 	END IF;
 END
 //
@@ -72,50 +68,20 @@ END
 //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS Ingresso;
-DELIMITER //
-CREATE PROCEDURE Ingresso (usern VARCHAR(50), pass VARCHAR(50))
-BEGIN
-	DECLARE msg VARCHAR(200);
-	IF (SELECT COUNT(*) FROM  users WHERE ((email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass))>0 THEN
-		IF (SELECT Abbonamento FROM  users WHERE ((email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass)) = 'NO' THEN
-			SELECT M.Messaggi FROM  users U INNER JOIN Messaggi M ON U.email=M.email WHERE ((U.email LIKE usern) OR (U.Username LIKE usern)) AND (U.Password LIKE pass);
-		ELSE
-			SELECT P.Nome AS NomeP, P.Cognome AS CognomeP, P.Telefono, I.Inizio, I.Fine, C.NomeCorso, C.Costo
-			FROM users U, Persona P, Iscritti I INNER JOIN Corso C ON I.CodCorso=C.CodiceC
-			WHERE ((email LIKE usern) OR (Username LIKE usern)) AND (Password LIKE pass);
-		END IF;
-	ELSE
-    SET msg='User o Password errati';
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-    END IF;
-END
-//
-DELIMITER ;
+INSERT INTO users (email, username, password, user_type) 
+        VALUES ('admin@stuendi.unipd.it','admin', MD5('admin'),'Admin'),
+			   ('user@stuendi.unipd.it','user', MD5('user'),'Mod'),
+			   ('franco@gmail.it','franco', MD5('franco'),'Mod'),
+			   ('beppi@gmail.it','beppi', MD5('beppi'),'Mod'),
+			   ('carlo@gmail.it','carlo', MD5('carlo'),'Mod');
 
-DROP PROCEDURE IF EXISTS Inserimento_Utente;
-DELIMITER //
-CREATE PROCEDURE Inserimento_Utente(IN email VARCHAR (50), IN username VARCHAR (20), IN password VARCHAR (50), IN user_type ENUM('Admin','Mod'))
-BEGIN 
-		INSERT INTO users (email, username, password, user_type) 
-        VALUES (email, username, password, user_type);
-END
-//
-DELIMITER ;
-
-DROP PROCEDURE IF EXISTS Inserimento_news;
-DELIMITER //
-CREATE PROCEDURE Inserimento_news(IN title VARCHAR (20), IN subtitle VARCHAR (60), IN content TEXT, IN author VARCHAR (100), IN Data DATE, IN URL VARCHAR(100))
-BEGIN 
-		INSERT INTO news ( title, subtitle, content, author, Data, URL)
-        VALUES (title, subtitle, content, author, Data, URL);
-END
-//
-DELIMITER ;
-
-
-
-
-
-
-
+INSERT INTO news (title, content, author, data, img)
+		VALUES ('Benvenuti sul sito ', 'di Aquarea Vicenza', 'admin', '19/07/03', 'news1.jpg'),
+			   ('il nostro nuovo sito', 'potete trovare tutte le informazioni riguardanti le strutture, orari dei corsi, 
+			   inviare curriculum per entrare a far parte del nostro staff', 'user', '19/07/03', 'news2.jpg'),
+			   ('Seguici su Facebook', 'per non perdierti nuove offerte di corsi e tanto altro', 'user', '19/07/06', 'img3.png');
+			   
+INSERT INTO requests (name, surname, date, email, sesso, note, cv)
+		VALUES ('Andrea', 'Schiavo', '98/03/16', 'andreaschiavo@gmail.com', 'Maschio', '', 'cv1.pdf'),
+		       ('Marco', 'Dal Toso', '95/09/21', 'daltosomarco@gmail.com', 'Maschio', '', 'cv2.pdf'),
+			   ('Silvia', 'Marcon', '97/05/03', 'silviamarcon@gmail.com', 'Femmina', '', 'cluedo.pdf');

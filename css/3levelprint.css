@@ -1,0 +1,310 @@
+body{
+	font-family: 'Montserrat';
+
+	width:70%;
+	margin:auto;
+}
+
+#unicorni{
+	display:none;
+}
+
+/*
+==========================
+header
+==========================
+*/
+
+#header{
+	display:none;
+}
+
+
+.headeright{
+	display:none;
+}
+
+#header .active {
+	display:none;
+}
+
+#hamburger{
+	display:none;
+}
+
+#headerformobile {
+	display:none;
+}
+
+.closebtn{
+	display:none;
+}
+
+/*
+=============================
+body
+=============================
+*/
+
+.piscimg{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding:1%;
+	width:30%;
+}
+
+#piscinescop{
+	margin-top:5%;
+}
+
+#piscinescop ul{
+	padding:2%;
+	list-style-type:none;
+	text-align:center;
+	font-weight:bold;
+}
+
+#chisiamobod{
+	margin-top:5%;
+}
+
+#things{
+	margin-top:20%;
+}
+
+#things ul{
+	padding:0;
+	list-style-type:none;
+	margin:0.5%;
+}
+
+#things li{
+	display:inline-block;
+	text-align:center;
+	font-weight:bold;
+	padding-left:3%;
+	padding-right:3%;
+	padding-top:1%;
+	padding-bottom:1%;
+}
+
+
+h1{
+	font-size:3em;
+	color:#000099;
+	background-color:#6cb3e0;
+	padding-bottom:1%;
+	padding-top:1%;
+	text-align:center;
+	margin:0;
+}
+
+h2{
+	font-size:1.5em;
+	color:#000099;
+	background-color:#9ac8e5;
+	padding-bottom:1%;
+	padding-top:1%;
+	padding-left:1%;
+		margin:0;
+}
+
+h2 a, h1 a{
+	display:none;
+}
+
+.bold{
+	font-weight:bold;
+}
+
+p{
+	background-color:#c0dff2;
+	padding:1%;
+		margin:0;
+}
+
+.hour{
+	background:none;
+	text-align:center;
+	font-weight:bold;
+}
+
+.fix {
+	margin-left: 1%;
+}
+
+/*
+=============================
+FOO TER FIGHTER
+=============================
+*/
+
+#footer ul{
+	margin-top:3%;
+	padding-bottom:3%;
+	background-color: rgba(0,0,0, 0.05);
+	padding-top:3%;
+	text-align:center;
+}
+
+#footer ul li{
+	display:block;
+	padding:0;
+	list-style-type:none;
+	text-align:center;
+	font-size:115%;
+}
+
+#footer ul li a img{
+	margin-top:1%;
+	width:2%;
+	padding:2%;
+}
+
+#footer ul li a{
+	text-decoration:none;
+	color: black;
+	padding:2%;
+}
+
+#footer ul li a:visited{
+	color: tomato;
+}
+
+/*html {
+	background: #00BFFF no-repeat  center center;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body{
+	margin:0;
+	margin-top:15%;
+	font-family: 'Montserrat';
+}
+
+#unicorni{
+	display:none;
+}
+
+#footer img{
+	padding:0.5%;
+	width:2%;
+}
+/*
+=====================================
+MENU
+=====================================
+
+#headerformobile{
+	position:fixed;
+	top:0;
+	width:100%;
+	background-color:#000099;
+}
+#headerformobile img{
+	width:35%;
+	padding:2%;
+}
+
+#headerformobile span{
+	font-size:3.5em;
+	text-align:center;
+	padding:5%;
+	float:right;
+	color:white;
+}
+	
+
+#header{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #000099;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+#header img{
+	display:none;
+}
+
+#header a {
+	padding:8%;
+	text-align:right;
+	font-size:3.5em;
+	text-decoration: none;
+	color: white;
+	display: block;
+	transition: 0.3s;
+}
+
+#header .closebtn {
+	font-size:5em;
+	padding:5%;
+}
+
+#menu #external{
+	display:grid;
+	list-style-type:none;
+	grid-template-columns: repeat(2, 1fr);
+	background-color: rgba(255, 255, 255, 0.5);
+	padding-left:0;
+}
+
+#menu li{
+	text-align:center;
+	line-height: 6.3em;
+	font-size: 3em;
+	font-family: 'Montserrat';
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+}
+
+==========================
+CONTENT
+==========================
+*/
+
+/*
+===========================================
+FOO TER FIGHTER
+===========================================
+
+#footer{
+	background:none;
+}
+#footer ul{
+	margin:0;
+	padding:0;
+}
+#footer li{
+	display: inline-block;
+	text-align:left;
+	width: 45%;
+	line-height: 1em;
+	font-size: 1.5em;
+	font-family: 'Montserrat';
+	padding:2%;
+	
+}	
+#footer li:first-of-type{
+	text-align:right;
+}
+#footer li a{
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+}
+#footer li a:hover {
+	transition: .8s ease;
+	color: #595959;
+}
+*/
