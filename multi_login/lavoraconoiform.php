@@ -94,7 +94,7 @@
 			<label>Seleziona il file .pdf del tuo CV:</label>
 			<input type="file" name="pdfToUpload" id="pdfToUpload" accept="application/pdf" required>
 		<div class="input-group">
-			<button type="submit" class="btn" name="request_btn">Send Request</button>
+			<button type="submit" class="btn" name="request_btn">Invia Richiesta</button>
         </div>
 		</div>
 	</div>

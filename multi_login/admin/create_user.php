@@ -2,7 +2,7 @@
 include('../functions.php');
 
 if (!isAdmin()) {
-	$_SESSION['msg'] = "You must log in first";
+	$_SESSION['msg'] = "Devi effettuare il login";
 	header('location: ../login.php');
 }
 
@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration system - Add User</title>
+	<title>Sistema di Gestione - Aggiungi Utente</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
 	<link rel="stylesheet" type="text/css" href="../../css/printmultilogin.css" media="print"/>	
@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 </head>
 <body>
 	<div class="header">
-		<h2>Admin - Add User</h2>
+		<h2>Admin - Aggiungi Utente</h2>
 	</div>
 	
 	<form method="post" action="create_user.php">
@@ -50,14 +50,14 @@ if (isset($_GET['logout'])) {
 			<input type="password" name="password_1" required>
 		</div>
 		<div class="input-group">
-			<label>Confirm password</label>
+			<label>Conferma password</label>
 			<input type="password" name="password_2" required>
 		</div>
 		<div class="input-group center-btn">
-			<button type="submit" class="btn" name="register_btn"> Create user</button>
+			<button type="submit" class="btn" name="register_btn"> Crea Utente</button>
 			</br>
 			</br>
-			<a class="back" href="home.php"> Back </a>
+			<a class="back" href="home.php"> Indietro </a>
 		</div>
 	</form>
 </body>

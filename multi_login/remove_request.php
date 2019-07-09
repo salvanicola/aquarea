@@ -1,6 +1,11 @@
 <?php 
 include('functions.php');
 
+if (!isLoggedIn()) {
+	$_SESSION['msg'] = "Devi effettuare il login";
+	header('location: login.php');
+}
+
 if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
@@ -10,7 +15,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Curriculum system - Reject Request</title>
+	<title>Gestione Curriculum - Rimuovi richiesta</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
 	<link rel="stylesheet" type="text/css" href="../css/printmultilogin.css" media="print"/>
@@ -18,7 +23,7 @@ if (isset($_GET['logout'])) {
 </head>
 <body>
 	<div class="header">
-		<h2>Reject Request</h2>
+		<h2>Rimuovi richiesta</h2>
 	</div>
 	
 	<form method="post" action="remove_request.php">
@@ -37,18 +42,18 @@ if (isset($_GET['logout'])) {
 			<input type="email" name="email" value="<?php echo $email; ?>" required>
 		</div>
 		<div class="input-group center-btn">
-			<button type="submit" class="btn" name="reject_btn"> Reject request</button>
+			<button type="submit" class="btn" name="reject_btn"> Rimuovi richiesta</button>
 			</br>
 			</br>
 			<?php
 			if (isAdmin()) {
 			?>
-				<a class="back" href="admin/home.php"> Back </a>
+				<a class="back" href="admin/home.php"> Indietro </a>
 			<?php
 			}
 			else {
 			?>
-				<a class="back" href="index.php"> Back </a>
+				<a class="back" href="index.php"> Indietro </a>
 			<?php
 			}
 			?>

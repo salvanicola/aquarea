@@ -50,34 +50,34 @@ function register(){
 	$password_2  =  e($_POST['password_2']);
 
 	if (empty($username)) { 
-		array_push($errors, "Username is required"); 
+		array_push($errors, "Username obbligatorio"); 
 	}
 	if (already('users','username',$username)) {
-		array_push($errors, "Username is already taken");
+		array_push($errors, "Username già utilizzato");
 	}
 	if (preg_match('/\W/', $username))
 	{
-		array_push($errors, "Username must contain only numbers or letters"); 
+		array_push($errors, "L'Username deve contenere solo numeri e lettere"); 
 	}
 	if (empty($email)) { 
-		array_push($errors, "Email is required"); 
+		array_push($errors, "Email obbligatoria"); 
 	}		
 	else if (already('users','email',$email)) {
-		array_push($errors, "An account with this Email already exist");
+		array_push($errors, "Esiste già un altro account con questa Email");
 	}
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL))
 	{
-		array_push($errors, "Email is not valid"); 
+		array_push($errors, "Email non valida"); 
 	}
 	if (empty($password_1)) { 
-		array_push($errors, "Password is required"); 
+		array_push($errors, "Password obbligatoria"); 
 	}
 	if (!preg_match('/^\S{8,15}$/', $password_1))
 	{
-		array_push($errors, "Password must be between 8 and 15 VALID characters (no spaces)"); 
+		array_push($errors, "La Password deve contenere tra gli 8 ed i 15 caratteri VALIDI (niente spazi)"); 
 	}
 	if ($password_1 != $password_2) {
-		array_push($errors, "The two passwords do not match");
+		array_push($errors, "Le password non corrispondono");
 	}
 
 	// register user if there are no errors in the form
@@ -89,7 +89,7 @@ function register(){
 			$query = "INSERT INTO users (username, email, user_type, password) 
 					  VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
-			$_SESSION['success']  = "New user successfully created!!";
+			$_SESSION['success']  = "Nuovo utente creato con successo!!";
 			header('location: home.php');
 		}else{
 			$query = "INSERT INTO users (username, email, user_type, password) 
@@ -100,7 +100,7 @@ function register(){
 			$logged_in_user_id = mysqli_insert_id($db);
 
 			$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
-			$_SESSION['success']  = "You are now logged in";
+			$_SESSION['success']  = "Adesso sei autenticato";
 			header('location: index.php');				
 		}
 	}
@@ -120,34 +120,34 @@ function register_n(){
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 		
 	if (empty($title)) { 
-		array_push($errors, "Title is required"); 
+		array_push($errors, "Titolo obbligatorio"); 
 	}
 	if (empty($content)) { 
-		array_push($errors, "Content is required"); 
+		array_push($errors, "Content obbligatorio"); 
 	}
 	else if(strlen($content)>150)
 	{
-		array_push($errors, "Content can have 150 characters max"); 
+		array_push($errors, "Il Content può essere al massimo di 150 caratteri"); 
 	}
 	if (empty($author)) { 
-		array_push($errors, "Author is required"); 
+		array_push($errors, "Autore obbligatorio"); 
 	}
 	else if(!already('users','username', $author))
 	{
-		array_push($errors, "Such Author does not exist");
+		array_push($errors, "Tale Autore non esiste");
 	}
 	if (empty($date)) { 
-		array_push($errors, "Date is required"); 
+		array_push($errors, "Data obbligatoria"); 
 	}
 	if ($_FILES['fileToUpload']['size'] == 0) {
-		array_push($errors, "File is required");
+		array_push($errors, "File obbligatorio");
 	} else {
 		$check = getimagesize($_FILES['fileToUpload']['tmp_name']);
 		list($width, $height) = $check;
 		if($check !== false) {
 			$uploadOk = 1;
 		} else {
-			array_push($errors, "File is not an image");
+			array_push($errors, "Il File non è un'immagine");
 			$uploadOk = 0;
 		}
 		$counter = 0;
@@ -158,28 +158,28 @@ function register_n(){
 			$counter++;
 		}
 		if ($_FILES["fileToUpload"]["size"] > 1000000) {
-			array_push($errors, "Sorry, your file is too large.");
+			array_push($errors, "Il File è troppo grande.");
 			$uploadOk = 0;
 		}
 		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
-			array_push($errors, "Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+			array_push($errors, "Solo JPG, JPEG, PNG e GIF sono validi formati.");
 			$uploadOk = 0;
 		}
 		if($width != 1920 || $height != 784)
 		{
-			array_push($errors, "Sorry, your image resolution is not correct ''(''must be 1920x784'')''");
+			array_push($errors, "La risoluzione della tua immagine non è valida ''(''deve essere 1920x784'')''");
 			$uploadOk = 0;
 		}
 	}
     
 	// Check if $uploadOk is set to 0 by an error
 	if ($uploadOk == 0 AND count($errors) == 0) {
-		array_push($errors, "Sorry, your file was not uploaded.");
+		array_push($errors, "L'upload non è andato a buon fine.");
 		// if everything is ok, try to upload file
 	} else if(count($errors) == 0){
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     } else {
-		array_push($errors, "Sorry, there was an error uploading your file.");
+		array_push($errors, "L'upload non è andato a buon fine");
     }
 }
 	if (count($errors) == 0) {
@@ -187,7 +187,7 @@ function register_n(){
 		$query = "INSERT INTO news (title, content, author, Data, img) 
 					 VALUES('$title', '$content', '$author', '$date', '$img')";
 		mysqli_query($db, $query);
-		$_SESSION['success']  = "News successfully created!!";
+		$_SESSION['success']  = "News creata con successo!!";
 		if(isAdmin())
 		{
 			header('location: admin/home.php');
@@ -215,40 +215,40 @@ function request_c(){
 	$FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 		
 	if (empty($name)) { 
-		array_push($errors, "Name is required"); 
+		array_push($errors, "Nome obbligatorio"); 
 	}
 	if (empty($surname)) { 
-		array_push($errors, "Surname is required"); 
+		array_push($errors, "Cognome obbligatorio"); 
 	}
 	if (empty($date)) { 
-		array_push($errors, "Date is required"); 
+		array_push($errors, "Data obbligatoria"); 
 	}
 	if (empty($email)) { 
-		array_push($errors, "Email is required"); 
+		array_push($errors, "Email obbligatoria"); 
 	}
 	else if (already('requests','Email',$email)) {
-		array_push($errors, "A request from this Email already exist");
+		array_push($errors, "Un'altra richiesta da questa Email esiste già");
 	}
 	else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
 	{
-		array_push($errors, "Email is not valid"); 
+		array_push($errors, "Email non valida"); 
 	}
 	if ($_FILES['pdfToUpload']['size'] == 0) {
-		array_push($errors, "File is required");
+		array_push($errors, "File obbligatorio");
 	} else {
 		$check = filesize($_FILES['pdfToUpload']['tmp_name']);
 		if($check !== false) {
 			$uploadOk = 1;
 		} else {
-			array_push($errors, "File is not a PDF");
+			array_push($errors, "Il File non è in formato PDF");
 			$uploadOk = 0;
 		}
 		if ($_FILES["pdfToUpload"]["size"] > 500000) {
-			array_push($errors, "Sorry, your file is too large.");
+			array_push($errors, "Il tuo File è troppo grande.");
 			$uploadOk = 0;
 		}
 		if($FileType != "pdf") {
-			array_push($errors, "Sorry, only PDF files are allowed.");
+			array_push($errors, "Sono permessi solo file di tipo PDF");
 			$uploadOk = 0;
 		}
 		$counter = 0;
@@ -262,12 +262,12 @@ function request_c(){
     
 	// Check if $uploadOk is set to 0 by an error
 	if ($uploadOk == 0 AND count($errors) == 0) {
-		array_push($errors, "Sorry, your file was not uploaded.");
+		array_push($errors, "L'Upload non è andato a buon fine");
 		// if everything is ok, try to upload file
 	} else if(count($errors) == 0){
 		if (move_uploaded_file($_FILES["pdfToUpload"]["tmp_name"], $target_file)) {
 		} else {
-		array_push($errors, "Sorry, there was an error uploading your file.");
+		array_push($errors, "L'Upload non è andato a buon fine");
 		}
 	}
 	if (count($errors) == 0) {
@@ -275,7 +275,7 @@ function request_c(){
 		$query = "INSERT INTO requests (name, surname, date, email, Sesso, note, cv) 
 					 VALUES('$name', '$surname', '$date', '$email', '$sesso', '$note', '$cv')";
 		mysqli_query($db, $query);
-		$_SESSION['success'] = "Request successfully sent!";
+		$_SESSION['success'] = "Richiesta inviata con successo!!";
 		header('location: lavoraconoiform.php');
 		exit(0);
 	}
@@ -291,32 +291,32 @@ function remove(){
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { 
-		array_push($errors, "Username is required"); 
+		array_push($errors, "Username obbligatorio"); 
 	}
 	if (preg_match('/\W/', $username))
 	{
-		array_push($errors, "Usernames contain only numbers or letters"); 
+		array_push($errors, "Username contiene solo numeri e lettere"); 
 	}
 	if ($_SESSION['user']['username'] == $username) {
-		array_push($errors, "You can't delete your own account");
+		array_push($errors, "Non puoi eliminare il tuo stesso account");
 	}
 	if (empty($email)) { 
-		array_push($errors, "Email is required"); 
+		array_push($errors, "Email obbligatoria"); 
 	}
 	else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
 	{
-		array_push($errors, "Email is not valid"); 
+		array_push($errors, "Email non valida"); 
 	}
 	if (count($errors) == 0) {
 		if (!already_2('users','username','email', $username, $email)) {
-		array_push($errors, "Such combination of User/Email do not exist");
+		array_push($errors, "Tale Utente non esiste");
 		}
 	}
 	if (count($errors) == 0) {
 		$query = "DELETE FROM users  
 				  WHERE username = '$username' AND email = '$email'";
 		mysqli_query($db, $query);
-		$_SESSION['success']  = "User successfully removed!!";
+		$_SESSION['success']  = "Utente rimosso con successo!!";
 		header('location: home.php');
 
 		// get id of the created user
@@ -334,16 +334,16 @@ function remove_n(){
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($title)) { 
-		array_push($errors, "Title is required"); 
+		array_push($errors, "Titolo obbligatorio"); 
 	}
 	if (empty($author)) { 
-		array_push($errors, "Author is required"); 
+		array_push($errors, "Autore obbligatorio"); 
 	}
 	if (!already_3('news','title','author','Data', $title, $author, $date)) {
-		array_push($errors, "Such news do not exist");
+		array_push($errors, "Tale news non esiste");
 	}
 	if (empty($date)) { 
-		array_push($errors, "Date is required"); 
+		array_push($errors, "Data obbligatoria"); 
 	}
 	if (count($errors) == 0) {
 		$query = "SELECT img FROM news
@@ -354,7 +354,7 @@ function remove_n(){
 		$query = "DELETE FROM news  
 				  WHERE title = '$title' AND author = '$author' AND Data = '$date'";
 		mysqli_query($db, $query);
-		(unlink("../img/News/$cleanup") and $_SESSION['success']  = "News successfully removed!!") or $_SESSION['success']  = "News successfully removed, but the image was not found";
+		(unlink("../img/News/$cleanup") and $_SESSION['success']  = "News rimossa con successo!!") or $_SESSION['success']  = "News rimossa con successo, ma la sua immagine non era in archivio";
 		if(isAdmin())
 		{
 			header('location: admin/home.php');
@@ -377,21 +377,21 @@ function reject_request(){
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($name)) { 
-		array_push($errors, "Name is required"); 
+		array_push($errors, "Nome obbligatorio"); 
 	}
 	if (empty($surname)) { 
-		array_push($errors, "Surname is required"); 
+		array_push($errors, "Cognome obbligatorio"); 
 	}
 	if (empty($email)) { 
-		array_push($errors, "Email is required"); 
+		array_push($errors, "Email obbligatoria"); 
 	}
 	else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
 	{
-		array_push($errors, "Email is not valid"); 
+		array_push($errors, "Email non valida"); 
 	}
 	if (count($errors) == 0) {
 		if (!already_3('requests','name','surname','email', $name, $surname, $email)) {
-		array_push($errors, "Such Request do not exist");
+		array_push($errors, "Tale Richiesta non esiste");
 		}
 	}
 	if (count($errors) == 0) {
@@ -404,7 +404,7 @@ function reject_request(){
 				  WHERE name = '$name' AND surname = '$surname' AND email = '$email'";
 		mysqli_query($db, $query);
 		unlink("documents/curriculum/$cleanup") or die("Couldn't delete file");
-		$_SESSION['success']  = "Request successfully rejected!!";
+		$_SESSION['success']  = "Richiesta rimossa con successo!!";
 		if(isAdmin())
 		{
 			header('location: admin/home.php');
@@ -517,10 +517,10 @@ function login(){
 
 	// make sure form is filled properly
 	if (empty($username)) {
-		array_push($errors, "Username is required");
+		array_push($errors, "Username obbligatorio");
 	}
 	if (empty($password)) {
-		array_push($errors, "Password is required");
+		array_push($errors, "Password obbligatoria");
 	}
 
 	// attempt login if no errors on form
@@ -536,16 +536,16 @@ function login(){
 			if ($logged_in_user['user_type'] == 'Admin') {
 
 				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
+				$_SESSION['success']  = "Sei autenticato";
 				header('location: admin/home.php');		  
 			}else{
 				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
+				$_SESSION['success']  = "Sei autenticato";
 
 				header('location: index.php');
 			}
 		}else {
-			array_push($errors, "Wrong username/password combination");
+			array_push($errors, "Errata combinazione Username/Password");
 		}
 	}
 }

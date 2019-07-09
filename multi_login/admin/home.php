@@ -2,7 +2,7 @@
 include('../functions.php');
 
 if (!isAdmin()) {
-	$_SESSION['msg'] = "You must log in first";
+	$_SESSION['msg'] = "Devi effettuare il login!";
 	header('location: ../login.php');
 }
 
@@ -49,7 +49,7 @@ if (isset($_GET['logout'])) {
 					<small>
 						<i>(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
 						<br>
-						<a href="home.php?logout='1'">logout</a> &nbsp; 
+						<a href="home.php?logout='1'">Logout</a> &nbsp; 
 					</small>
 
 				<?php endif ?>
@@ -61,8 +61,8 @@ if (isset($_GET['logout'])) {
 	</div>
 	<div class="content">
 		<div class="center-btn">
-			<a class="btn" href="create_user.php"> Add User</a>
-			<a class="btn" href="remove_user.php"> Remove User</a>
+			<a class="btn" href="create_user.php"> Aggiungi Utente</a>
+			<a class="btn" href="remove_user.php"> Rimuovi Utente</a>
 		</div>
 		<br>
 		<br>
@@ -102,8 +102,8 @@ if (isset($_GET['logout'])) {
 	</div>
 	<div class="content">
 		<div class="center-btn">
-			<a class="btn" href="../create_news.php"> Add News</a>
-			<a class="btn" href="../remove_news.php"> Remove News</a>
+			<a class="btn" href="../create_news.php"> Aggiungi News</a>
+			<a class="btn" href="../remove_news.php"> Rimuovi News</a>
 		</div>
 		<br>
 		<br>
@@ -134,7 +134,7 @@ if (isset($_GET['logout'])) {
 					<li class="side-by-side-2 gtitles"><?php echo $row['title']?></li>
 					<li class="side-by-side-2"><?php echo $row['author']?></li>
 					<li class="side-by-side-2"><?php echo $row['Data']?></li>
-					<li class="side-by-side-2"><a href="../../img/News/<?php echo $row['img']?>">View image</a></li>
+					<li class="side-by-side-2"><a href="../../img/News/<?php echo $row['img']?>">Visualizza</a></li>
 				</ul>
             <?php
             }
@@ -145,7 +145,7 @@ if (isset($_GET['logout'])) {
 	</div>
 	<div class="content">
 		<div class="center-btn">
-			<a class="btn" href="../remove_request.php"> Remove Request</a>
+			<a class="btn" href="../remove_request.php"> Rimuovi Richiesta</a>
 		</div>
 		<br>
 		<br>

@@ -1,7 +1,7 @@
 <?php 
 include('functions.php');
 if (!isLoggedIn()) {
-	$_SESSION['msg'] = "You must log in first";
+	$_SESSION['msg'] = "Devi effettuare il login!";
 	header('location: login.php');
 }
 ?>
@@ -9,7 +9,7 @@ if (!isLoggedIn()) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Archive system - Add News</title>
+	<title>Sistema di Gestione - Aggiungi News</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen and (min-device-width:600px)">
 	<link rel="stylesheet" type="text/css" href="../css/multilogin.css" media="handheld, screen and (max-device-width:600px)"/>
 	<link rel="stylesheet" type="text/css" href="../css/printmultilogin.css" media="print"/>
@@ -17,7 +17,7 @@ if (!isLoggedIn()) {
 </head>
 <body>
 	<div class="header">
-		<h2>Add News</h2>
+		<h2>Aggiungi News</h2>
 	</div>
 	
 	<form method="post" action="create_news.php" enctype="multipart/form-data">
@@ -25,7 +25,7 @@ if (!isLoggedIn()) {
 		<?php echo display_error(); ?>
 		
 		<div class="input-group">
-			<label>Title</label>
+			<label>Titolo</label>
 			<input type="text" name="title" value="<?php echo $title; ?>" required>
 		</div>
 		<div class="input-group">
@@ -48,30 +48,30 @@ if (!isLoggedIn()) {
 			</script>
 		</div>
 		<div class="input-group">
-			<label>Author</label>
+			<label>Autore</label>
 			<input type="text" name="author" value="<?php echo $author; ?>" required>
 		</div>
 		<div class="input-group">
-			<label>Date</label>
+			<label>Data</label>
 			<input type="date" name="date" value="<?php echo $date; ?>" required>
 		</div>
 		<div class="input-group igf">
-			<label>Select image to upload (must be 1920x784):</label>
+			<label>Seleziona un'immagine (deve essere 1920x784):</label>
 			<input type="file" class="upload-img" name="fileToUpload" id="fileToUpload" accept="image/jpeg" required> 
 		</div>
 		<div class="input-group center-btn">
-			<button type="submit" class="btn" name="register_n_btn">Create News</button>
+			<button type="submit" class="btn" name="register_n_btn">Crea News</button>
 			</br>
 			</br>
 			<?php
 			if (isAdmin()) {
 			?>
-				<a class="back" href="admin/home.php"> Back </a>
+				<a class="back" href="admin/home.php"> Indietro </a>
 			<?php
 			}
 			else {
 			?>
-				<a class="back" href="index.php"> Back </a>
+				<a class="back" href="index.php"> Indietro </a>
 			<?php
 			}
 			?>
