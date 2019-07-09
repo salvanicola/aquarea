@@ -31,7 +31,9 @@ ul{
 body
 =============================
 */
-
+#slide{
+	display:none;
+}
 .slideshow-img{
 	display:none;
 }
