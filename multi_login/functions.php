@@ -150,9 +150,12 @@ function register_n(){
 			array_push($errors, "File is not an image");
 			$uploadOk = 0;
 		}
-		if (file_exists($target_file)) {
-			array_push($errors, "Sorry, file already exists."); 
-			$uploadOk = 0;
+		$counter = 0;
+		while (file_exists($target_file)) {
+			$rawBaseName = pathinfo($target_file, PATHINFO_FILENAME );
+			$ext = pathinfo($target_file, PATHINFO_EXTENSION);
+			$target_file = $target_dir . $rawBaseName . "(" . $counter . ")" . "." . $ext;
+			$counter++;
 		}
 		if ($_FILES["fileToUpload"]["size"] > 1000000) {
 			array_push($errors, "Sorry, your file is too large.");
@@ -180,7 +183,7 @@ function register_n(){
     }
 }
 	if (count($errors) == 0) {
-		$img = $_FILES["fileToUpload"]["name"];
+		$img = pathinfo($target_file, PATHINFO_FILENAME) . "." . pathinfo($target_file, PATHINFO_EXTENSION);
 		$query = "INSERT INTO news (title, content, author, Data, img) 
 					 VALUES('$title', '$content', '$author', '$date', '$img')";
 		mysqli_query($db, $query);
@@ -248,6 +251,13 @@ function request_c(){
 			array_push($errors, "Sorry, only PDF files are allowed.");
 			$uploadOk = 0;
 		}
+		$counter = 0;
+		while (file_exists($target_file)) {
+			$rawBaseName = pathinfo($target_file, PATHINFO_FILENAME );
+			$ext = pathinfo($target_file, PATHINFO_EXTENSION);
+			$target_file = $target_dir . $rawBaseName . "(" . $counter . ")" . "." . $ext;
+			$counter++;
+		}
 	}
     
 	// Check if $uploadOk is set to 0 by an error
@@ -261,7 +271,7 @@ function request_c(){
 		}
 	}
 	if (count($errors) == 0) {
-		$cv = $_FILES["pdfToUpload"]["name"];
+		$cv = pathinfo($target_file, PATHINFO_FILENAME) . "." . pathinfo($target_file, PATHINFO_EXTENSION);
 		$query = "INSERT INTO requests (name, surname, date, email, Sesso, note, cv) 
 					 VALUES('$name', '$surname', '$date', '$email', '$sesso', '$note', '$cv')";
 		mysqli_query($db, $query);
@@ -344,8 +354,7 @@ function remove_n(){
 		$query = "DELETE FROM news  
 				  WHERE title = '$title' AND author = '$author' AND Data = '$date'";
 		mysqli_query($db, $query);
-		unlink("../img/News/$cleanup") or die("Couldn't delete file");
-		$_SESSION['success']  = "News successfully removed!!";
+		(unlink("../img/News/$cleanup") and $_SESSION['success']  = "News successfully removed!!") or $_SESSION['success']  = "News successfully removed, but the image was not found";
 		if(isAdmin())
 		{
 			header('location: admin/home.php');

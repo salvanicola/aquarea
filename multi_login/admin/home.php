@@ -81,7 +81,8 @@ if (isset($_GET['logout'])) {
 			if ($results->num_rows == 0)
 			{?>
 				<ul class="center">
-					<li class="side-by-side-1"><?php echo "Nessun utente trovato"?></li>
+					<br>
+					<li class="side-null"><?php echo "Nessun utente trovato!"?></li>
 				</ul>
 			<?php
 			}
@@ -122,7 +123,8 @@ if (isset($_GET['logout'])) {
 			if ($results->num_rows == 0)
 			{?>
 				<ul class="center">
-					<li class="side-by-side-1"><?php echo "Nessuna news trovata"?></li>
+				<br>
+				<li class="side-null"><?php echo "Nessuna news trovata!"?></li>
 				</ul>
 			<?php
 			}
@@ -165,7 +167,8 @@ if (isset($_GET['logout'])) {
 			if ($results->num_rows == 0)
 			{?>
 				<ul class="center">
-					<li class="side-by-side-3"><?php echo "Nessuna richiesta trovata"?></li>
+					<br>
+					<li class="side-null"><?php echo "Nessuna richiesta trovata!"?></li>
 				</ul>
 			<?php
 			}

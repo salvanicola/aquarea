@@ -88,7 +88,7 @@
 		</div>
 		<div class="input-group">
 			<label>Note aggiuntive</label>
-			<input type="note" name="note" value="<?php echo $note; ?>" required>
+			<input type="note" name="note" value="<?php echo $note; ?>">
 		</div>
 		<div class="normal">
 			<label>Seleziona il file .pdf del tuo CV:</label>
