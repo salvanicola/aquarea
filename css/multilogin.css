@@ -36,7 +36,7 @@ form, .content {
 	background: #d5e7f6;
 	text-align: center;
 	border-bottom: none;
-	padding: 20px;
+	padding: 2%;
 }
 .input-group label {
 	display: block;
@@ -74,7 +74,7 @@ form, .content {
 	text-decoration: none;
 	height: 30%;
 	width: 60%;
-	padding: 30px;
+	padding: 3%;
 	font-size: 300%;
 	color: white;
 	background: #003366;
@@ -83,7 +83,7 @@ form, .content {
 }
 .error {
 	margin: 0; 
-	padding: 10px; 
+	padding: 1%; 
 	border: 1px solid #a94442; 
 	color: #a94442; 
 	background: #f2dede; 
@@ -117,7 +117,7 @@ form, .content {
 	margin: 50px auto 0px;
 	text-align: center;
 	font-weight: bold;
-	padding: 20px;
+	padding: 2%;
 }
 
 .back {

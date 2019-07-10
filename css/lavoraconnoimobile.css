@@ -18,7 +18,7 @@ form, .content {
 	width:90%;
 	margin-left:5%;
 	margin-right:5%;
-	padding: 0;
+	padding: 0%;
 	background: #d5e7f6;
 	border-radius: 0px 0px 10px 10px;
 	font-family: 'Montserrat';
@@ -29,7 +29,7 @@ form, .content {
 
 .formobile{
 	background: #003366;
-	padding: 50px;
+	padding: 5.5%;
 	margin: 0px auto;
 	border-radius: 0px 0px 10px 10px;
 }
@@ -41,7 +41,7 @@ form, .content {
 	border: 1px solid #B0C4DE;
 	border-bottom: none;
 	border-radius: 20px 20px 20px 20px;
-	padding: 20px;
+	padding: 5.5%;
 }
 .input-group label {
 	display: block;
@@ -54,7 +54,7 @@ form, .content {
 .input-group input {
 	height: 80px;
 	width: 90%;
-	padding: 5px 10px;
+	padding: 0.5% 1%;
 	font-size: 350%;
 	border-radius: 30px;
 	border: 1px solid gray;
@@ -67,7 +67,7 @@ form, .content {
 	border: 1px solid #B0C4DE;
 	border-bottom: none;
 	border-radius: 20px 20px 20px 20px;
-	padding: 20px;
+	padding: 2%;
 }
 .normal label{
 	display: block;
@@ -81,7 +81,7 @@ form, .content {
 .normal input {
 	height: 80px;
 	width: 90%;
-	padding: 5px 10px;
+	padding: 0.5% 1%;
 	font-size: 200%;
 }
 
@@ -97,7 +97,7 @@ form, .content {
 .btn {
 	height: 30%;
 	width: 60%;
-	padding: 10px;
+	padding: 1%;
 	font-size: 300%;
 	color: white;
 	background: #003366;
@@ -105,8 +105,8 @@ form, .content {
 	border-radius: 30px;
 }
 .error {
-	margin: 0; 
-	padding: 10px; 
+	margin: 0%; 
+	padding: 1%; 
 	border: 1px solid #a94442; 
 	color: #a94442; 
 	background: #f2dede; 
@@ -140,13 +140,13 @@ form, .content {
 	margin: 50px auto 0px;
 	text-align: center;
 	font-weight: bold;
-	padding: 20px;
+	padding: 2%;
 }
 
 #sesso{
 	height: 80px;
 	width: 90%;
-	padding: 5px 10px;
+	padding: 0.5% 1%;
 	font-size: 50px;
 	border-radius: 30px;
 	border: 1px solid gray;

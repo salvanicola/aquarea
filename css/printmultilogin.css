@@ -20,12 +20,12 @@ body {
 	border: 1px solid #B0C4DE;
 	border-bottom: none;
 	border-radius: 10px 10px 0px 0px;
-	padding: 20px;
+	padding: 2%;
 }
 form, .content {
 	width: 40%;
 	margin: 0px auto;
-	padding: 20px;
+	padding: 2%;
 	border: 1px solid #B0C4DE;
 	background: white;
 	border-radius: 0px 0px 10px 10px;
@@ -42,7 +42,7 @@ form, .content {
 .input-group input {
 	height: 30px;
 	width: 93%;
-	padding: 5px 10px;
+	padding: 0.5% 1%;
 	font-size: 16px;
 	border-radius: 5px;
 	border: 1px solid gray;
@@ -50,7 +50,7 @@ form, .content {
 #user_type {
 	height: 40px;
 	width: 98%;
-	padding: 5px 10px;
+	padding:  0.5% 1%;
 	background: white;
 	font-size: 16px;
 	border-radius: 5px;
@@ -58,7 +58,7 @@ form, .content {
 }
 .btn {
 	text-decoration: none;
-	padding: 10px;
+	padding: 1%;
 	font-size: 15px;
 	color: white;
 	background: #003366;
@@ -68,7 +68,7 @@ form, .content {
 .error {
 	width: 92%; 
 	margin: 0px auto; 
-	padding: 10px; 
+	padding: 1%; 
 	border: 1px solid #a94442; 
 	color: #a94442; 
 	background: #f2dede; 
@@ -79,7 +79,7 @@ form, .content {
 	color: #3c763d; 
 	background: #dff0d8; 
 	border: 1px solid #3c763d;
-	margin-bottom: 20px;
+	margin-bottom: 2%;
 }
 .profile_info img {
 	display: inline-block; 
@@ -102,7 +102,7 @@ form, .content {
 	margin: 50px auto 0px;
 	text-align: center;
 	font-weight: bold;
-	padding: 20px;
+	padding: 2%;
 }
 
 .center {
