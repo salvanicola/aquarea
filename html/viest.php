@@ -27,7 +27,7 @@
 	<div id="slide">
 		<div class="slideshow-container">
 		<?php
-			$db = mysqli_connect('localhost', 'root', '', 'multi_login');
+            include('functions.php');
 			if (!$db) {
 				die(mysql_error());
 			}
